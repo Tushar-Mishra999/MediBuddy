@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/views/onboarding/rounded_button.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -18,7 +19,6 @@ class OnboardingScreen extends StatelessWidget {
             Container(
               margin: const EdgeInsets.all(2),
               height: size.height * 0.4,
-              decoration: BoxDecoration(),
               child: Image.asset(
                 "assets/images/doc3.jpeg",
                 fit: BoxFit.fill,
@@ -65,24 +65,7 @@ class OnboardingScreen extends StatelessWidget {
             SizedBox(
               height: size.height * 0.05,
             ),
-            Container(
-              width: size.width * 0.75,
-              height: size.height * 0.07,
-              decoration: const BoxDecoration(
-                color: Color(0xff8871E6),
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-              ),
-              child: const Center(
-                child: Text(
-                  'Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontFamily: 'Gilroy',
-                  ),
-                ),
-              ),
-            ),
+            RoundedButton(size: size,title:'LOGIN'),
             Container(
               margin: EdgeInsets.only(top: 10),
               width: size.width * 0.75,
@@ -110,12 +93,4 @@ class OnboardingScreen extends StatelessWidget {
   }
 }
 
-// Text(
-//             'MediBuddy',
-//             style: TextStyle(
-//               color: Color(0xff8871E6),
-//               fontSize: 50,
-//               fontFamily: 'Gilroy',
-//               fontWeight: FontWeight.w100,
-//             ),
-//           ),
+

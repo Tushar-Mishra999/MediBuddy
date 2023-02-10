@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/router.dart';
-import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
+import 'package:medibuddy/views/login/login_screen.dart';
+import 'package:medibuddy/views/registration/client-registration.dart';
+import 'package:medibuddy/views/registration/seller-registration.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'MeddiBuddy',
+      title: 'MediBuddy',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const OnboardingScreen(),
+      home: ClientRegistration(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
