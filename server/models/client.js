@@ -17,11 +17,17 @@ const clientSchema = mongoose.Schema({
         return value.match(re);
       },
       message: "Please enter a valid email address",
-    },
+    }
   },
   password: {
     required: true,
     type: String,
+    validate: {
+      validator: (value) => {
+        return value.length > 6;
+      },
+      message: "Password should have atleast 6 characters",
+    }
   },
   city: {
     type: String,

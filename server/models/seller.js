@@ -22,6 +22,12 @@ const sellerSchema = mongoose.Schema({
   password: {
     required: true,
     type: String,
+    validate: {
+      validator: (value) => {
+        return value.length > 6;
+      },
+      message: "Password should have atleast 6 characters",
+    }
   },
   city: {
     type: String,
