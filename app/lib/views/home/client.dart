@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:medibuddy/views/home/medicinetype.dart';
+import 'package:medibuddy/views/home/nearbystore.dart';
+import 'package:medibuddy/views/home/searchbar.dart';
 import '../../constants.dart';
 
 class ClientHomeScreen extends StatelessWidget {
@@ -7,6 +10,7 @@ class ClientHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
@@ -72,6 +76,88 @@ class ClientHomeScreen extends StatelessWidget {
             )
           ]),
         ),
+      ),
+      body: Center(
+        child: Column(children: [
+          Container(
+            height: size.height * 0.18,
+            width: size.width * 0.9,
+            decoration: BoxDecoration(
+                color: color1,
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Tip of the Day!',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 23,
+                      fontFamily: 'GilroyBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: size.height * 0.02,
+                  ),
+                  Text(
+                    'An apple a day keeps',
+                    style: TextStyle(
+                      color: Colors.grey.shade300,
+                      fontSize: 17,
+                      fontFamily: 'GilroyBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    'keeps the doctor away',
+                    style: TextStyle(
+                      color: Colors.grey.shade300,
+                      fontSize: 17,
+                      fontFamily: 'GilroyBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: size.height * 0.02,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: RoundedSearchBar(
+              hintText: 'Search for your company',
+              onSubmitted: (value) {},
+            ),
+          ),
+          SizedBox(
+            height: size.height * 0.02,
+          ),
+          MedicineType(size: size),
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Row(
+              children: [
+                Text(
+                  'Nearby Stores',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'GilroyLight',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Spacer()
+              ],
+            ),
+          ),
+          NearbyStore(size: size),
+          NearbyStore(size: size)
+        ]),
       ),
     );
   }

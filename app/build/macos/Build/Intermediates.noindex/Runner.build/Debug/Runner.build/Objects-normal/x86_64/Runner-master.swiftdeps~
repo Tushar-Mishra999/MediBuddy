@@ -1,0 +1,8 @@
+version: "Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)"
+options: "d587bc40a4a75e5d4ae77b2063253da7ef624d0b6946f6e8c2da19257daccb25"
+build_start_time: [1676132268, 147482872]
+build_end_time: [1676132277, 323883056]
+inputs:
+  "/Users/tm217/Desktop/medibuddy/app/macos/Flutter/GeneratedPluginRegistrant.swift": [1676132207, 959318161]
+  "/Users/tm217/Desktop/medibuddy/app/macos/Runner/AppDelegate.swift": [1664393702, 0]
+  "/Users/tm217/Desktop/medibuddy/app/macos/Runner/MainFlutterWindow.swift": [1664393702, 0]
