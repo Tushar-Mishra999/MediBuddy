@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/router.dart';
+import 'package:medibuddy/views/chat/chat_screen.dart';
 import 'package:medibuddy/views/details/store_details.dart';
 import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StoreDetails(),
+      home: ChatScreen(name:'Gupta Medical'),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
