@@ -65,7 +65,10 @@ authRouter.post("/signin", async (req, res) => {
       }
   
       //const token = jwt.sign({ id: user._id }, "passwordKey");
-      res.json({ msg:"Login successful", ...user._doc });
+      if(client)
+       {return res.json({ msg:"Login successful",type:"client", ...user._doc });}
+      
+       return res.json({ msg:"Login successful",type:"seller", ...user._doc });
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
