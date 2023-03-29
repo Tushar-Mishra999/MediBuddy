@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medibuddy/constants.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final int maxLines;
-
+  final bool edit;
   final String title;
   const CustomTextField({
     Key? key,
     required this.controller,
     required this.hintText,
     required this.title,
+    this.edit = false,
     this.maxLines = 1,
   }) : super(key: key);
 
@@ -49,6 +51,13 @@ class CustomTextField extends StatelessWidget {
                   fontSize: 15),
               decoration: InputDecoration(
                 hintText: hintText,
+                suffixIcon: edit
+                    ? Icon(
+                        Icons.edit,
+                        color: color1,
+                        size: 20.0,
+                      )
+                    : null,
                 contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                 hintStyle: const TextStyle(
                     fontFamily: 'GilroyLight',

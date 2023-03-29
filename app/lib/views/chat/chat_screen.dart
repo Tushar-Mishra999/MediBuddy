@@ -20,7 +20,7 @@ class ChatScreen extends StatelessWidget {
           children: [
             Container(
               color: Colors.white,
-              padding: EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 10),
               height: size.height * 0.05,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -30,7 +30,7 @@ class ChatScreen extends StatelessWidget {
                   ),
                   Text(
                     name,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: color1,
                       fontSize: 20,
                       fontFamily: 'GilroyLight',
@@ -43,7 +43,7 @@ class ChatScreen extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [

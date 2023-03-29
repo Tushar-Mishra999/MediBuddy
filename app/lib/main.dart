@@ -7,6 +7,9 @@ import 'package:medibuddy/views/login/login_screen.dart';
 import 'package:medibuddy/views/registration/client-registration.dart';
 import 'package:medibuddy/views/registration/seller-registration.dart';
 import 'package:medibuddy/views/result/resultscreen.dart';
+import 'package:medibuddy/views/seller/add_medicine.dart';
+import 'package:medibuddy/views/seller/inventory_screen.dart';
+import 'package:medibuddy/views/seller/update_medicine.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChatScreen(name:'Gupta Medical'),
+      home: UpdateMedicine(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
