@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:medibuddy/constants.dart';
+import 'package:medibuddy/models/user.dart';
 import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
 import 'package:medibuddy/views/seller/inventory_screen.dart';
@@ -112,8 +113,13 @@ class Authservice {
           msg: message, backgroundColor: color1, textColor: Colors.white);
       //user or seller model code
       
-      Navigator.pushReplacementNamed(context, ClientHomeScreen.routeName);
-      //Navigator.pushReplacementNamed(context, InventoryScreen.routeName);
+      User user = User.fromJson(json.decode(response.body));
+      if (user.type == 'client') {
+        Navigator.pushReplacementNamed(context, ClientHomeScreen.routeName);
+      }
+      else{
+        Navigator.pushReplacementNamed(context, InventoryScreen.routeName);
+      }
     } else if (response.statusCode == 400) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(

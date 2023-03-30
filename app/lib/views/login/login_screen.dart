@@ -67,7 +67,7 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Spacer(),
+            const Spacer(),
           ],
         ),
       ),
@@ -87,6 +87,7 @@ class LoginScreen extends StatelessWidget {
               ),
               CustomTextField(
                 title: "Password",
+                obscure: true,
                 controller: passwordController,
                 hintText: "Enter your password",
               ),

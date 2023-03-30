@@ -94,6 +94,7 @@ class ClientRegistration extends StatelessWidget {
                   CustomTextField(
                     title: "Password",
                     controller: passwordController,
+                    obscure: true,
                     hintText: "Enter your password",
                   ),
                   CustomTextField(

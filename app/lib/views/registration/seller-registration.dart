@@ -95,6 +95,7 @@ class SellerRegistration extends StatelessWidget {
               ),
               CustomTextField(
                 title: "Password",
+                obscure: true,
                 controller: passwordController,
                 hintText: "Enter your password",
               ),

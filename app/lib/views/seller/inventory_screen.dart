@@ -20,6 +20,7 @@ class InventoryScreen extends StatelessWidget {
           onPressed: () {},
         ),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 80,
           backgroundColor: Colors.transparent,
           elevation: 0,

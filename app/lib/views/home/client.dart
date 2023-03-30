@@ -14,6 +14,7 @@ class ClientHomeScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: 100,
         backgroundColor: Colors.transparent,
         elevation: 0,
