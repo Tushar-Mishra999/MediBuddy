@@ -8,12 +8,12 @@ const app = express();
 const DB = "mongodb+srv://dgdevanshi:medibuddy@medibuddycluster.bk3xmrr.mongodb.net/?retryWrites=true&w=majority"
 
 const authRouter = require("./routes/auth");
-
+const sellerRouter=require("./routes/seller")
 
 // middleware
 app.use(express.json());
 app.use(authRouter);
-
+app.use(sellerRouter);
 
 // Connections
 mongoose.set("strictQuery", false);

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const {medicineSchema}=require("./medicine");
 
 const sellerSchema = mongoose.Schema({
   name: {
@@ -41,11 +42,9 @@ const sellerSchema = mongoose.Schema({
     type: Number,
     required: true
   },
-  stock: [
-    {
-      medicine: medicineSchema,
-    }
-  ]
+  stock: 
+    [medicineSchema]
+  
 });
 
 const Seller = mongoose.model("Seller", sellerSchema);
