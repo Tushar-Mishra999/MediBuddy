@@ -3,12 +3,19 @@ import 'package:medibuddy/constants.dart';
 
 import '../registration/customtextfield.dart';
 import '../registration/rounded_button.dart';
+import '../registration/services/auth-service.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login-screen';
   LoginScreen({super.key});
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  Future<void> signIn({required String email, required String password}) async {
+    Authservice authservice = Authservice();
+    await authservice.login(email: email, password: password);
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -76,13 +83,21 @@ class LoginScreen extends StatelessWidget {
               ),
               CustomTextField(
                 title: "Password",
-                controller: emailController,
+                controller: passwordController,
                 hintText: "Enter your password",
               ),
               SizedBox(
                 height: size.height * 0.05,
               ),
-             // RoundedButton(size: size, title: 'LOGIN'),
+              RoundedButton(
+                size: size,
+                title: 'LOGIN',
+                onTap: () {
+                  signIn(
+                      email: emailController.text,
+                      password: passwordController.text);
+                },
+              ),
             ]),
           ),
         ),

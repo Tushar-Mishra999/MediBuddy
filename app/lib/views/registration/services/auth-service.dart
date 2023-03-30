@@ -34,7 +34,10 @@ class Authservice {
           msg: message, backgroundColor: color1, textColor: Colors.white);
     } else {
       // Registration failed
-      throw Exception('Failed to register user');
+      Fluttertoast.showToast(
+          msg: "Somethin went wrong, please try again",
+          backgroundColor: color1,
+          textColor: Colors.white);
     }
   }
 
@@ -72,7 +75,43 @@ class Authservice {
           msg: message, backgroundColor: color1, textColor: Colors.white);
     } else {
       // Registration failed
-      throw Exception('Failed to register user');
+      Fluttertoast.showToast(
+          msg: "Somethin went wrong, please try again",
+          backgroundColor: color1,
+          textColor: Colors.white);
+    }
+  }
+
+  Future<void> login({
+    required String email,
+    required String password,
+  }) async {
+    final body = {
+      'email': email,
+      'password': password,
+    };
+    final response = await http.post(
+      Uri.parse('$ip/signin'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: json.encode(body),
+    );
+
+    if (response.statusCode == 200) {
+      var message = json.decode(response.body)['msg'];
+      Fluttertoast.showToast(
+          msg: message, backgroundColor: color1, textColor: Colors.white);
+    } else if (response.statusCode == 400) {
+      var message = json.decode(response.body)['msg'];
+      Fluttertoast.showToast(
+          msg: message, backgroundColor: color1, textColor: Colors.white);
+    } else {
+      // Registration failed
+      Fluttertoast.showToast(
+          msg: "Somethin went wrong, please try again",
+          backgroundColor: color1,
+          textColor: Colors.white);
     }
   }
 }

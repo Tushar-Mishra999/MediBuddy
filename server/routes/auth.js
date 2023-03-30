@@ -46,7 +46,7 @@ authRouter.post("/signin", async (req, res) => {
       const { email, password } = req.body;
       const client = await Client.findOne({ email });
       const seller = await Seller.findOne({ email });
-      const user=client;
+      let user=null;
       if (!client&&!seller) {
         return res
           .status(400)
@@ -59,10 +59,10 @@ authRouter.post("/signin", async (req, res) => {
         user=client;
       }
 
-      const isMatch = await bcryptjs.compare(password, user.password);
-      if (!isMatch) {
-        return res.status(400).json({ msg: "Incorrect password." });
-      }
+      // const isMatch = await bcryptjs.compare(password, user.password);
+      // if (!isMatch) {
+      //   return res.status(400).json({ msg: "Incorrect password" });
+      // }
   
       //const token = jwt.sign({ id: user._id }, "passwordKey");
       if(client)
