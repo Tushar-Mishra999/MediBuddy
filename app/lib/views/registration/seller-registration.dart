@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
 import 'package:medibuddy/views/registration/services/auth-service.dart';
