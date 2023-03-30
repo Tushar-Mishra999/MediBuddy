@@ -55,7 +55,7 @@ class Authservice {
       required String contact,
       required BuildContext context}) async {
     final body = {
-      'storeName': name,
+      'name': name,
       'email': email,
       'password': password,
       'city': city,
