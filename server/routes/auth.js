@@ -20,7 +20,7 @@ authRouter.post('/client/signup', async (req, res) => {
     name, email, password, city
   });
   client = await client.save();
-  res.json(client);
+  res.json({msg:"Registration successful",client});
 });
 
 //SIGNUP - SELLER
@@ -37,7 +37,7 @@ authRouter.post('/seller/signup', async(req, res) => {
     storeName, email, password, city, address, phoneNumber
   });
   seller = await seller.save();
-  res.json(seller);
+  res.json({msg:"Registration successful",seller});
 });
 
 // SIGN IN

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
 import 'package:medibuddy/views/registration/seller-registration.dart';
+import 'package:medibuddy/views/registration/services/auth-service.dart';
 import 'rounded_button.dart';
 import 'customtextfield.dart';
 
@@ -9,6 +10,17 @@ class ClientRegistration extends StatelessWidget {
   static const String routeName = '/clientregistration-screen';
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
+  final nameController = TextEditingController();
+  final cityController = TextEditingController();
+  final passwordController = TextEditingController();
+
+  Future<void> registerClient(
+      {required String name,required String email,required String password,required String city}) async{
+    Authservice authservice = Authservice();
+    await authservice.registerClient(name: name, email: email, password: password, city: city);
+  
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -71,7 +83,7 @@ class ClientRegistration extends StatelessWidget {
                   ),
                   CustomTextField(
                     title: "Name",
-                    controller: emailController,
+                    controller: nameController,
                     hintText: "Enter your name",
                   ),
                   CustomTextField(
@@ -81,18 +93,24 @@ class ClientRegistration extends StatelessWidget {
                   ),
                   CustomTextField(
                     title: "Password",
-                    controller: emailController,
+                    controller: passwordController,
                     hintText: "Enter your password",
                   ),
                   CustomTextField(
                     title: "City",
-                    controller: emailController,
+                    controller: cityController,
                     hintText: "Enter your city",
                   ),
                   SizedBox(
                     height: size.height * 0.05,
                   ),
-                  RoundedButton(size: size, title: 'REGISTER'),
+                  RoundedButton(
+                    size: size,
+                    title: 'REGISTER',
+                    onTap: () async{
+                      await registerClient(name:nameController.text,password: passwordController.text,email: emailController.text, city: cityController.text);
+                    },
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: GestureDetector(

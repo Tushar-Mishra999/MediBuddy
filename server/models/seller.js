@@ -41,15 +41,15 @@ const sellerSchema = mongoose.Schema({
     type: Number,
     required: true
   },
-  stock: [
-    {
-      medicine: medicineSchema,
-      quantity: {
-        type: Number,
-        required: true,
-      }
-    }
-  ]
+  // stock: [
+  //   {
+  //     medicine: medicineSchema,
+  //     quantity: {
+  //       type: Number,
+  //       required: true,
+  //     }
+  //   }
+  // ]
 });
 
 const Seller = mongoose.model("Seller", sellerSchema);

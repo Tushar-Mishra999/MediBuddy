@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 // INIT
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 const DB = "mongodb+srv://dgdevanshi:medibuddy@medibuddycluster.bk3xmrr.mongodb.net/?retryWrites=true&w=majority"
 

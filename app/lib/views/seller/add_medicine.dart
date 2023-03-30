@@ -97,7 +97,7 @@ class AddMedicine extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.05,
               ),
-              RoundedButton(size: size, title: 'UPDATE'),
+              //RoundedButton(size: size, title: 'UPDATE'),
             ]),
           ),
         ),
