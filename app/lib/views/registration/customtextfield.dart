@@ -8,11 +8,13 @@ class CustomTextField extends StatelessWidget {
   final int maxLines;
   final bool edit;
   final String title;
+  final bool obscure;
   const CustomTextField({
     Key? key,
     required this.controller,
     required this.hintText,
     required this.title,
+     this.obscure=false,
     this.edit = false,
     this.maxLines = 1,
   }) : super(key: key);
@@ -44,6 +46,7 @@ class CustomTextField extends StatelessWidget {
                 border: Border.all(color: Colors.grey.shade300, width: 1)),
             child: TextFormField(
               controller: controller,
+              obscureText: obscure,
               style: const TextStyle(
                   fontFamily: 'GilroyLight',
                   color: Colors.black,

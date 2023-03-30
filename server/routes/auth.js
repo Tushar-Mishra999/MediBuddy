@@ -16,8 +16,10 @@ authRouter.post('/client/signup', async (req, res) => {
       .json({msg: "Client with same email already exists!"});
   }
 
+  const hashedPassword = await bcryptjs.hash(password, 12);
+
   let client = new Client({
-    name, email, password, city
+    name, email, password: hashedPassword, city
   });
   client = await client.save();
   res.json({msg:"Registration successful",client});
@@ -25,7 +27,7 @@ authRouter.post('/client/signup', async (req, res) => {
 
 //SIGNUP - SELLER
 authRouter.post('/seller/signup', async(req, res) => {
-  const {storeName, email, password, city, address, phoneNumber} = req.body;
+  const {name, email, password, city, address, phoneNumber} = req.body;
   const existingSeller = await Seller.findOne({email});
   if (existingSeller) {
     return res
@@ -33,8 +35,10 @@ authRouter.post('/seller/signup', async(req, res) => {
       .json({msg: "Seller with same email already exists!"});
   }
 
+  const hashedPassword = await bcryptjs.hash(password, 12);
+
   let seller = new Seller({
-    storeName, email, password, city, address, phoneNumber
+    storeName, email, password: hashedPassword, city, address, phoneNumber
   });
   seller = await seller.save();
   res.json({msg:"Registration successful",seller});
@@ -59,14 +63,15 @@ authRouter.post("/signin", async (req, res) => {
         user=client;
       }
 
-      // const isMatch = await bcryptjs.compare(password, user.password);
-      // if (!isMatch) {
-      //   return res.status(400).json({ msg: "Incorrect password" });
-      // }
+      const isMatch = await bcryptjs.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ msg: "Incorrect password" });
+      }
   
       //const token = jwt.sign({ id: user._id }, "passwordKey");
       if(client)
-       {return res.json({ msg:"Login successful",type:"client", ...user._doc });}
+       {
+        return res.json({ msg:"Login successful",type:"client", ...user._doc });}
       
        return res.json({ msg:"Login successful",type:"seller", ...user._doc });
     } catch (e) {

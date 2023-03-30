@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
 import 'package:medibuddy/views/registration/services/auth-service.dart';
@@ -97,6 +95,7 @@ class SellerRegistration extends StatelessWidget {
               ),
               CustomTextField(
                 title: "Password",
+                obscure: true,
                 controller: passwordController,
                 hintText: "Enter your password",
               ),
