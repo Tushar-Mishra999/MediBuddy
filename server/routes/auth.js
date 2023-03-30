@@ -16,8 +16,10 @@ authRouter.post('/client/signup', async (req, res) => {
       .json({msg: "Client with same email already exists!"});
   }
 
+  const hashedPassword = await bcryptjs.hash(password, 12);
+
   let client = new Client({
-    name, email, password, city
+    name, email, password: hashedPassword, city
   });
   client = await client.save();
   res.json({msg:"Registration successful",client});
@@ -33,8 +35,10 @@ authRouter.post('/seller/signup', async(req, res) => {
       .json({msg: "Seller with same email already exists!"});
   }
 
+  const hashedPassword = await bcryptjs.hash(password, 12);
+
   let seller = new Seller({
-    storeName, email, password, city, address, phoneNumber
+    storeName, email, password: hashedPassword, city, address, phoneNumber
   });
   seller = await seller.save();
   res.json({msg:"Registration successful",seller});
