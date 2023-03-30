@@ -4,6 +4,7 @@ import 'package:medibuddy/views/chat/chat_screen.dart';
 import 'package:medibuddy/views/details/store_details.dart';
 import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
+import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:medibuddy/views/registration/client-registration.dart';
 import 'package:medibuddy/views/registration/seller-registration.dart';
 import 'package:medibuddy/views/result/resultscreen.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UpdateMedicine(),
+      home: const OnboardingScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }

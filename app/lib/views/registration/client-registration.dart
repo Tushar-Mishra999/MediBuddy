@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
+import 'package:medibuddy/views/registration/seller-registration.dart';
 import 'rounded_button.dart';
 import 'customtextfield.dart';
 
 class ClientRegistration extends StatelessWidget {
   ClientRegistration({super.key});
+  static const String routeName = '/clientregistration-screen';
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   @override
@@ -14,11 +16,17 @@ class ClientRegistration extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        automaticallyImplyLeading: false,
         title: Row(
           children: [
-            const Icon(
-              Icons.arrow_back_ios,
-              color: color1,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: color1,
+              ),
             ),
             SizedBox(
               width: size.width * 0.03,
@@ -86,30 +94,36 @@ class ClientRegistration extends StatelessWidget {
                   ),
                   RoundedButton(size: size, title: 'REGISTER'),
                   Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: const TextSpan(
-                        children: [
-                          TextSpan(
-                            text: "Want to register as a seller? ",
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontFamily: 'GilroyBold',
-                              fontWeight: FontWeight.w100,
+                    padding: const EdgeInsets.all(20.0),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, SellerRegistration.routeName);
+                      },
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: const TextSpan(
+                          children: [
+                            TextSpan(
+                              text: "Want to register as a seller? ",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15,
+                                fontFamily: 'GilroyBold',
+                                fontWeight: FontWeight.w100,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: "Click Here",
-                            style: TextStyle(
-                              color: color1,
-                              fontSize: 15,
-                              fontFamily: 'GilroyBold',
-                              fontWeight: FontWeight.w100,
+                            TextSpan(
+                              text: "Click Here",
+                              style: TextStyle(
+                                color: color1,
+                                fontSize: 15,
+                                fontFamily: 'GilroyBold',
+                                fontWeight: FontWeight.w100,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

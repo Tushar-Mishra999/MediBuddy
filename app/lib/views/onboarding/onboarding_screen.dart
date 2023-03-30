@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/views/login/login_screen.dart';
 import 'package:medibuddy/views/onboarding/rounded_button.dart';
+import 'package:medibuddy/views/registration/client-registration.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -33,7 +35,7 @@ class OnboardingScreen extends StatelessWidget {
                     style: TextStyle(
                       color: Color(0xff8871E6),
                       fontSize: 50,
-                      fontFamily: 'Gilroy',
+                      fontFamily: 'GilroyBold',
                       fontWeight: FontWeight.w100,
                     ),
                   ),
@@ -42,7 +44,7 @@ class OnboardingScreen extends StatelessWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 50,
-                      fontFamily: 'Gilroy',
+                      fontFamily: 'GilroyBold',
                       fontWeight: FontWeight.w100,
                     ),
                   ),
@@ -58,30 +60,41 @@ class OnboardingScreen extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.grey.shade700,
                   fontSize: 15,
-                  fontFamily: 'Gilroy',
+                  fontFamily: 'GilroyBold',
                 ),
               ),
             ),
             SizedBox(
               height: size.height * 0.05,
             ),
-            RoundedButton(size: size,title:'LOGIN'),
-            Container(
-              margin: EdgeInsets.only(top: 10),
-              width: size.width * 0.75,
-              height: size.height * 0.07,
-              decoration: BoxDecoration(
-                border: Border.all(color: const Color(0xff8871E6), width: 2),
-                color: Colors.white,
-                borderRadius: const BorderRadius.all(Radius.circular(15)),
-              ),
-              child: const Center(
-                child: Text(
-                  'Register',
-                  style: TextStyle(
-                    color: Color(0xff8871E6),
-                    fontSize: 20,
-                    fontFamily: 'Gilroy',
+            RoundedButton(
+              size: size,
+              title: 'LOGIN',
+              onTap: () {
+                Navigator.pushNamed(context, LoginScreen.routeName);
+              },
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, ClientRegistration.routeName);
+              },
+              child: Container(
+                margin: const EdgeInsets.only(top: 10),
+                width: size.width * 0.75,
+                height: size.height * 0.07,
+                decoration: BoxDecoration(
+                  border: Border.all(color: const Color(0xff8871E6), width: 2),
+                  color: Colors.white,
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Register',
+                    style: TextStyle(
+                      color: Color(0xff8871E6),
+                      fontSize: 20,
+                      fontFamily: 'GilroyBold',
+                    ),
                   ),
                 ),
               ),
@@ -92,5 +105,3 @@ class OnboardingScreen extends StatelessWidget {
     );
   }
 }
-
-

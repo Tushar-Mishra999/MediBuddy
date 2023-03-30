@@ -5,6 +5,7 @@ import '../registration/customtextfield.dart';
 import '../registration/rounded_button.dart';
 
 class LoginScreen extends StatelessWidget {
+  static const String routeName = '/login-screen';
   LoginScreen({super.key});
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
@@ -13,13 +14,20 @@ class LoginScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const Icon(
-              Icons.arrow_back_ios,
-              color: color1,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: color1,
+              ),
             ),
             SizedBox(
               width: size.width * 0.03,
@@ -48,6 +56,7 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Spacer(),
           ],
         ),
       ),

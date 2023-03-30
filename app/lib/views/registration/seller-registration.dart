@@ -5,6 +5,7 @@ import 'customtextfield.dart';
 
 class SellerRegistration extends StatelessWidget {
   SellerRegistration({super.key});
+  static const String routeName = '/sellerregistration-screen';
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   @override
@@ -12,13 +13,19 @@ class SellerRegistration extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Row(
           children: [
-            const Icon(
-              Icons.arrow_back_ios,
-              color: color1,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: color1,
+              ),
             ),
             SizedBox(
               width: size.width * 0.03,

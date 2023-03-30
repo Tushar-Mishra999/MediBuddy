@@ -26,23 +26,30 @@ class SearchResult extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Gupta Medicals',
-              style: TextStyle(
-                color: Color.fromRGBO(0, 0, 0, 1),
-                fontSize: 18,
-                fontFamily: 'GilroyBold',
-              ),
-            ),
-            SizedBox(
-              height: size.height * 0.02,
+            Row(
+              children: [
+                const Text(
+                  'Gupta Medicals',
+                  style: TextStyle(
+                    color: Color.fromRGBO(0, 0, 0, 1),
+                    fontSize: 18,
+                    fontFamily: 'GilroyBold',
+                  ),
+                ),
+                const Spacer(),
+                Switch.adaptive(
+                    activeColor: color1,
+                    inactiveThumbColor: color2,
+                    value: true,
+                    onChanged: (val) {})
+              ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.star,
                       color: color1,
                     ),
@@ -82,7 +89,7 @@ class SearchResult extends StatelessWidget {
                           ),
                         ),
                         Padding(
-                          padding:EdgeInsets.all(4.0),
+                          padding: EdgeInsets.all(4.0),
                           child: Text(
                             'Reach',
                             style: TextStyle(

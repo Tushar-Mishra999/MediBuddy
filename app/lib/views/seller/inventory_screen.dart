@@ -25,7 +25,7 @@ class InventoryScreen extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(children: [
-              Text(
+              const Text(
                 "Inventory  ",
                 style: TextStyle(
                   color: Colors.black,
@@ -34,8 +34,13 @@ class InventoryScreen extends StatelessWidget {
                   fontWeight: FontWeight.w100,
                 ),
               ),
-              Spacer(),
-              Icon(
+              const Spacer(),
+              Switch.adaptive(
+                  activeColor: color1,
+                  inactiveThumbColor: color2,
+                  value: true,
+                  onChanged: (val) {}),
+              const Icon(
                 Icons.message_outlined,
                 color: color1,
                 size: 30,
