@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
 import 'package:medibuddy/views/registration/seller-registration.dart';
@@ -15,9 +17,9 @@ class ClientRegistration extends StatelessWidget {
   final passwordController = TextEditingController();
 
   Future<void> registerClient(
-      {required String name,required String email,required String password,required String city}) async{
+      {required String name,required String email,required String password,required String city, required BuildContext context}) async{
     Authservice authservice = Authservice();
-    await authservice.registerClient(name: name, email: email, password: password, city: city);
+    await authservice.registerClient(name: name, email: email, password: password, city: city,context: context);
   
   }
 
@@ -108,7 +110,7 @@ class ClientRegistration extends StatelessWidget {
                     size: size,
                     title: 'REGISTER',
                     onTap: () async{
-                      await registerClient(name:nameController.text,password: passwordController.text,email: emailController.text, city: cityController.text);
+                      await registerClient(name:nameController.text,password: passwordController.text,email: emailController.text, city: cityController.text,context: context);
                     },
                   ),
                   Padding(

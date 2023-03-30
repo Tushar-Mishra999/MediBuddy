@@ -4,6 +4,7 @@ import 'package:medibuddy/views/home/searchbar.dart';
 import 'package:medibuddy/views/seller/medicine.dart';
 
 class InventoryScreen extends StatelessWidget {
+  static const String routeName = '/inventory-screen';
   const InventoryScreen({super.key});
 
   @override

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
 import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:medibuddy/views/registration/client-registration.dart';
 import 'package:medibuddy/views/registration/seller-registration.dart';
+import 'package:medibuddy/views/seller/inventory_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -25,6 +27,16 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => SellerRegistration(),
+      );
+    case ClientHomeScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ClientHomeScreen(),
+      );
+     case InventoryScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const InventoryScreen(),
       );
     // case SearchScreen.routeName:
     //   var searchQuery = routeSettings.arguments as String;

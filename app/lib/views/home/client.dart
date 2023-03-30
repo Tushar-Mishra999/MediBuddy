@@ -6,6 +6,7 @@ import 'package:medibuddy/views/home/searchbar.dart';
 import '../../constants.dart';
 
 class ClientHomeScreen extends StatelessWidget {
+  static const String routeName = '/client-home';
   const ClientHomeScreen({super.key});
 
   @override

@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
 import 'package:medibuddy/views/registration/services/auth-service.dart';
@@ -19,10 +21,10 @@ class SellerRegistration extends StatelessWidget {
       {required String name,
       required String email,
       required String password,
-      required String city,required String contact,required String address}) async {
+      required String city,required String contact,required String address,required BuildContext context}) async {
     Authservice authservice = Authservice();
     await authservice.registerSeller(
-        name: name, email: email, password: password, city: city,contact: contact,address: address);
+        name: name, email: email, password: password, city: city,contact: contact,address: address,context: context);
   }
 
   @override
@@ -126,7 +128,8 @@ class SellerRegistration extends StatelessWidget {
                         password: passwordController.text,
                         city: cityController.text,
                         address: addressController.text,
-                        contact: contactController.text);
+                        contact: contactController.text,
+                        context: context);
                   })
             ]),
           ),

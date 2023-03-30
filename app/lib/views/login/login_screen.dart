@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
 
@@ -11,9 +13,13 @@ class LoginScreen extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  Future<void> signIn({required String email, required String password}) async {
+
+  Future<void> signIn(
+      {required String email,
+      required String password,
+      required BuildContext context}) async {
     Authservice authservice = Authservice();
-    await authservice.login(email: email, password: password);
+    await authservice.login(email: email, password: password, context: context);
   }
 
   @override
@@ -95,7 +101,8 @@ class LoginScreen extends StatelessWidget {
                 onTap: () {
                   signIn(
                       email: emailController.text,
-                      password: passwordController.text);
+                      password: passwordController.text,
+                      context: context);
                 },
               ),
             ]),

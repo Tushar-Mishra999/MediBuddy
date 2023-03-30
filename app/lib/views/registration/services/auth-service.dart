@@ -3,13 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:medibuddy/constants.dart';
+import 'package:medibuddy/views/home/client.dart';
+import 'package:medibuddy/views/login/login_screen.dart';
+import 'package:medibuddy/views/seller/inventory_screen.dart';
 
 class Authservice {
   Future<void> registerClient(
       {required String name,
       required String email,
       required String password,
-      required String city}) async {
+      required String city,
+      required BuildContext context}) async {
     final body = {
       'name': name,
       'email': email,
@@ -28,6 +32,7 @@ class Authservice {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
     } else if (response.statusCode == 400) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
@@ -47,7 +52,8 @@ class Authservice {
       required String password,
       required String city,
       required String address,
-      required String contact}) async {
+      required String contact,
+      required BuildContext context}) async {
     final body = {
       'storeName': name,
       'email': email,
@@ -69,6 +75,7 @@ class Authservice {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
     } else if (response.statusCode == 400) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
@@ -85,6 +92,7 @@ class Authservice {
   Future<void> login({
     required String email,
     required String password,
+    required BuildContext context
   }) async {
     final body = {
       'email': email,
@@ -102,6 +110,10 @@ class Authservice {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
+      //user or seller model code
+      
+      Navigator.pushReplacementNamed(context, ClientHomeScreen.routeName);
+      //Navigator.pushReplacementNamed(context, InventoryScreen.routeName);
     } else if (response.statusCode == 400) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
