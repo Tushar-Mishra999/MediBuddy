@@ -5,7 +5,7 @@ const {Medicine} = require("../models/medicine");
 const sellerRouter=express.Router();
 
 sellerRouter.post('/addmedicine', async (req, res) => {
-    const {email,medicineName, salt, company, price, quantity, description} = req.body;
+    const {email, medicineName, salt, company, price, quantity, description} = req.body;
     const existingMedicine=await Medicine.findOne({medicineName});
 
     if(existingMedicine){
@@ -27,6 +27,14 @@ sellerRouter.get("/getmedicine",async (req,res)=>{
     const seller=await Seller.findOne({email:email});
     const medicineList=seller.stock;
     res.json({medicineList});
+})
+
+sellerRouter.post('/changestatus', async(req, res) => {
+    const {email, status} = req.body;
+    const seller = await Seller.findOne({email});
+    seller.status=status;
+    await seller.save();
+    res.json({msg:"Status changed successfully"});
 })
 
 module.exports= sellerRouter;
