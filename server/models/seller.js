@@ -43,8 +43,11 @@ const sellerSchema = mongoose.Schema({
     required: true
   },
   stock: 
-    [medicineSchema]
-  
+    [medicineSchema],
+  status:{
+    type:Boolean,
+    default: false
+  }
 });
 
 const Seller = mongoose.model("Seller", sellerSchema);
