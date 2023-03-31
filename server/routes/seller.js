@@ -16,10 +16,17 @@ sellerRouter.post('/addmedicine', async (req, res) => {
     await medicine.save();
 
     const user=await Seller.findOne({email});
-    console.log(user.stock);
     user.stock.push(medicine);
     await user.save();
     res.json({msg:'Medicine added successfully'});
+})
+
+
+sellerRouter.get("/getmedicine",async (req,res)=>{
+    const email=req.query.email;
+    const seller=await Seller.findOne({email:email});
+    const medicineList=seller.stock;
+    res.json({medicineList});
 })
 
 module.exports= sellerRouter;
