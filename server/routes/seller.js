@@ -39,8 +39,7 @@ sellerRouter.post('/changestatus', async(req, res) => {
 })
 
 sellerRouter.post('/updatemedicine', async(req, res) => {
-    const email = req.query.email;
-    const {id, medicineName, salt, company, price, quantity, description} = req.body;
+    const {email,id, medicineName, salt, company, price, quantity, description} = req.body;
     const seller = await Seller.findOne({email});
     const medicine= await Medicine.findByIdAndUpdate(id,
         {medicineName,
@@ -72,7 +71,6 @@ sellerRouter.delete('/deletemedicine', async (req, res) => {
         seller.stock = seller.stock.filter((medicine) => medicine._id.toString() !== id);
         await seller.save();
       }
-  
       res.json({ msg: 'Medicine deleted successfully' });
     } catch (err) {
       console.error(err);

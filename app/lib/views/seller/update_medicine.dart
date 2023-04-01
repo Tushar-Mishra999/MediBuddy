@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
+import 'package:medibuddy/controller/seller_service.dart';
 
 import '../registration/customtextfield.dart';
 import '../registration/rounded_button.dart';
@@ -14,6 +15,7 @@ class UpdateMedicine extends StatefulWidget {
     required this.company,
     required this.price,
     required this.salt,
+    required this.id,
   });
   final String name;
   final String quantity;
@@ -21,6 +23,7 @@ class UpdateMedicine extends StatefulWidget {
   final String company;
   final String price;
   final String salt;
+  final String id;
   @override
   State<UpdateMedicine> createState() => _UpdateMedicineState();
 }
@@ -39,7 +42,7 @@ class _UpdateMedicineState extends State<UpdateMedicine> {
   final priceController = TextEditingController();
 
   final saltController = TextEditingController();
-
+  SellerService sellerService = SellerService();
   @override
   void initState() {
     super.initState();
@@ -99,10 +102,15 @@ class _UpdateMedicineState extends State<UpdateMedicine> {
               ),
             ),
             const Spacer(),
-            const Icon(
-              Icons.delete_forever_sharp,
-              color: color1,
-              size: 30,
+            GestureDetector(
+              onTap:(){
+                sellerService.deleteMedicine(id: widget.id,context: context);
+              },
+              child: const Icon(
+                Icons.delete_forever_sharp,
+                color: color1,
+                size: 30,
+              ),
             )
           ],
         ),
@@ -154,7 +162,21 @@ class _UpdateMedicineState extends State<UpdateMedicine> {
               SizedBox(
                 height: size.height * 0.05,
               ),
-              //RoundedButton(size: size, title: 'UPDATE'),
+              RoundedButton(
+                size: size,
+                title: 'UPDATE',
+                onTap: () {
+                  sellerService.updateMedicine(
+                      id:widget.id,
+                      medicineName: nameController.text,
+                      context: context,
+                      salt: saltController.text,
+                      company: companyController.text,
+                      price: priceController.text,
+                      quantity: stockController.text,
+                      description: descriptionController.text);
+                },
+              ),
             ]),
           ),
         ),

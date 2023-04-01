@@ -125,7 +125,7 @@ class _AddMedicineState extends State<AddMedicine> {
               ),
               RoundedButton(
                 size: size,
-                title: 'UPDATE',
+                title: 'UPLOAD',
                 onTap: () {
                   sellerService.addMedicine(
                       medicineName: nameController.text,

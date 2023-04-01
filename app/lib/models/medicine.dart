@@ -5,10 +5,12 @@ class Medicine {
   final String salt;
   final String company;
   final String description;
+  final String id;
 
   Medicine(
       {required this.name,
       required this.quantity,
+      required this.id,
       required this.price,
       required this.salt,
       required this.company,
@@ -17,6 +19,7 @@ class Medicine {
   static Medicine fromMap(Map<String, dynamic> data) {
     return Medicine(
         name: data['medicineName'],
+        id:data['_id'],
         quantity: data['quantity'].toString(),
         salt: data['salt'],
         company: data['company'],

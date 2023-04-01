@@ -101,6 +101,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   ? const Center(child: Text("No medicine"))
                   : MedicineDetail(
                       size: size,
+                      id:medicine[index].id,
                       description: medicine[index].description,
                       name: medicine[index].name,
                       company: medicine[index].company,

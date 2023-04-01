@@ -1,4 +1,4 @@
-#Sat Apr 01 15:54:54 IST 2023
+#Sat Apr 01 16:29:57 IST 2023
 base.0=/Users/tm217/Desktop/medibuddy/app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

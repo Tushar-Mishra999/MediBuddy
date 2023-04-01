@@ -11,7 +11,7 @@ class MedicineDetail extends StatelessWidget {
   final String price;
   final String salt;
   final String description;
-
+  final String id;
   const MedicineDetail(
       {Key? key,
       required this.size,
@@ -20,21 +20,22 @@ class MedicineDetail extends StatelessWidget {
       required this.quantity,
       required this.price,
       required this.description,
+      required this.id,
       required this.salt})
       : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, UpdateMedicine.routeName,arguments: {
-          'name':name,
-          'quantity':quantity,
-          'description':description,
-          'company':company,
-          'price':price,
-          'salt':salt
+        Navigator.pushNamed(context, UpdateMedicine.routeName, arguments: {
+          'name': name,
+          'quantity': quantity,
+          'description': description,
+          'company': company,
+          'price': price,
+          'salt': salt,
+          'id': id,
         });
       },
       child: Container(

@@ -45,7 +45,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => AddMedicine(),
       );
-      
+
     case UpdateMedicine.routeName:
       Map<String, dynamic> arguments =
           routeSettings.arguments as Map<String, dynamic>;
@@ -58,6 +58,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           company: arguments['company'],
           price: arguments['price'],
           salt: arguments['salt'],
+          id:arguments['id']
         ),
       );
     // case SearchScreen.routeName:

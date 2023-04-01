@@ -1,15 +1,15 @@
-/Users/tm217/Desktop/medibuddy/app/DOES_NOT_EXIST_RERUN_FOR_WILDCARD992559395
+/Users/tm217/Desktop/medibuddy/app/DOES_NOT_EXIST_RERUN_FOR_WILDCARD836991827
 /Users/tm217/Desktop/medibuddy/app/assets/fonts/Gilroy-ExtraBold.otf
 /Users/tm217/Desktop/medibuddy/app/assets/fonts/Gilroy-Light.otf
+/Users/tm217/Desktop/medibuddy/app/assets/images/Free Vector _ Flat biotechnology concept illustration.jpeg
 /Users/tm217/Desktop/medibuddy/app/assets/images/doc1.jpg
 /Users/tm217/Desktop/medibuddy/app/assets/images/doc2.png
 /Users/tm217/Desktop/medibuddy/app/assets/images/doc3.jpeg
+/Users/tm217/Desktop/medibuddy/app/assets/images/doc4.png
 /Users/tm217/Desktop/medibuddy/app/assets/images/injection1.png
 /Users/tm217/Desktop/medibuddy/app/lib/constants.dart
 /Users/tm217/Desktop/medibuddy/app/lib/main.dart
 /Users/tm217/Desktop/medibuddy/app/lib/router.dart
-/Users/tm217/Desktop/medibuddy/app/lib/views/home/client.dart
-/Users/tm217/Desktop/medibuddy/app/lib/views/home/searchbar.dart
 /Users/tm217/Desktop/medibuddy/app/lib/views/login/login_screen.dart
 /Users/tm217/Desktop/medibuddy/app/lib/views/onboarding/onboarding_screen.dart
 /Users/tm217/Desktop/medibuddy/app/lib/views/onboarding/rounded_button.dart
@@ -17,6 +17,7 @@
 /Users/tm217/Desktop/medibuddy/app/lib/views/registration/customtextfield.dart
 /Users/tm217/Desktop/medibuddy/app/lib/views/registration/rounded_button.dart
 /Users/tm217/Desktop/medibuddy/app/lib/views/registration/seller-registration.dart
+/Users/tm217/Desktop/medibuddy/app/lib/views/registration/services/auth-service.dart
 /Users/tm217/Desktop/medibuddy/app/pubspec.yaml
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.9.0/LICENSE
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/LICENSE
@@ -108,6 +109,10 @@
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.4/lib/src/interface/link.dart
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/file-6.1.4/lib/src/io.dart
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-2.0.1/LICENSE
+/Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.2.1/LICENSE
+/Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.2.1/assets/toastify.css
+/Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.2.1/assets/toastify.js
+/Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.2.1/lib/fluttertoast.dart
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-3.0.1/LICENSE
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-3.0.1/lib/google_fonts.dart
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/google_fonts-3.0.1/lib/src/asset_manifest.dart
@@ -171,6 +176,7 @@
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.18.0/lib/src/intl/text_direction.dart
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.18.0/lib/src/intl_helpers.dart
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.18.0/lib/src/plural_rules.dart
+/Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/js-0.6.4/LICENSE
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/lints-2.0.1/LICENSE
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.12/LICENSE
 /Users/tm217/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/material_color_utilities-0.1.5/LICENSE
