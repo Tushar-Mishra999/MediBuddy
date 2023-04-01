@@ -7,6 +7,9 @@ import 'package:medibuddy/models/user.dart';
 import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
 import 'package:medibuddy/views/seller/inventory_screen.dart';
+import 'package:provider/provider.dart';
+
+import '../../../provider/user-provider.dart';
 
 class Authservice {
   Future<void> registerClient(
@@ -90,11 +93,10 @@ class Authservice {
     }
   }
 
-  Future<void> login({
-    required String email,
-    required String password,
-    required BuildContext context
-  }) async {
+  Future<void> login(
+      {required String email,
+      required String password,
+      required BuildContext context}) async {
     final body = {
       'email': email,
       'password': password,
@@ -112,12 +114,16 @@ class Authservice {
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
       //user or seller model code
-      
-      User user = User.fromJson(json.decode(response.body));
-      if (user.type == 'client') {
+      Provider.of<UserProvider>(context, listen: false)
+          .setUser(json.decode(response.body));
+      // User user = User.fromMap(json.decode(response.body));
+      print(Provider.of<UserProvider>(context, listen: false).user.name);
+      print(Provider.of<UserProvider>(context, listen: false).user.email);
+      print(Provider.of<UserProvider>(context, listen: false).user.city);
+      if (Provider.of<UserProvider>(context, listen: false).user.type ==
+          'client') {
         Navigator.pushReplacementNamed(context, ClientHomeScreen.routeName);
-      }
-      else{
+      } else {
         Navigator.pushReplacementNamed(context, InventoryScreen.routeName);
       }
     } else if (response.statusCode == 400) {

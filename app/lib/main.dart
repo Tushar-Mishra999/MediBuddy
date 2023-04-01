@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/provider/user-provider.dart';
 import 'package:medibuddy/router.dart';
 import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
+import 'package:provider/provider.dart';
 
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (context)=>UserProvider())],
+    child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
