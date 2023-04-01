@@ -14,7 +14,7 @@ class CustomTextField extends StatelessWidget {
     required this.controller,
     required this.hintText,
     required this.title,
-     this.obscure=false,
+    this.obscure=false,
     this.edit = false,
     this.maxLines = 1,
   }) : super(key: key);

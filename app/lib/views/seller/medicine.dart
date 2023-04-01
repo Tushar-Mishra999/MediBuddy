@@ -3,19 +3,39 @@ import 'package:medibuddy/views/seller/update_medicine.dart';
 
 import '../../constants.dart';
 
-class Medicine extends StatelessWidget {
-  const Medicine({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
-
+class MedicineDetail extends StatelessWidget {
+  final String company;
   final Size size;
+  final String name;
+  final String quantity;
+  final String price;
+  final String salt;
+  final String description;
+
+  const MedicineDetail(
+      {Key? key,
+      required this.size,
+      required this.name,
+      required this.company,
+      required this.quantity,
+      required this.price,
+      required this.description,
+      required this.salt})
+      : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, UpdateMedicine.routeName);
+        Navigator.pushNamed(context, UpdateMedicine.routeName,arguments: {
+          'name':name,
+          'quantity':quantity,
+          'description':description,
+          'company':company,
+          'price':price,
+          'salt':salt
+        });
       },
       child: Container(
         margin: const EdgeInsets.all(8),
@@ -30,8 +50,8 @@ class Medicine extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                'Crocin',
-                style: TextStyle(
+                name,
+                style: const TextStyle(
                   color: Color.fromRGBO(0, 0, 0, 1),
                   fontSize: 20,
                   fontFamily: 'GilroyBold',
@@ -41,7 +61,7 @@ class Medicine extends StatelessWidget {
                 height: size.height * 0.02,
               ),
               Text(
-                'Dr. Reddy',
+                company,
                 style: TextStyle(
                     color: Colors.grey.shade700,
                     fontSize: 17,
@@ -52,7 +72,7 @@ class Medicine extends StatelessWidget {
                 height: size.height * 0.02,
               ),
               Text(
-                'Antihistamine',
+                salt,
                 style: TextStyle(
                     color: Colors.grey.shade700,
                     fontSize: 17,
@@ -67,12 +87,12 @@ class Medicine extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.currency_rupee,
                         color: color1,
                       ),
                       Text(
-                        ' 300',
+                        ' $price',
                         style: TextStyle(
                             color: Colors.grey.shade700,
                             fontSize: 17,
@@ -83,12 +103,12 @@ class Medicine extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.production_quantity_limits,
                         color: color1,
                       ),
                       Text(
-                        ' 30',
+                        ' $quantity',
                         style: TextStyle(
                             color: Colors.grey.shade700,
                             fontSize: 17,

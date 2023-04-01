@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
-import 'package:medibuddy/views/registration/services/auth-service.dart';
+import 'package:medibuddy/controller/auth-service.dart';
 import 'rounded_button.dart';
 import 'customtextfield.dart';
 

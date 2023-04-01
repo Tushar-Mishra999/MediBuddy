@@ -4,18 +4,54 @@ import 'package:medibuddy/constants.dart';
 import '../registration/customtextfield.dart';
 import '../registration/rounded_button.dart';
 
-class UpdateMedicine extends StatelessWidget {
+class UpdateMedicine extends StatefulWidget {
   static const String routeName = "/updatemedicine";
-  UpdateMedicine({super.key});
+  const UpdateMedicine({
+    super.key,
+    required this.name,
+    required this.quantity,
+    required this.description,
+    required this.company,
+    required this.price,
+    required this.salt,
+  });
+  final String name;
+  final String quantity;
+  final String description;
+  final String company;
+  final String price;
+  final String salt;
+  @override
+  State<UpdateMedicine> createState() => _UpdateMedicineState();
+}
 
+class _UpdateMedicineState extends State<UpdateMedicine> {
   final _formKey = GlobalKey<FormState>();
-  final nameController = TextEditingController(text: 'Crocin');
-  final stockController = TextEditingController(text: '30');
-  final descriptionController =
-      TextEditingController(text: 'This is mast eat it fast');
-  final companyController = TextEditingController(text: 'Dr. Reddy');
-  final priceController = TextEditingController(text: '30.99');
-  final saltController = TextEditingController(text: 'Anithistamine benzene');
+
+  final nameController = TextEditingController();
+
+  final stockController = TextEditingController();
+
+  final descriptionController = TextEditingController();
+
+  final companyController = TextEditingController();
+
+  final priceController = TextEditingController();
+
+  final saltController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    nameController.text = widget.name;
+    stockController.text = widget.quantity;
+    descriptionController.text = widget.description;
+    companyController.text = widget.company;
+    priceController.text = widget.price;
+    saltController.text = widget.salt;
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;

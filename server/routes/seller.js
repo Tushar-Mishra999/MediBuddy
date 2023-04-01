@@ -26,6 +26,7 @@ sellerRouter.get("/getmedicine",async (req,res)=>{
     const email=req.query.email;
     const seller=await Seller.findOne({email:email});
     const medicineList=seller.stock;
+    console.log(medicineList);
     res.json({medicineList});
 })
 
@@ -56,5 +57,27 @@ sellerRouter.post('/updatemedicine', async(req, res) => {
     await seller.save();
     res.json({msg:"Medicine updated successfully"});
 })
+
+sellerRouter.delete('/deletemedicine', async (req, res) => {
+    const { id,email } = req.body;
+    try {
+      const medicine = await Medicine.findById(id);
+      if (!medicine) {
+        return res.status(400).json({ msg: 'Medicine not found' });
+      }
+      await medicine.remove();
+  
+      const seller = await Seller.findOne({ email: email });
+      if (seller) {
+        seller.stock = seller.stock.filter((medicine) => medicine._id.toString() !== id);
+        await seller.save();
+      }
+  
+      res.json({ msg: 'Medicine deleted successfully' });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Server Error');
+    }
+  });
 
 module.exports= sellerRouter;

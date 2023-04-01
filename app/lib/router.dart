@@ -45,10 +45,20 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => AddMedicine(),
       );
+      
     case UpdateMedicine.routeName:
+      Map<String, dynamic> arguments =
+          routeSettings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => UpdateMedicine(),
+        builder: (_) => UpdateMedicine(
+          name: arguments['name'],
+          quantity: arguments['quantity'],
+          description: arguments['description'],
+          company: arguments['company'],
+          price: arguments['price'],
+          salt: arguments['salt'],
+        ),
       );
     // case SearchScreen.routeName:
     //   var searchQuery = routeSettings.arguments as String;

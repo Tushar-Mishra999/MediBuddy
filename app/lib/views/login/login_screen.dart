@@ -3,7 +3,7 @@ import 'package:medibuddy/constants.dart';
 
 import '../registration/customtextfield.dart';
 import '../registration/rounded_button.dart';
-import '../registration/services/auth-service.dart';
+import '../../controller/auth-service.dart';
 
 class LoginScreen extends StatelessWidget {
   static const String routeName = '/login-screen';
