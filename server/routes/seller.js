@@ -37,4 +37,24 @@ sellerRouter.post('/changestatus', async(req, res) => {
     res.json({msg:"Status changed successfully"});
 })
 
+sellerRouter.post('/updatemedicine', async(req, res) => {
+    const email = req.query.email;
+    const {id, medicineName, salt, company, price, quantity, description} = req.body;
+    const seller = await Seller.findOne({email});
+    const medicine= await Medicine.findByIdAndUpdate(id,
+        {medicineName,
+        salt,
+        company,
+        price,
+        quantity,
+        description},
+        { new: true }
+        );
+    console.log(medicine);
+    seller.stock = seller.stock.filter(medicine => medicine._id.toString() !== id);
+    seller.stock.push(medicine);
+    await seller.save();
+    res.json({msg:"Medicine updated successfully"});
+})
+
 module.exports= sellerRouter;
