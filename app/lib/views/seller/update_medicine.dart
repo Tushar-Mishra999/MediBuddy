@@ -5,6 +5,7 @@ import '../registration/customtextfield.dart';
 import '../registration/rounded_button.dart';
 
 class UpdateMedicine extends StatelessWidget {
+  static const String routeName = "/updatemedicine";
   UpdateMedicine({super.key});
 
   final _formKey = GlobalKey<FormState>();
@@ -20,13 +21,19 @@ class UpdateMedicine extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Row(
           children: [
-            const Icon(
-              Icons.arrow_back_ios,
-              color: color1,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: color1,
+              ),
             ),
             SizedBox(
               width: size.width * 0.03,
@@ -55,6 +62,12 @@ class UpdateMedicine extends StatelessWidget {
                 ],
               ),
             ),
+            const Spacer(),
+            const Icon(
+              Icons.delete_forever_sharp,
+              color: color1,
+              size: 30,
+            )
           ],
         ),
       ),

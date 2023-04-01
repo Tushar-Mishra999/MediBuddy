@@ -4,7 +4,9 @@ import 'package:medibuddy/views/login/login_screen.dart';
 import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:medibuddy/views/registration/client-registration.dart';
 import 'package:medibuddy/views/registration/seller-registration.dart';
+import 'package:medibuddy/views/seller/add_medicine.dart';
 import 'package:medibuddy/views/seller/inventory_screen.dart';
+import 'package:medibuddy/views/seller/update_medicine.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -33,10 +35,20 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => const ClientHomeScreen(),
       );
-     case InventoryScreen.routeName:
+    case InventoryScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const InventoryScreen(),
+      );
+    case AddMedicine.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AddMedicine(),
+      );
+    case UpdateMedicine.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => UpdateMedicine(),
       );
     // case SearchScreen.routeName:
     //   var searchQuery = routeSettings.arguments as String;

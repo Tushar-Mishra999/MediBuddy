@@ -5,6 +5,7 @@ import '../registration/customtextfield.dart';
 import '../registration/rounded_button.dart';
 
 class AddMedicine extends StatelessWidget {
+  static const routeName = '/add-medicine';
   AddMedicine({super.key});
   final _formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
@@ -19,12 +20,18 @@ class AddMedicine extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
           children: [
-            const Icon(
-              Icons.arrow_back_ios,
-              color: color1,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: color1,
+              ),
             ),
             SizedBox(
               width: size.width * 0.03,

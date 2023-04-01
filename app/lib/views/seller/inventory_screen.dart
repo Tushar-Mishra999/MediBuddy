@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
 import 'package:medibuddy/views/home/searchbar.dart';
+import 'package:medibuddy/views/seller/add_medicine.dart';
 import 'package:medibuddy/views/seller/medicine.dart';
 
 class InventoryScreen extends StatelessWidget {
@@ -13,11 +14,13 @@ class InventoryScreen extends StatelessWidget {
     return Scaffold(
         floatingActionButton: FloatingActionButton(
           backgroundColor: color1,
-          child: Icon(
+          child: const Icon(
             Icons.add,
             color: Colors.white,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, AddMedicine.routeName);
+          },
         ),
         appBar: AppBar(
           automaticallyImplyLeading: false,
