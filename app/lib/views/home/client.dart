@@ -22,7 +22,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
   ClientService clientService = ClientService();
   Map<String, dynamic> res = {};
   String dailyTip = "";
-
+  bool isLoading = true;
   @override
   void initState() {
     super.initState();
@@ -33,6 +33,8 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
     res = await clientService.getSellers(context: context);
     dailyTip = res['dailyTip'];
     sellerList = res['sellerList'];
+    isLoading = false;
+    setState(() {});
   }
 
   @override
@@ -107,95 +109,99 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
         ),
       ),
       body: Center(
-        child: Column(children: [
-          Container(
-            height: size.height * 0.18,
-            width: size.width * 0.9,
-            decoration: BoxDecoration(
-                color: color1,
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Tip of the Day!',
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 23,
-                      fontFamily: 'GilroyBold',
-                      fontWeight: FontWeight.bold,
+        child: isLoading
+            ? const Center(
+                child: CircularProgressIndicator(color: color1),
+              )
+            : Column(children: [
+                Container(
+                  height: size.height * 0.18,
+                  width: size.width * 0.9,
+                  decoration: BoxDecoration(
+                      color: color1,
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Tip of the Day!',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 23,
+                            fontFamily: 'GilroyBold',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(
+                          height: size.height * 0.02,
+                        ),
+                        Text(
+                          dailyTip,
+                          style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontSize: 17,
+                            fontFamily: 'GilroyBold',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          'keeps the doctor away',
+                          style: TextStyle(
+                            color: Colors.grey.shade300,
+                            fontSize: 17,
+                            fontFamily: 'GilroyBold',
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    height: size.height * 0.02,
-                  ),
-                  Text(
-                    dailyTip,
-                    style: TextStyle(
-                      color: Colors.grey.shade300,
-                      fontSize: 17,
-                      fontFamily: 'GilroyBold',
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    'keeps the doctor away',
-                    style: TextStyle(
-                      color: Colors.grey.shade300,
-                      fontSize: 17,
-                      fontFamily: 'GilroyBold',
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(
-            height: size.height * 0.02,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: RoundedSearchBar(
-              hintText: 'Search for your company',
-              onSubmitted: (value) {},
-            ),
-          ),
-          SizedBox(
-            height: size.height * 0.02,
-          ),
-          MedicineType(size: size),
-          Padding(
-            padding: const EdgeInsets.all(30.0),
-            child: Row(
-              children: const [
-                Text(
-                  'Nearby Stores',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'GilroyLight',
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                Spacer()
-              ],
-            ),
-          ),
-          ListView.builder(
-            itemCount: sellerList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return NearbyStore(
-                size: size,
-                name: sellerList[index].name,
-                address: sellerList[index].address,
-                phoneNumber: sellerList[index].phoneNumber,
-              );
-            },
-          ),
-        ]),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: RoundedSearchBar(
+                    hintText: 'Search for your company',
+                    onSubmitted: (value) {},
+                  ),
+                ),
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                MedicineType(size: size),
+                Padding(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Row(
+                    children: const [
+                      Text(
+                        'Nearby Stores',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'GilroyLight',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Spacer()
+                    ],
+                  ),
+                ),
+                ListView.builder(
+                  itemCount: sellerList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return NearbyStore(
+                      size: size,
+                      name: sellerList[index].name,
+                      address: sellerList[index].address,
+                      phoneNumber: sellerList[index].phoneNumber,
+                    );
+                  },
+                ),
+              ]),
       ),
     );
   }
