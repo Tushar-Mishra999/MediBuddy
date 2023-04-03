@@ -5,15 +5,17 @@ import '../../constants.dart';
 class NearbyStore extends StatelessWidget {
   const NearbyStore({
     Key? key,
-    required this.size,
+    required this.size, required this.name, required this.address, required this.phoneNumber,
   }) : super(key: key);
 
   final Size size;
-
+  final String name;
+  final String address;
+  final String phoneNumber;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.only(bottom: 10),
       width: size.width * 0.85,
       height: size.height * 0.17,
       decoration: BoxDecoration(
@@ -26,7 +28,7 @@ class NearbyStore extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Gupta Medicals',
+              name,
               style: TextStyle(
                 color: Color.fromRGBO(0, 0, 0, 1),
                 fontSize: 18,
@@ -37,7 +39,7 @@ class NearbyStore extends StatelessWidget {
               height: size.height * 0.02,
             ),
             Text(
-              'A-9 1506 Jaypee Classic Sector 134, Noida Uttar Pradesh, India Earth, 201304',
+              address,
               style: TextStyle(
                   color: Colors.grey.shade700,
                   fontSize: 15,
@@ -52,7 +54,7 @@ class NearbyStore extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.watch_later_rounded,
                       color: color1,
                     ),
@@ -68,12 +70,12 @@ class NearbyStore extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.call,
                       color: color1,
                     ),
                     Text(
-                      ' 9958904763',
+                      phoneNumber,
                       style: TextStyle(
                           color: Colors.grey.shade700,
                           fontSize: 15,

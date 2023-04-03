@@ -1,17 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:medibuddy/controller/client-service.dart';
+import 'package:medibuddy/provider/user-provider.dart';
 import 'package:medibuddy/views/home/medicinetype.dart';
 import 'package:medibuddy/views/home/nearbystore.dart';
 import 'package:medibuddy/views/home/searchbar.dart';
+import 'package:provider/provider.dart';
 import '../../constants.dart';
+import '../../models/seller.dart';
 
-class ClientHomeScreen extends StatelessWidget {
+class ClientHomeScreen extends StatefulWidget {
   static const String routeName = '/client-home';
   const ClientHomeScreen({super.key});
 
   @override
+  State<ClientHomeScreen> createState() => _ClientHomeScreenState();
+}
+
+class _ClientHomeScreenState extends State<ClientHomeScreen> {
+  List<Seller> sellerList = [];
+  ClientService clientService = ClientService();
+  Map<String, dynamic> res = {};
+  String dailyTip = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getSellers();
+  }
+
+  void getSellers() async {
+    res = await clientService.getSellers(context: context);
+    dailyTip = res['dailyTip'];
+    sellerList = res['sellerList'];
+  }
+
+  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final user = Provider.of<UserProvider>(context, listen: false).user;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -25,9 +52,9 @@ class ClientHomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 RichText(
-                  text: const TextSpan(
+                  text: TextSpan(
                     children: [
-                      TextSpan(
+                      const TextSpan(
                         text: "Hello, ",
                         style: TextStyle(
                           color: Colors.black,
@@ -37,8 +64,8 @@ class ClientHomeScreen extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: "William Jack",
-                        style: TextStyle(
+                        text: user.name,
+                        style: const TextStyle(
                           color: color1,
                           fontSize: 25,
                           fontFamily: 'GilroyBold',
@@ -105,7 +132,7 @@ class ClientHomeScreen extends StatelessWidget {
                     height: size.height * 0.02,
                   ),
                   Text(
-                    'An apple a day keeps',
+                    dailyTip,
                     style: TextStyle(
                       color: Colors.grey.shade300,
                       fontSize: 17,
@@ -143,7 +170,7 @@ class ClientHomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(30.0),
             child: Row(
-              children: [
+              children: const [
                 Text(
                   'Nearby Stores',
                   style: TextStyle(
@@ -157,8 +184,17 @@ class ClientHomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          NearbyStore(size: size),
-          NearbyStore(size: size)
+          ListView.builder(
+            itemCount: sellerList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return NearbyStore(
+                size: size,
+                name: sellerList[index].name,
+                address: sellerList[index].address,
+                phoneNumber: sellerList[index].phoneNumber,
+              );
+            },
+          ),
         ]),
       ),
     );

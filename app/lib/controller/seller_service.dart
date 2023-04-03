@@ -27,7 +27,6 @@ class SellerService {
       "description": description
     };
 
-    print(body);
 
     final response = await http.post(
       Uri.parse('$ip/addmedicine'),
@@ -41,12 +40,11 @@ class SellerService {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
-    } else if (response.statusCode == 400) {
+    } else if (response.statusCode == 400 || response.statusCode == 500) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
     } else {
-      // Registration failed
       Fluttertoast.showToast(
           msg: "Something went wrong, please try again",
           backgroundColor: color1,
@@ -87,12 +85,11 @@ class SellerService {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
-    } else if (response.statusCode == 400) {
+    } else if (response.statusCode == 400 || response.statusCode == 500) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
     } else {
-      // Registration failed
       Fluttertoast.showToast(
           msg: "Something went wrong, please try again",
           backgroundColor: color1,
@@ -110,8 +107,12 @@ class SellerService {
           json.decode(response.body)["medicineList"];
       final List<Medicine> medicines =
           medicinesJson.map((medicine) => Medicine.fromMap(medicine)).toList();
-      print(medicines);
       return medicines;
+    } else if (response.statusCode == 400 || response.statusCode == 500) {
+      var message = json.decode(response.body)['msg'];
+      Fluttertoast.showToast(
+          msg: message, backgroundColor: color1, textColor: Colors.white);
+      return [];
     } else {
       Fluttertoast.showToast(
           msg: "Something went wrong, please try again",
@@ -138,12 +139,7 @@ class SellerService {
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
       return status;
-    } else if (response.statusCode == 400) {
-      var message = json.decode(response.body)['msg'];
-      Fluttertoast.showToast(
-          msg: message, backgroundColor: color1, textColor: Colors.white);
-      return !status;
-    } else if (response.statusCode == 500) {
+    } else if (response.statusCode == 400 || response.statusCode == 500) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
@@ -157,7 +153,8 @@ class SellerService {
     }
   }
 
-  Future<void> deleteMedicine({required String id,required BuildContext context}) async {
+  Future<void> deleteMedicine(
+      {required String id, required BuildContext context}) async {
     var user = Provider.of<UserProvider>(context, listen: false).user;
     final response = await http.delete(
       Uri.parse("$ip/deletemedicine"),
@@ -170,11 +167,7 @@ class SellerService {
           msg: json.decode(response.body)['msg'],
           backgroundColor: color1,
           textColor: Colors.white);
-    } else if (response.statusCode == 400) {
-      var message = json.decode(response.body)['msg'];
-      Fluttertoast.showToast(
-          msg: message, backgroundColor: color1, textColor: Colors.white);
-    } else if (response.statusCode == 500) {
+    } else if (response.statusCode == 400 || response.statusCode == 500) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
