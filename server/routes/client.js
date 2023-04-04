@@ -24,28 +24,32 @@ clientRouter.get("/tipnsellers", async(req, res) => {
 -    res.json({"sellerList": sellerArray, "dailyTip": randomTip});
 });
 
-clientRouter.get("/search", async(req, res) => {
+clientRouter.post("/search", async(req, res) => {
     const city = req.body.city;
-    const medicine = req.query.medicine;
-    const sellers = await Seller.find({city});
-    let sellerArray = sellers.map((seller) => seller.toObject());
-    const searchedSellers= new Array;
-    for (let i= 0; i<sellerArray.length;i++)
-    {
-        let seller=sellerArray[i];
-        for (let j = 0; j < seller.stock.length;j++)
-        {
-            if(medicine == seller.stock[j])
-            {
+    const medicineName = req.query.medicine;
+    const sellers = await Seller.find({});
+    let citySellers = sellers.filter(seller => seller.city === city);
+    let otherSellers = sellers.filter(seller => seller.city !== city);
+    const searchedSellers = [];
+    for (let i= 0; i<citySellers.length;i++) {
+        let seller=citySellers[i];
+        for (let j=0; j<seller.stock.length; j++) {   
+            if(medicineName === seller.stock[j].medicineName) {
                 searchedSellers.push(seller);
             }
-            else
-            { 
-                continue;
+        }    
+    }
+
+    for (let i= 0; i<otherSellers.length;i++) {
+        let seller=otherSellers[i];
+        for (let j=0; j<seller.stock.length; j++) {   
+            if(medicineName === seller.stock[j].medicineName) {
+                searchedSellers.push(seller);
             }
         }    
     }
     res.json({searchedSellers});
 });
-module.exports = clientRouter;
 
+
+module.exports = clientRouter;

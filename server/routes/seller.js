@@ -6,18 +6,18 @@ const sellerRouter=express.Router();
 
 sellerRouter.post('/addmedicine', async (req, res) => {
     const {email, medicineName, salt, company, price, quantity, description} = req.body;
-    const existingMedicine=await Medicine.findOne({medicineName});
-
-    if(existingMedicine){
+    const seller = await Seller.findOne({email});
+    for (const medicine of seller.stock) {
+      if (medicine.medicineName === medicineName) {
         return res.status(400).json({msg:"Same medicine exists in inventory"});
+      } 
     }
 
     let medicine= new Medicine({medicineName, salt, company, price, quantity, description});
     await medicine.save();
 
-    const user=await Seller.findOne({email});
-    user.stock.push(medicine);
-    await user.save();
+    seller.stock.push(medicine);
+    await seller.save();
     res.json({msg:'Medicine added successfully'});
 })
 
