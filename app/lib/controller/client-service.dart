@@ -13,12 +13,12 @@ class ClientService {
       {required BuildContext context}) async {
     final user = Provider.of<UserProvider>(context, listen: false).user;
     final response =
-        await http.get(Uri.parse('$ip/getseller?city=${user.city}'));
+        await http.get(Uri.parse('$ip/tipnsellers?city=${user.city}'));
 
     if (response.statusCode == 200) {
       final List<dynamic> sellerJsonList =
-          json.decode(response.body)['sellers'];
-      final String dailytip = json.decode(response.body)['dailytip'];
+          json.decode(response.body)['sellerList'];
+      final String dailytip = json.decode(response.body)['dailyTip'];
       final List<Seller> sellerList = sellerJsonList
           .map((sellerJson) => Seller.fromMap(sellerJson))
           .toList();

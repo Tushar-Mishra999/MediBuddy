@@ -44,7 +44,7 @@ class Authservice {
     } else {
       // Registration failed
       Fluttertoast.showToast(
-          msg: "Somethin went wrong, please try again",
+          msg: "Something went wrong, please try again",
           backgroundColor: color1,
           textColor: Colors.white);
     }
@@ -66,7 +66,7 @@ class Authservice {
       'address': address,
       'phoneNumber': contact
     };
-
+    
     final response = await http.post(
       Uri.parse('$ip/seller/signup'),
       headers: <String, String>{
