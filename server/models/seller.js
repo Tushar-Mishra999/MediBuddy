@@ -42,14 +42,14 @@ const sellerSchema = mongoose.Schema({
     type: Number,
     required: true
   },
-  /*openTime: {
-    type: Timestamp,
+  openTime: {
+    type: String,
     required: true
   },
   closeTime: {
-    type: Timestamp,
+    type: String,
     required: true
-  },*/
+  },
   category: [String],
   stock: 
     [medicineSchema],
