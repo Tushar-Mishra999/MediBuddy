@@ -57,10 +57,12 @@ const sellerSchema = mongoose.Schema({
     type:String,
     required:true
   },
-  reviews:{
-    count:{type:Number,default:0},
-    rating:{type:Number,default:0},
-  }
+  reviews:[
+    {
+    type: Map,
+    of: Number    
+    }
+  ]
 });
 
 const Seller = mongoose.model("Seller", sellerSchema);

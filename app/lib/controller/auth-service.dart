@@ -57,6 +57,9 @@ class Authservice {
       required String city,
       required String address,
       required String contact,
+      required String shopTimings,
+      required String coordinates,
+      required List<String> categories,
       required BuildContext context}) async {
     final body = {
       'name': name,
@@ -64,9 +67,12 @@ class Authservice {
       'password': password,
       'city': city,
       'address': address,
-      'phoneNumber': contact
+      'phoneNumber': contact,
+      'shopTimings': shopTimings,
+      'coordinates': coordinates,
+      'categories': categories
     };
-    
+
     final response = await http.post(
       Uri.parse('$ip/seller/signup'),
       headers: <String, String>{
@@ -116,10 +122,6 @@ class Authservice {
       //user or seller model code
       Provider.of<UserProvider>(context, listen: false)
           .setUser(json.decode(response.body));
-      // User user = User.fromMap(json.decode(response.body));
-      print(Provider.of<UserProvider>(context, listen: false).user.name);
-      print(Provider.of<UserProvider>(context, listen: false).user.email);
-      print(Provider.of<UserProvider>(context, listen: false).user.city);
       if (Provider.of<UserProvider>(context, listen: false).user.type ==
           'client') {
         Navigator.pushReplacementNamed(context, ClientHomeScreen.routeName);
