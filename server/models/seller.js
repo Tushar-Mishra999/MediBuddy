@@ -52,6 +52,14 @@ const sellerSchema = mongoose.Schema({
   status:{
     type:Boolean,
     default: false
+  },
+  coordindates:{
+    type:String,
+    required:true
+  },
+  reviews:{
+    count:{type:Number,default:0},
+    rating:{type:Number,default:0},
   }
 });
 

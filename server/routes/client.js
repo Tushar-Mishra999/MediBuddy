@@ -34,7 +34,7 @@ clientRouter.get("/search", async(req, res) => {
     for (let i= 0; i<citySellers.length;i++) {
         let seller=citySellers[i];
         for (let j=0; j<seller.stock.length; j++) {   
-            if(medicineName === seller.stock[j].medicineName) {
+            if(medicineName.toLowerCase() === seller.stock[j].medicineName.toLowerCase()) {
                 searchedSellers.push(seller);
             }
         }    
@@ -42,7 +42,7 @@ clientRouter.get("/search", async(req, res) => {
     for (let i= 0; i<otherSellers.length;i++) {
         let seller=otherSellers[i];
         for (let j=0; j<seller.stock.length; j++) {   
-            if(medicineName === seller.stock[j].medicineName) {
+            if(medicineName.toLowerCase() === seller.stock[j].medicineName.toLowerCase()) {
                 searchedSellers.push(seller);
             }
         }    
@@ -60,7 +60,7 @@ clientRouter.get("/category", async(req, res) => {
     for (let i= 0; i<citySellers.length;i++) {
         let seller=citySellers[i];
         for (let j=0; j<seller.category.length; j++) {   
-            if (medicineCategory === seller.category[j]) {
+            if (medicineCategory.toLowerCase() === seller.category[j].toLowerCase()) {
                 searchedSellers.push(seller);
             }
         }
@@ -69,7 +69,7 @@ clientRouter.get("/category", async(req, res) => {
     for (let i= 0; i<otherSellers.length;i++) {
         let seller=otherSellers[i];
         for (let j=0; j<seller.category.length; j++) {   
-            if(medicineCategory === seller.category[j]) {
+            if(medicineCategory.toLowerCase() === seller.category[j].toLowerCase()) {
                 searchedSellers.push(seller);
             }
         }    
