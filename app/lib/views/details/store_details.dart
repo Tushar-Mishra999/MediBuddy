@@ -1,12 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:medibuddy/views/home/medicinetype.dart';
-import 'package:medibuddy/views/home/nearbystore.dart';
-import 'package:medibuddy/views/home/searchbar.dart';
-import 'package:medibuddy/views/result/searchresult.dart';
+import 'package:maps_launcher/maps_launcher.dart';
+import 'package:medibuddy/models/seller.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../constants.dart';
 
-class StoreDetails extends StatelessWidget {
-  const StoreDetails({super.key});
+class StoreDetails extends StatefulWidget {
+  static const routeName = '/store-details';
+  StoreDetails({
+    super.key,
+    required this.medicine,
+    required this.seller,
+  });
+  var medicine;
+  Seller seller;
+
+  @override
+  State<StoreDetails> createState() => _StoreDetailsState();
+}
+
+class _StoreDetailsState extends State<StoreDetails> {
+  Future<void> openMaps() async {
+    String locationString = widget.seller.coordinates;
+
+    String latitudeString = locationString.split(',')[0].split(':')[1].trim();
+    double latitude = double.parse(latitudeString);
+    String longitudeString = locationString.split(',')[1].split(':')[1].trim();
+    double longitude = double.parse(longitudeString);
+    MapsLauncher.launchCoordinates(latitude, longitude);
+    // final String googleMapsUrl =
+    //     'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude';
+    // //if (await canLaunchUrl(Uri.parse(googleMapsUrl))) {
+    //   await launchUrl(Uri.parse(googleMapsUrl));
+    // } else {
+    //   Fluttertoast.showToast(msg: "Please try again", backgroundColor: color1);
+    // }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +43,10 @@ class StoreDetails extends StatelessWidget {
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        StoreInfo(size: size),
+        StoreInfo(
+          size: size,
+          seller: widget.seller,
+        ),
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: Container(
@@ -24,9 +55,9 @@ class StoreDetails extends StatelessWidget {
               SizedBox(
                 height: size.height * 0.01,
               ),
-              const Text(
-                'Cetirizine ( Antihistamine )',
-                style: TextStyle(
+              Text(
+                '${widget.medicine['medicineName']} (${widget.medicine['salt']})',
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
                   fontFamily: 'GilroyLight',
@@ -37,7 +68,7 @@ class StoreDetails extends StatelessWidget {
                 height: size.height * 0.02,
               ),
               Text(
-                'If you are taking the over-the-counter product to self-treat, read all directions on the product package before taking this medication. If you have any questions, consult your pharmacist. If your doctor has prescribed this medication, take it as directed, usually once daily.',
+                widget.medicine['description'],
                 style: TextStyle(
                   color: Colors.grey.shade800,
                   fontSize: 15,
@@ -81,18 +112,23 @@ class StoreDetails extends StatelessWidget {
               SizedBox(
                 width: size.width * 0.03,
               ),
-              Container(
-                height: size.width * 0.15,
-                width: size.width * 0.55,
-                decoration: BoxDecoration(
-                    color: color1, borderRadius: BorderRadius.circular(20)),
-                child: const Center(
-                  child: Text(
-                    'Navigate',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: 'GilroyBold',
+              GestureDetector(
+                onTap: () {
+                  openMaps();
+                },
+                child: Container(
+                  height: size.width * 0.15,
+                  width: size.width * 0.55,
+                  decoration: BoxDecoration(
+                      color: color1, borderRadius: BorderRadius.circular(20)),
+                  child: const Center(
+                    child: Text(
+                      'Navigate',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: 'GilroyBold',
+                      ),
                     ),
                   ),
                 ),
@@ -109,12 +145,18 @@ class StoreInfo extends StatelessWidget {
   const StoreInfo({
     Key? key,
     required this.size,
+    required this.seller,
   }) : super(key: key);
 
   final Size size;
-
+  final Seller seller;
   @override
   Widget build(BuildContext context) {
+    // print(
+    //   seller.category
+    //       .toString()
+    //       .substring(1, seller.category.toString().length - 1),
+    // );
     return Container(
       height: size.height * 0.6,
       width: size.width * 1,
@@ -127,28 +169,49 @@ class StoreInfo extends StatelessWidget {
           SizedBox(
             height: size.height * 0.05,
           ),
-          CircleAvatar(
+          const CircleAvatar(
             backgroundImage: AssetImage("assets/images/doc4.png"),
             radius: 100,
           ),
           SizedBox(
-            height: size.height * 0.05,
+            height: size.height * 0.03,
           ),
           Text(
-            'Gupta Medicals',
-            style: TextStyle(
+            seller.name,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 25,
               fontFamily: 'GilroyBold',
               fontWeight: FontWeight.w100,
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.star,
+                color: Colors.yellow,
+              ),
+              Text(
+                seller.reviews['ratings'].length > 0
+                    ? " ${seller.reviews['sum']} | ${seller.reviews['ratings'].length} Reviews"
+                    : 'No Reviews',
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontFamily: 'GilroyLight',
+                    fontWeight: FontWeight.w800),
+              ),
+            ],
+          ),
           SizedBox(
             height: size.height * 0.03,
           ),
           Text(
-            'Allopathy | Homeopathy | Ayurvedic',
-            style: TextStyle(
+            seller.category
+                .toString()
+                .substring(1, seller.category.toString().length - 1),
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 20,
               fontFamily: 'GilroyLight',
@@ -158,9 +221,9 @@ class StoreInfo extends StatelessWidget {
           SizedBox(
             height: size.height * 0.03,
           ),
-          const Text(
-            'A-9, 1506, Jaypee Classic Sector 134, Noida',
-            style: TextStyle(
+          Text(
+            seller.address,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 15,
               fontFamily: 'GilroyLight',
@@ -172,42 +235,52 @@ class StoreInfo extends StatelessWidget {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const [
-              Icon(
-                Icons.star,
-                color: Colors.yellow,
-              ),
-              Text(
-                ' 4.5 | 2k Reviews',
-                style: TextStyle(
+            children: [
+              // const Icon(
+              //   Icons.star,
+              //   color: Colors.yellow,
+              // ),
+              // Text(
+              //   seller.reviews['ratings'].length > 0
+              //       ? " ${seller.reviews['sum']} | ${seller.reviews['ratings'].length} Reviews"
+              //       : 'No Reviews',
+              //   style: const TextStyle(
+              //       color: Colors.white,
+              //       fontSize: 15,
+              //       fontFamily: 'GilroyLight',
+              //       fontWeight: FontWeight.w800),
+              // ),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.watch_later_outlined,
                     color: Colors.white,
-                    fontSize: 15,
-                    fontFamily: 'GilroyLight',
-                    fontWeight: FontWeight.w800),
+                  ),
+                  Text(
+                    seller.shopTimings,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontFamily: 'GilroyLight',
+                        fontWeight: FontWeight.w800),
+                  ),
+                ],
               ),
-              Icon(
-                Icons.watch_later_outlined,
-                color: Colors.white,
-              ),
-              Text(
-                '9 am - 5 pm',
-                style: TextStyle(
+              Row(
+                children: [
+                  const Icon(
+                    Icons.call,
                     color: Colors.white,
-                    fontSize: 15,
-                    fontFamily: 'GilroyLight',
-                    fontWeight: FontWeight.w800),
-              ),
-              Icon(
-                Icons.call,
-                color: Colors.white,
-              ),
-              Text(
-                '9958904763',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontFamily: 'GilroyLight',
-                    fontWeight: FontWeight.w800),
+                  ),
+                  Text(
+                    seller.phoneNumber,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontFamily: 'GilroyLight',
+                        fontWeight: FontWeight.w800),
+                  ),
+                ],
               ),
             ],
           ),

@@ -9,11 +9,13 @@ class NearbyStore extends StatelessWidget {
     required this.name,
     required this.address,
     required this.phoneNumber,
+    required this.time,
   }) : super(key: key);
 
   final Size size;
   final String name;
   final String address;
+  final String time;
   final String phoneNumber;
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,7 @@ class NearbyStore extends StatelessWidget {
                         color: color1,
                       ),
                       Text(
-                        ' 9 am - 5 pm',
+                        time,
                         style: TextStyle(
                             color: Colors.grey.shade700,
                             fontSize: 15,

@@ -70,7 +70,7 @@ class Authservice {
       'phoneNumber': contact,
       'shopTimings': shopTimings,
       'coordinates': coordinates,
-      'categories': categories
+      'category': categories
     };
 
     final response = await http.post(
@@ -114,7 +114,6 @@ class Authservice {
       },
       body: json.encode(body),
     );
-
     if (response.statusCode == 200) {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(

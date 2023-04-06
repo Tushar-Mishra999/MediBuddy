@@ -1,8 +1,10 @@
 -- Merging decision tree log ---
 application
-INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:5:4-35:19
+INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:19:4-52:19
 MERGED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:19
 MERGED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-17:19
+MERGED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
+MERGED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-14:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:24:5-31:19
 MERGED from [com.google.android.gms:play-services-location:21.0.1] /Users/tm217/.gradle/caches/transforms-3/d42a1919f41e604a4c806aaaeba6bf29/transformed/jetified-play-services-location-21.0.1/AndroidManifest.xml:7:5-20
@@ -22,12 +24,14 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /Users/tm21
 	android:name
 		INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml
 manifest
-ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-36:12
-INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-36:12
-INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-36:12
-INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-36:12
-MERGED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-36:12
+ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-53:12
+INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-53:12
+INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-53:12
+INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-53:12
+MERGED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-53:12
+MERGED from [:maps_launcher] /Users/tm217/Desktop/medibuddy/app/build/maps_launcher/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-19:12
+MERGED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
 MERGED from [:fluttertoast] /Users/tm217/Desktop/medibuddy/app/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:path_provider_android] /Users/tm217/Desktop/medibuddy/app/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/246793f755122fe14a5802655438cb75/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
@@ -60,11 +64,11 @@ INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidMa
 		INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-53:12
 		INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml
-		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-36:12
+		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:1-53:12
 		INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:1:11-69
@@ -76,12 +80,36 @@ uses-permission#android.permission.ACCESS_FINE_LOCATION
 ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:4:4-78
 	android:name
 		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:4:21-75
+uses-permission#android.permission.INTERNET
+ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:5:4-65
+MERGED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:5:4-65
+MERGED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:5:4-65
+	android:name
+		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:5:21-63
+queries
+ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:7:4-18:15
+intent#action:name:android.intent.action.VIEW+data:scheme:sms
+ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:9:5-12:14
+action#android.intent.action.VIEW
+ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:9-61
+	android:name
+		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:17-58
+data
+ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:9-38
+	android:scheme
+		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:15-35
+intent#action:name:android.intent.action.VIEW+data:scheme:tel
+ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:14:5-17:14
 uses-sdk
 INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml
+MERGED from [:maps_launcher] /Users/tm217/Desktop/medibuddy/app/build/maps_launcher/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:maps_launcher] /Users/tm217/Desktop/medibuddy/app/build/maps_launcher/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] /Users/tm217/Desktop/medibuddy/app/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:fluttertoast] /Users/tm217/Desktop/medibuddy/app/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/tm217/Desktop/medibuddy/app/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
@@ -136,10 +164,6 @@ INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidMa
 	android:minSdkVersion
 		INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidManifest.xml
-uses-permission#android.permission.INTERNET
-ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidManifest.xml:7:5-66
-	android:name
-		ADDED from /Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidManifest.xml:7:22-64
 uses-permission#android.permission.FOREGROUND_SERVICE
 ADDED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-77
 	android:name
@@ -154,6 +178,14 @@ ADDED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geoloc
 		ADDED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-53
 	android:name
 		ADDED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-77
+activity#io.flutter.plugins.urllauncher.WebViewActivity
+ADDED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+	android:exported
+		ADDED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+	android:theme
+		ADDED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+	android:name
+		ADDED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
 uses-library#androidx.window.extensions
 ADDED from [androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
 	android:required

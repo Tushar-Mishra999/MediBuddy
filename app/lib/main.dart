@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:medibuddy/provider/user-provider.dart';
 import 'package:medibuddy/router.dart';
 import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
-import 'package:medibuddy/views/registration/seller-registration.dart';
 import 'package:provider/provider.dart';
 
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SellerRegistration(),
+      home: const OnboardingScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }

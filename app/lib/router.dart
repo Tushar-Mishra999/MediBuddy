@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/views/details/store_details.dart';
 import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
 import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:medibuddy/views/registration/client-registration.dart';
 import 'package:medibuddy/views/registration/seller-registration.dart';
+import 'package:medibuddy/views/result/resultscreen.dart';
 import 'package:medibuddy/views/seller/add_medicine.dart';
 import 'package:medibuddy/views/seller/inventory_screen.dart';
 import 'package:medibuddy/views/seller/update_medicine.dart';
@@ -52,14 +54,30 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => UpdateMedicine(
-          name: arguments['name'],
-          quantity: arguments['quantity'],
-          description: arguments['description'],
-          company: arguments['company'],
-          price: arguments['price'],
-          salt: arguments['salt'],
-          id:arguments['id']
-        ),
+            name: arguments['name'],
+            quantity: arguments['quantity'],
+            description: arguments['description'],
+            company: arguments['company'],
+            price: arguments['price'],
+            salt: arguments['salt'],
+            id: arguments['id']),
+      );
+    case ResultsScreen.routeName:
+      Map<String, dynamic> arguments = routeSettings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => ResultsScreen(
+            medicine: arguments['medicine'],
+            ),
+      );
+    case StoreDetails.routeName:
+      Map<String, dynamic> arguments = routeSettings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => StoreDetails(
+            seller: arguments['seller'],
+            medicine: arguments['medicine'],
+            ),
       );
     // case SearchScreen.routeName:
     //   var searchQuery = routeSettings.arguments as String;

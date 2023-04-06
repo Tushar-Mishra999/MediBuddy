@@ -26,7 +26,6 @@ sellerRouter.get("/getmedicine",async (req,res)=>{
     const email=req.query.email;
     const seller=await Seller.findOne({email:email});
     const medicineList=seller.stock;
-    console.log(medicineList);
     res.json({medicineList});
 })
 
@@ -50,7 +49,6 @@ sellerRouter.post('/updatemedicine', async(req, res) => {
         description},
         { new: true }
         );
-    console.log(medicine);
     seller.stock = seller.stock.filter(medicine => medicine._id.toString() !== id);
     seller.stock.push(medicine);
     await seller.save();

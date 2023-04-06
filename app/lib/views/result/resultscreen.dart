@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/controller/client-service.dart';
+import 'package:medibuddy/models/medicine.dart';
 import 'package:medibuddy/models/seller.dart';
 import 'package:medibuddy/views/home/medicinetype.dart';
 import 'package:medibuddy/views/home/nearbystore.dart';
 import 'package:medibuddy/views/home/searchbar.dart';
-import 'package:medibuddy/views/result/searchresult.dart';
+import 'package:medibuddy/views/result/resultcard.dart';
 import '../../constants.dart';
 
 class ResultsScreen extends StatefulWidget {
-  const ResultsScreen({super.key,required this.medicine});
+  static const routeName = '/results-screen';
+  const ResultsScreen({super.key, required this.medicine});
   final String medicine;
   @override
   State<ResultsScreen> createState() => _ResultsScreenState();
@@ -25,16 +27,19 @@ class _ResultsScreenState extends State<ResultsScreen> {
   }
 
   void searchResult({required String medicine}) async {
-    sellerList = await clientService.searchResult(context: context,medicine: medicine);
+    sellerList =
+        await clientService.searchResult(context: context, medicine: medicine);
     isLoading = false;
     setState(() {});
   }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Padding(
@@ -65,19 +70,21 @@ class _ResultsScreenState extends State<ResultsScreen> {
           ),
         ),
       ),
-      body: Center(
-        child: ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: sellerList.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return SearchResult(
-                        size: size,
-                        name: sellerList[index].name,
-                      status: sellerList[index].status,
-                      );
-                    },
-                  ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: size.width * 1,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              for (int index = 0; index < sellerList.length; index++)
+                SearchResult(
+                  size: size,
+                  seller: sellerList[index],
+                  medicine: widget.medicine,
+                )
+            ],
+          ),
+        ),
       ),
     );
   }

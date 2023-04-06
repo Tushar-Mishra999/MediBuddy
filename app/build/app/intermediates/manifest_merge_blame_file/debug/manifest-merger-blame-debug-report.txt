@@ -13,108 +13,149 @@
 13         to allow setting breakpoints, to provide hot reload, etc.
 14    -->
 15    <uses-permission android:name="android.permission.INTERNET" />
-15-->/Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidManifest.xml:7:5-66
-15-->/Users/tm217/Desktop/medibuddy/app/android/app/src/debug/AndroidManifest.xml:7:22-64
+15-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:5:4-65
+15-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:5:21-63
 16    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 16-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:3:4-80
 16-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:3:21-77
-17    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+17    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- Provide required visibility configuration for API level 30 and above -->
 17-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:4:4-78
 17-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:4:21-75
-18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-18-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-77
-18-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-74
+18    <queries>
+18-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:7:4-18:15
 19
-20    <permission
-20-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
-21        android:name="com.example.medibuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-21-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
-22        android:protectionLevel="signature" />
-22-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+20        <!-- If your app checks for SMS support -->
+21        <intent>
+21-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:9:5-12:14
+22            <action android:name="android.intent.action.VIEW" />
+22-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:9-61
+22-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:17-58
 23
-24    <uses-permission android:name="com.example.medibuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-24-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
-24-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
-25
-26    <application
-27        android:name="android.app.Application"
-28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-28-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
-29        android:debuggable="true"
-30        android:icon="@mipmap/ic_launcher"
-31        android:label="medibuddy" >
-32        <activity
-33            android:name="com.example.medibuddy.MainActivity"
-34            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-35            android:exported="true"
-36            android:hardwareAccelerated="true"
-37            android:launchMode="singleTop"
-38            android:theme="@style/LaunchTheme"
-39            android:windowSoftInputMode="adjustResize" >
-40
-41            <!--
-42                 Specifies an Android theme to apply to this Activity as soon as
-43                 the Android process has started. This theme is visible to the user
-44                 while the Flutter UI initializes. After that, this theme continues
-45                 to determine the Window background behind the Flutter UI.
-46            -->
-47            <meta-data
-48                android:name="io.flutter.embedding.android.NormalTheme"
-49                android:resource="@style/NormalTheme" />
-50
-51            <intent-filter>
-52                <action android:name="android.intent.action.MAIN" />
-53
-54                <category android:name="android.intent.category.LAUNCHER" />
-55            </intent-filter>
-56        </activity>
-57        <!--
-58             Don't delete the meta-data below.
-59             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-60        -->
-61        <meta-data
-62            android:name="flutterEmbedding"
-63            android:value="2" />
-64
-65        <service
-65-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:56
-66            android:name="com.baseflow.geolocator.GeolocatorLocationService"
-66-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-77
-67            android:enabled="true"
-67-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-35
-68            android:exported="false"
-68-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-37
-69            android:foregroundServiceType="location" />
-69-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-53
-70
-71        <uses-library
-71-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-72            android:name="androidx.window.extensions"
-72-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-73            android:required="false" />
-73-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-74        <uses-library
-74-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-75            android:name="androidx.window.sidecar"
-75-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-76            android:required="false" />
-76-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-77
-78        <activity
-78-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/f568b3e0e4b3738147ed358a145ad2d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
-79            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-79-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/f568b3e0e4b3738147ed358a145ad2d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
-80            android:exported="false"
-80-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/f568b3e0e4b3738147ed358a145ad2d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
-81            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-81-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/f568b3e0e4b3738147ed358a145ad2d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
-82
-83        <meta-data
-83-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
-84            android:name="com.google.android.gms.version"
-84-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
-85            android:value="@integer/google_play_services_version" />
-85-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
-86    </application>
-87
-88</manifest>
+24            <data android:scheme="sms" />
+24-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:9-38
+24-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:15-35
+25        </intent>
+26        <!-- If your app checks for call support -->
+27        <intent>
+27-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:14:5-17:14
+28            <action android:name="android.intent.action.VIEW" />
+28-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:9-61
+28-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:17-58
+29
+30            <data android:scheme="tel" />
+30-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:9-38
+30-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:15-35
+31        </intent>
+32    </queries>
+33
+34    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+34-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-77
+34-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-74
+35
+36    <permission
+36-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+37        android:name="com.example.medibuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+37-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+38        android:protectionLevel="signature" />
+38-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+39
+40    <uses-permission android:name="com.example.medibuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+40-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+40-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+41
+42    <application
+43        android:name="android.app.Application"
+44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+44-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/6710ee2e3546b398da00e75003abfc33/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+45        android:debuggable="true"
+46        android:icon="@mipmap/ic_launcher"
+47        android:label="medibuddy" >
+48        <activity
+49            android:name="com.example.medibuddy.MainActivity"
+50            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+51            android:exported="true"
+52            android:hardwareAccelerated="true"
+53            android:launchMode="singleTop"
+54            android:theme="@style/LaunchTheme"
+55            android:windowSoftInputMode="adjustResize" >
+56
+57            <!--
+58                 Specifies an Android theme to apply to this Activity as soon as
+59                 the Android process has started. This theme is visible to the user
+60                 while the Flutter UI initializes. After that, this theme continues
+61                 to determine the Window background behind the Flutter UI.
+62            -->
+63            <meta-data
+64                android:name="io.flutter.embedding.android.NormalTheme"
+65                android:resource="@style/NormalTheme" />
+66
+67            <intent-filter>
+68                <action android:name="android.intent.action.MAIN" />
+69
+70                <category android:name="android.intent.category.LAUNCHER" />
+71            </intent-filter>
+72            <!--
+73            <activity android:name="com.google.android.gms.maps.model.LatLng"/>
+74            <activity android:name="com.google.android.gms.maps.SupportMapFragment"/>
+75            <activity android:name="com.google.android.maps.MapsActivity"/>
+76            -->
+77        </activity>
+78        <!--
+79             Don't delete the meta-data below.
+80             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+81        -->
+82        <meta-data
+83            android:name="flutterEmbedding"
+84            android:value="2" />
+85
+86        <service
+86-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:56
+87            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+87-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-77
+88            android:enabled="true"
+88-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-35
+89            android:exported="false"
+89-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-37
+90            android:foregroundServiceType="location" />
+90-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-53
+91
+92        <activity
+92-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+93            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+93-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+94            android:exported="false"
+94-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+95            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+95-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+96
+97        <uses-library
+97-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+98            android:name="androidx.window.extensions"
+98-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+99            android:required="false" />
+99-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+100        <uses-library
+100-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+101            android:name="androidx.window.sidecar"
+101-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+102            android:required="false" />
+102-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/49bc944d29f70d45aa5add8e43e3247e/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+103
+104        <activity
+104-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/f568b3e0e4b3738147ed358a145ad2d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+105            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+105-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/f568b3e0e4b3738147ed358a145ad2d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+106            android:exported="false"
+106-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/f568b3e0e4b3738147ed358a145ad2d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+107            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+107-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/f568b3e0e4b3738147ed358a145ad2d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+108
+109        <meta-data
+109-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+110            android:name="com.google.android.gms.version"
+110-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+111            android:value="@integer/google_play_services_version" />
+111-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/6b0daa5fb4c2eb7e8b55778df9b972f6/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+112    </application>
+113
+114</manifest>
