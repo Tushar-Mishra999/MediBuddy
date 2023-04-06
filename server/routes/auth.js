@@ -37,7 +37,7 @@ authRouter.post('/seller/signup', async(req, res) => {
 
   const hashedPassword = await bcryptjs.hash(password, 12);
   let stock=[];
-  let reviews = [{"id":0}];
+  let reviews = {sum: 0, ratings: []};
   let seller = new Seller({
     name, email, password: hashedPassword, city, address, phoneNumber, shopTimings, category, stock, coordinates, reviews});
   seller = await seller.save();

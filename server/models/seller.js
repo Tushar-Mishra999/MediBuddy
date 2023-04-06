@@ -52,12 +52,19 @@ const sellerSchema = mongoose.Schema({
       type:String,
       required:true
   },
-  reviews:[
+  reviews:
     {
-      type: Map,
-      of: Number    
+      sum:{
+        type:Number,
+        default:0
+      },
+      ratings:[
+        { type:Map,
+        of:Number
+        }
+      ]
     }
-  ],
+  , 
   status:{
     type:Boolean,
     default: false
