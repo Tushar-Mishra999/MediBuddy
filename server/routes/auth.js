@@ -27,7 +27,7 @@ authRouter.post('/client/signup', async (req, res) => {
 
 //SIGNUP - SELLER
 authRouter.post('/seller/signup', async(req, res) => {
-  const {name, email, password, city, address, phoneNumber, openTime, closeTime, category} = req.body;
+  const {name, email, password, city, address, phoneNumber, shopTimings, category, coordinates} = req.body;
   const existingSeller = await Seller.findOne({email});
   if (existingSeller) {
     return res
@@ -37,8 +37,9 @@ authRouter.post('/seller/signup', async(req, res) => {
 
   const hashedPassword = await bcryptjs.hash(password, 12);
   let stock=[];
+  let reviews = [{"id":0}];
   let seller = new Seller({
-    name, email, password: hashedPassword, city, address, phoneNumber, openTime, closeTime, category, stock});
+    name, email, password: hashedPassword, city, address, phoneNumber, shopTimings, category, stock, coordinates, reviews});
   seller = await seller.save();
   res.json({msg:"Registration successful",seller});
 });

@@ -47,22 +47,21 @@ const sellerSchema = mongoose.Schema({
     required: true
   },
   category: [String],
-  stock: 
-    [medicineSchema],
-  status:{
-    type:Boolean,
-    default: false
-  },
-  coordindates:{
-    type:String,
-    required:true
+  stock: [medicineSchema],
+  coordinates:{
+      type:String,
+      required:true
   },
   reviews:[
     {
-    type: Map,
-    of: Number    
+      type: Map,
+      of: Number    
     }
-  ]
+  ],
+  status:{
+    type:Boolean,
+    default: false
+  }
 });
 
 const Seller = mongoose.model("Seller", sellerSchema);
