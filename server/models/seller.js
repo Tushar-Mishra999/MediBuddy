@@ -42,11 +42,7 @@ const sellerSchema = mongoose.Schema({
     type: Number,
     required: true
   },
-  openTime: {
-    type: String,
-    required: true
-  },
-  closeTime: {
+  shopTimings: {
     type: String,
     required: true
   },

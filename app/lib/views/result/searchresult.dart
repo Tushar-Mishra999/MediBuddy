@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import '../../constants.dart';
 
 class SearchResult extends StatelessWidget {
-  const SearchResult({
-    Key? key,
-    required this.size,
-  }) : super(key: key);
+  const SearchResult({Key? key, required this.size, required this.name,required this.status})
+      : super(key: key);
 
   final Size size;
+  final String name;
+  final bool status;
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +28,8 @@ class SearchResult extends StatelessWidget {
           children: [
             Row(
               children: [
-                const Text(
-                  'Gupta Medicals',
+                Text(
+                  name,
                   style: TextStyle(
                     color: Color.fromRGBO(0, 0, 0, 1),
                     fontSize: 18,
@@ -40,7 +40,7 @@ class SearchResult extends StatelessWidget {
                 Switch.adaptive(
                     activeColor: color1,
                     inactiveThumbColor: color2,
-                    value: true,
+                    value: status,
                     onChanged: (val) {})
               ],
             ),

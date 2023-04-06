@@ -1,13 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/controller/client-service.dart';
+import 'package:medibuddy/models/seller.dart';
 import 'package:medibuddy/views/home/medicinetype.dart';
 import 'package:medibuddy/views/home/nearbystore.dart';
 import 'package:medibuddy/views/home/searchbar.dart';
 import 'package:medibuddy/views/result/searchresult.dart';
 import '../../constants.dart';
 
-class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key});
+class ResultsScreen extends StatefulWidget {
+  const ResultsScreen({super.key,required this.medicine});
+  final String medicine;
+  @override
+  State<ResultsScreen> createState() => _ResultsScreenState();
+}
 
+class _ResultsScreenState extends State<ResultsScreen> {
+  ClientService clientService = ClientService();
+  List<Seller> sellerList = [];
+  bool isLoading = true;
+  @override
+  void initState() {
+    super.initState();
+    searchResult(medicine: widget.medicine);
+  }
+
+  void searchResult({required String medicine}) async {
+    sellerList = await clientService.searchResult(context: context,medicine: medicine);
+    isLoading = false;
+    setState(() {});
+  }
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -45,13 +66,18 @@ class ResultsScreen extends StatelessWidget {
         ),
       ),
       body: Center(
-        child: Column(
-          children: [
-            SearchResult(size: size),
-            SearchResult(size: size),
-            SearchResult(size: size),
-          ],
-        ),
+        child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: sellerList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return SearchResult(
+                        size: size,
+                        name: sellerList[index].name,
+                      status: sellerList[index].status,
+                      );
+                    },
+                  ),
       ),
     );
   }

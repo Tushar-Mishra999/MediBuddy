@@ -189,7 +189,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                     ),
                   ),
                   ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: sellerList.length,
                     itemBuilder: (BuildContext context, int index) {

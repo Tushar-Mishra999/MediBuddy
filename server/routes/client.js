@@ -24,8 +24,8 @@ clientRouter.get("/tipnsellers", async(req, res) => {
 -    res.json({"sellerList": sellerArray, "dailyTip": randomTip});
 });
 
-clientRouter.post("/search", async(req, res) => {
-    const city = req.body.city;
+clientRouter.get("/search", async(req, res) => {
+    const city = req.query.city;
     const medicineName = req.query.medicine;
     const sellers = await Seller.find({});
     let citySellers = sellers.filter(seller => seller.city === city);
@@ -50,7 +50,7 @@ clientRouter.post("/search", async(req, res) => {
     res.json({searchedSellers});
 });
 
-clientRouter.post("/category", async(req, res) => {
+clientRouter.get("/category", async(req, res) => {
     const city = req.body.city;
     const medicineCategory = req.query.category;
     const sellers = await Seller.find({});
