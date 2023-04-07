@@ -25,6 +25,19 @@ class _ChatScreenState extends State<ChatScreen> {
   void initState() {
     super.initState();
 
+    FirebaseFirestore.instance
+        .collection('chats')
+        .doc(widget.chatRoomId)
+        .get()
+        .then((docSnapshot) {
+      if (!docSnapshot.exists) {
+        FirebaseFirestore.instance
+            .collection('chats')
+            .doc(widget.chatRoomId)
+            .set({'chat': []});
+      }
+    });
+
     chatStream = FirebaseFirestore.instance
         .collection('chats')
         .doc(widget.chatRoomId)
@@ -100,12 +113,11 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Stack(
           children: [
             Column(
-              //crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
                   padding: const EdgeInsets.only(top: 10),
                   height: size.height * 0.05,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
                       border: Border(
                         bottom: BorderSide(

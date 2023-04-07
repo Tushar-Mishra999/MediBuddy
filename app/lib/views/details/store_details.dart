@@ -62,7 +62,7 @@ class _StoreDetailsState extends State<StoreDetails> {
                 height: size.height * 0.01,
               ),
               Text(
-                '${widget.searchQuery['medicineName']} ${!widget.isCategory ? '(' : ''} ${!widget.isCategory ? widget.searchQuery['salt'] : ''} ${!widget.isCategory ? ')' : ''}',
+                '${widget.searchQuery['medicineName']}:${!widget.isCategory ? '(' : ''} ${!widget.isCategory ? widget.searchQuery['salt'] : ''} ${!widget.isCategory ? ')' : ''}',
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
