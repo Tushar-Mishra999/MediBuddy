@@ -166,7 +166,8 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                     hintText: 'Search for your company',
                     onSubmitted: (value) {
                       Navigator.pushNamed(context, ResultsScreen.routeName, arguments: {
-        'medicine': value,
+        'searchQuery': value,
+        'isCategory':false
       });
                     },
                   ),

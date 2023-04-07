@@ -300,7 +300,7 @@ class _SellerRegistrationState extends State<SellerRegistration> {
                   CheckboxListTile(
                     activeColor: color1,
                     title: const Text(
-                      "Homeopathy",
+                      "Homeopathic",
                       style: TextStyle(
                         color: color1,
                         fontSize: 15,
@@ -318,7 +318,7 @@ class _SellerRegistrationState extends State<SellerRegistration> {
                   CheckboxListTile(
                     activeColor: color1,
                     title: const Text(
-                      "Allopathy",
+                      "Allopathic",
                       style: TextStyle(
                         color: color1,
                         fontSize: 15,

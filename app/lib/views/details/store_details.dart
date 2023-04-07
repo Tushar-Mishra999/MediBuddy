@@ -8,10 +8,12 @@ class StoreDetails extends StatefulWidget {
   static const routeName = '/store-details';
   StoreDetails({
     super.key,
-    required this.medicine,
+    required this.searchQuery,
     required this.seller,
+    required this.isCategory,
   });
-  var medicine;
+  var searchQuery;
+  bool isCategory;
   Seller seller;
 
   @override
@@ -56,7 +58,7 @@ class _StoreDetailsState extends State<StoreDetails> {
                 height: size.height * 0.01,
               ),
               Text(
-                '${widget.medicine['medicineName']} (${widget.medicine['salt']})',
+                '${widget.searchQuery['medicineName']} ${!widget.isCategory ? '(' : ''} ${!widget.isCategory ? widget.searchQuery['salt'] : ''} ${!widget.isCategory ? ')' : ''}',
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -68,7 +70,7 @@ class _StoreDetailsState extends State<StoreDetails> {
                 height: size.height * 0.02,
               ),
               Text(
-                widget.medicine['description'],
+                widget.searchQuery['description'],
                 style: TextStyle(
                   color: Colors.grey.shade800,
                   fontSize: 15,

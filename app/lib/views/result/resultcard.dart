@@ -10,35 +10,44 @@ class SearchResult extends StatelessWidget {
       {Key? key,
       required this.size,
       required this.seller,
-      required this.medicine})
+      required this.searchQuery,
+      required this.isCategory})
       : super(key: key);
 
   final Size size;
   final Seller seller;
-  final String medicine;
+  final String searchQuery;
+  final bool isCategory;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        var stock = seller.stock;
-        var searchedMedicine;
-        print(stock);
-        for (var medicine in stock) {
-          if (medicine['medicineName'].toLowerCase() ==
-              this.medicine.toLowerCase()) {
-            searchedMedicine = medicine;
+        if (!isCategory) {
+          var stock = seller.stock;
+          var searchedMedicine;
+          for (var medicine in stock) {
+            if (medicine['medicineName'].toLowerCase() ==
+                searchQuery.toLowerCase()) {
+              searchedMedicine = medicine;
+            }
           }
+          Navigator.pushNamed(context, StoreDetails.routeName, arguments: {
+            'seller': seller,
+            'searchQuery': searchedMedicine,
+            'isCategory': false
+          });
+        } else {
+          var category = {
+            'medicineName': searchQuery,
+            'description': description[searchQuery],
+          };
+          Navigator.pushNamed(context, StoreDetails.routeName, arguments: {
+            'seller': seller,
+            'searchQuery': category,
+            'isCategory': true
+          });
         }
-        print(searchedMedicine);
-        Navigator.pushNamed(
-          context,
-          StoreDetails.routeName,
-          arguments: {
-            'seller':seller,
-            'medicine':searchedMedicine
-          }
-        );
       },
       child: Container(
         margin: const EdgeInsets.all(10),

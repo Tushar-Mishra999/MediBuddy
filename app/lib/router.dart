@@ -67,7 +67,8 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ResultsScreen(
-            medicine: arguments['medicine'],
+            searchQuery: arguments['searchQuery'],
+            isCategory: arguments['isCategory'],
             ),
       );
     case StoreDetails.routeName:
@@ -76,7 +77,8 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => StoreDetails(
             seller: arguments['seller'],
-            medicine: arguments['medicine'],
+            searchQuery: arguments['searchQuery'],
+            isCategory: arguments['isCategory'],
             ),
       );
     // case SearchScreen.routeName:

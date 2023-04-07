@@ -51,8 +51,8 @@ clientRouter.get("/search", async(req, res) => {
 });
 
 clientRouter.get("/category", async(req, res) => {
-    const city = req.body.city;
-    const medicineCategory = req.query.category;
+    const city = req.query.city;
+    const category = req.query.category;
     const sellers = await Seller.find({});
     let citySellers = sellers.filter(seller => seller.city === city);
     let otherSellers = sellers.filter(seller => seller.city !== city);
@@ -60,7 +60,7 @@ clientRouter.get("/category", async(req, res) => {
     for (let i= 0; i<citySellers.length;i++) {
         let seller=citySellers[i];
         for (let j=0; j<seller.category.length; j++) {   
-            if (medicineCategory.toLowerCase() === seller.category[j].toLowerCase()) {
+            if (category.toLowerCase() === seller.category[j].toLowerCase()) {
                 searchedSellers.push(seller);
             }
         }
@@ -69,7 +69,7 @@ clientRouter.get("/category", async(req, res) => {
     for (let i= 0; i<otherSellers.length;i++) {
         let seller=otherSellers[i];
         for (let j=0; j<seller.category.length; j++) {   
-            if(medicineCategory.toLowerCase() === seller.category[j].toLowerCase()) {
+            if(category.toLowerCase() === seller.category[j].toLowerCase()) {
                 searchedSellers.push(seller);
             }
         }    

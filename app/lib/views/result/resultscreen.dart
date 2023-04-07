@@ -10,8 +10,10 @@ import '../../constants.dart';
 
 class ResultsScreen extends StatefulWidget {
   static const routeName = '/results-screen';
-  const ResultsScreen({super.key, required this.medicine});
-  final String medicine;
+  const ResultsScreen(
+      {super.key, required this.searchQuery, required this.isCategory});
+  final String searchQuery;
+  final bool isCategory;
   @override
   State<ResultsScreen> createState() => _ResultsScreenState();
 }
@@ -23,12 +25,18 @@ class _ResultsScreenState extends State<ResultsScreen> {
   @override
   void initState() {
     super.initState();
-    searchResult(medicine: widget.medicine);
+    searchResult(searchQuery: widget.searchQuery);
   }
 
-  void searchResult({required String medicine}) async {
-    sellerList =
-        await clientService.searchResult(context: context, medicine: medicine);
+  void searchResult({required String searchQuery}) async {
+    if (widget.isCategory) {
+      sellerList = await clientService.categoryResult(
+          context: context, category: searchQuery);
+    } else {
+      sellerList = await clientService.searchResult(
+          context: context, medicine: searchQuery);
+    }
+
     isLoading = false;
     setState(() {});
   }
@@ -71,20 +79,36 @@ class _ResultsScreenState extends State<ResultsScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          width: size.width * 1,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              for (int index = 0; index < sellerList.length; index++)
-                SearchResult(
-                  size: size,
-                  seller: sellerList[index],
-                  medicine: widget.medicine,
-                )
-            ],
-          ),
-        ),
+        child: sellerList.isEmpty
+            ? SizedBox(
+                height: size.height * 0.7,
+                child: const Center(
+                  child: Text(
+                    "No seller found",
+                    style: TextStyle(
+                      color: color1,
+                      fontSize: 25,
+                      fontFamily: 'GilroyBold',
+                      fontWeight: FontWeight.w100,
+                    ),
+                  ),
+                ),
+              )
+            : SizedBox(
+                width: size.width * 1,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    for (int index = 0; index < sellerList.length; index++)
+                      SearchResult(
+                        size: size,
+                        seller: sellerList[index],
+                        searchQuery: widget.searchQuery,
+                        isCategory: widget.isCategory,
+                      )
+                  ],
+                ),
+              ),
       ),
     );
   }

@@ -38,10 +38,32 @@ class ClientService {
   }
 
   Future<List<Seller>> searchResult(
-      {required BuildContext context,required String medicine}) async {
+      {required BuildContext context, required String medicine}) async {
     final user = Provider.of<UserProvider>(context, listen: false).user;
-    final response =
-        await http.get(Uri.parse('$ip/search?city=${user.city}&medicine=$medicine'));
+    final response = await http
+        .get(Uri.parse('$ip/search?city=${user.city}&medicine=$medicine'));
+
+    if (response.statusCode == 200) {
+      final List<dynamic> sellerJsonList =
+          json.decode(response.body)['searchedSellers'];
+      final List<Seller> sellerList = sellerJsonList
+          .map((sellerJson) => Seller.fromMap(sellerJson))
+          .toList();
+      return sellerList;
+    } else {
+      Fluttertoast.showToast(
+          msg: "Something went wrong, please try again",
+          backgroundColor: color1,
+          textColor: Colors.white);
+      return [];
+    }
+  }
+
+  Future<List<Seller>> categoryResult(
+      {required BuildContext context, required String category}) async {
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+    final response = await http
+        .get(Uri.parse('$ip/category?city=${user.city}&category=$category'));
 
     if (response.statusCode == 200) {
       final List<dynamic> sellerJsonList =
