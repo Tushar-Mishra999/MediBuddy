@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "137318215418",
+    "project_id": "medibuddy-edbe6",
+    "storage_bucket": "medibuddy-edbe6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137318215418:android:63015ad4145a6770d1e343",
+        "android_client_info": {
+          "package_name": "com.example.medibuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137318215418-27bg0t7avce20qeim0ej8uktlncs1v8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM2P-pYt7IJAuwmPeFJP1TOiKUcTtXVxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137318215418-27bg0t7avce20qeim0ej8uktlncs1v8c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

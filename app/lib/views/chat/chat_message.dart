@@ -13,7 +13,7 @@ class ChatMessage extends StatelessWidget {
       children: [
         Container(
           padding: const EdgeInsets.all(10),
-          margin: const EdgeInsets.only(bottom: 5),
+          margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.only(
                 topRight: receiver == true

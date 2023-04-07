@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:maps_launcher/maps_launcher.dart';
 import 'package:medibuddy/models/seller.dart';
+import 'package:medibuddy/provider/user-provider.dart';
+import 'package:medibuddy/views/chat/chat_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../constants.dart';
 
@@ -41,6 +44,7 @@ class _StoreDetailsState extends State<StoreDetails> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final user = Provider.of<UserProvider>(context, listen: false).user;
     return Scaffold(
         body: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,14 +105,23 @@ class _StoreDetailsState extends State<StoreDetails> {
               SizedBox(
                 width: size.width * 0.03,
               ),
-              Container(
-                height: size.width * 0.15,
-                width: size.width * 0.15,
-                decoration: BoxDecoration(
-                    color: color1, borderRadius: BorderRadius.circular(20)),
-                child: const Icon(
-                  Icons.message_sharp,
-                  color: Colors.white,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, ChatScreen.routeName,
+                      arguments: {
+                        'seller': widget.seller,
+                        'chatRoomId': "${user.email}${widget.seller.email}"
+                      });
+                },
+                child: Container(
+                  height: size.width * 0.15,
+                  width: size.width * 0.15,
+                  decoration: BoxDecoration(
+                      color: color1, borderRadius: BorderRadius.circular(20)),
+                  child: const Icon(
+                    Icons.message_sharp,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medibuddy/views/chat/chat_screen.dart';
 import 'package:medibuddy/views/details/store_details.dart';
 import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
@@ -63,23 +64,35 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
             id: arguments['id']),
       );
     case ResultsScreen.routeName:
-      Map<String, dynamic> arguments = routeSettings.arguments as Map<String, dynamic>;
+      Map<String, dynamic> arguments =
+          routeSettings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ResultsScreen(
-            searchQuery: arguments['searchQuery'],
-            isCategory: arguments['isCategory'],
-            ),
+          searchQuery: arguments['searchQuery'],
+          isCategory: arguments['isCategory'],
+        ),
       );
     case StoreDetails.routeName:
-      Map<String, dynamic> arguments = routeSettings.arguments as Map<String, dynamic>;
+      Map<String, dynamic> arguments =
+          routeSettings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => StoreDetails(
-            seller: arguments['seller'],
-            searchQuery: arguments['searchQuery'],
-            isCategory: arguments['isCategory'],
-            ),
+          seller: arguments['seller'],
+          searchQuery: arguments['searchQuery'],
+          isCategory: arguments['isCategory'],
+        ),
+      );
+    case ChatScreen.routeName:
+      Map<String, dynamic> arguments =
+          routeSettings.arguments as Map<String, dynamic>;
+          return  MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => ChatScreen(
+          //seller:arguments['seller'],
+          chatRoomId: arguments['chatRoomId'],
+        ),
       );
     // case SearchScreen.routeName:
     //   var searchQuery = routeSettings.arguments as String;

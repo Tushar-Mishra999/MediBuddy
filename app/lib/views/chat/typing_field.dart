@@ -5,14 +5,17 @@ class TypingField extends StatelessWidget {
   const TypingField({
     Key? key,
     required this.size,
+    required this.controller,
+    required this.onSubmitted,
   }) : super(key: key);
 
   final Size size;
-
+  final Function onSubmitted;
+  final TextEditingController controller;
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: const EdgeInsets.all(10),
       width: size.width * 0.9,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
@@ -24,6 +27,8 @@ class TypingField extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
+              controller: controller,
+              onEditingComplete: onSubmitted(),
               style: TextStyle(
                 color: Colors.grey.shade800,
                 fontSize: 15,
