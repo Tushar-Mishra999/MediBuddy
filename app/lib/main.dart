@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:medibuddy/provider/user-provider.dart';
 import 'package:medibuddy/router.dart';
 import 'package:medibuddy/views/chat/chat_screen.dart';
+import 'package:medibuddy/views/contact/contact.dart';
 import 'package:medibuddy/views/details/store_details.dart';
 import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:provider/provider.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(MultiProvider(
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChatScreen(chatRoomId: 'dg325@snu.edu.in:tusharmishra16@gmail.com',),
+      home: OnboardingScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }

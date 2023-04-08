@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/views/chat/chat_screen.dart';
+import 'package:medibuddy/views/contact/contact.dart';
 import 'package:medibuddy/views/details/store_details.dart';
 import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
@@ -47,6 +48,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => AddMedicine(),
+      );
+     case ContactScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => ContactScreen(),
       );
 
     case UpdateMedicine.routeName:

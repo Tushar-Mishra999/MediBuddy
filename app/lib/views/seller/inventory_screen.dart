@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
+import 'package:medibuddy/views/contact/contact.dart';
 import 'package:medibuddy/views/home/searchbar.dart';
 import 'package:medibuddy/views/seller/add_medicine.dart';
 import 'package:medibuddy/views/seller/medicine.dart';
@@ -73,10 +74,15 @@ class _InventoryScreenState extends State<InventoryScreen> {
                     setState(() {
                     });
                   }),
-              const Icon(
-                Icons.message_outlined,
-                color: color1,
-                size: 30,
+              GestureDetector(
+                onTap:(){
+                  Navigator.pushNamed(context, ContactScreen.routeName);
+                },
+                child: const Icon(
+                  Icons.message_outlined,
+                  color: color1,
+                  size: 30,
+                ),
               ),
             ]),
           ),

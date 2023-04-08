@@ -9,9 +9,9 @@ import 'package:provider/provider.dart';
 
 class ChatScreen extends StatefulWidget {
   static const routeName = '/chat-screen';
-  ChatScreen({required this.chatRoomId});
+  ChatScreen({required this.chatRoomId,required this.name});
 
-  // final Seller seller;
+  final String name;
   final String chatRoomId;
   @override
   State<ChatScreen> createState() => _ChatScreenState();
@@ -41,7 +41,6 @@ class _ChatScreenState extends State<ChatScreen> {
         .collection('chats')
         .doc(widget.chatRoomId)
         .snapshots();
-  
   }
 
   void sendMessage() {
@@ -65,7 +64,8 @@ class _ChatScreenState extends State<ChatScreen> {
       //});
     }
   }
-    Widget ChatMessageList() {
+
+  Widget ChatMessageList() {
     final user = Provider.of<UserProvider>(context, listen: false).user;
     print(user.type);
     return StreamBuilder(
@@ -102,10 +102,8 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-      
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color3,
@@ -133,7 +131,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         width: size.width * 0.02,
                       ),
                       Text(
-                        "Seller name",
+                        widget.name,
                         style: const TextStyle(
                           color: color1,
                           fontSize: 20,
@@ -165,4 +163,3 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
-

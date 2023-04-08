@@ -109,8 +109,8 @@ class _StoreDetailsState extends State<StoreDetails> {
                 onTap: () {
                   Navigator.pushNamed(context, ChatScreen.routeName,
                       arguments: {
-                        'seller': widget.seller,
-                        'chatRoomId': "${user.email}${widget.seller.email}"
+                        'name': widget.seller.name,
+                        'chatRoomId': "${user.email},${user.name}:${widget.seller.email},${widget.seller.name}"
                       });
                 },
                 child: Container(
@@ -181,9 +181,7 @@ class StoreInfo extends StatelessWidget {
       ),
       child: SafeArea(
         child: Column(children: [
-          SizedBox(
-            height: size.height * 0.05,
-          ),
+          SizedBox(height: size.height * 0.05),
           const CircleAvatar(
             backgroundImage: AssetImage("assets/images/doc4.png"),
             radius: 100,
