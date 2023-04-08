@@ -24,7 +24,6 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
-
     FirebaseFirestore.instance
         .collection('chats')
         .doc(widget.chatRoomId)
@@ -42,6 +41,7 @@ class _ChatScreenState extends State<ChatScreen> {
         .collection('chats')
         .doc(widget.chatRoomId)
         .snapshots();
+  
   }
 
   void sendMessage() {
@@ -65,8 +65,7 @@ class _ChatScreenState extends State<ChatScreen> {
       //});
     }
   }
-
-  Widget ChatMessageList() {
+    Widget ChatMessageList() {
     final user = Provider.of<UserProvider>(context, listen: false).user;
     print(user.type);
     return StreamBuilder(
@@ -103,8 +102,10 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
+
   @override
   Widget build(BuildContext context) {
+      
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: color3,
@@ -164,3 +165,4 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 }
+

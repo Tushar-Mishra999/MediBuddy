@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ChatScreen(chatRoomId: 'dg325@snu.edu.intusharmishra16@gmail.com',),
+      home: ChatScreen(chatRoomId: 'dg325@snu.edu.in:tusharmishra16@gmail.com',),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
