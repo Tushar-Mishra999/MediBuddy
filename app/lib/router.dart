@@ -96,7 +96,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           return  MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => ChatScreen(
-          //seller:arguments['seller'],
+          name:arguments['name'],
           chatRoomId: arguments['chatRoomId'],
         ),
       );

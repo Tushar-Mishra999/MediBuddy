@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:medibuddy/constants.dart';
 import 'package:medibuddy/models/seller.dart';
 import 'package:medibuddy/provider/user-provider.dart';
@@ -9,7 +10,7 @@ import 'package:provider/provider.dart';
 
 class ChatScreen extends StatefulWidget {
   static const routeName = '/chat-screen';
-  ChatScreen({required this.chatRoomId,required this.name});
+  ChatScreen({required this.chatRoomId, required this.name});
 
   final String name;
   final String chatRoomId;
@@ -90,7 +91,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 Map<String, dynamic> chatMessage = chatList[index];
                 return ChatMessage(
                   message: chatMessage['message'],
-                  receiver: chatMessage['sender'] == 'seller' ? false : true,
+                  receiver: chatMessage['sender'] == user.type ? false : true,
                 );
               },
             ),

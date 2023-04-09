@@ -167,11 +167,6 @@ class StoreInfo extends StatelessWidget {
   final Seller seller;
   @override
   Widget build(BuildContext context) {
-    // print(
-    //   seller.category
-    //       .toString()
-    //       .substring(1, seller.category.toString().length - 1),
-    // );
     return Container(
       height: size.height * 0.6,
       width: size.width * 1,

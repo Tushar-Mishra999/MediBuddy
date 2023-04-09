@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:medibuddy/controller/client-service.dart';
 import 'package:medibuddy/provider/user-provider.dart';
+import 'package:medibuddy/views/contact/contact.dart';
 import 'package:medibuddy/views/home/medicinetype.dart';
 import 'package:medibuddy/views/home/nearbystore.dart';
 import 'package:medibuddy/views/home/searchbar.dart';
@@ -93,14 +94,19 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
               ],
             ),
             const Spacer(),
-            Container(
-              padding: const EdgeInsets.all(6),
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: color1, width: 1)),
-              child: const Icon(
-                Icons.notifications_outlined,
-                color: Colors.black,
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, ContactScreen.routeName);
+              },
+              child: Container(
+                padding: const EdgeInsets.all(6),
+                decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: color1, width: 1)),
+                child: const Icon(
+                  Icons.message_outlined,
+                  color: Colors.black,
+                ),
               ),
             )
           ]),
@@ -165,10 +171,11 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                   child: RoundedSearchBar(
                     hintText: 'Search for your company',
                     onSubmitted: (value) {
-                      Navigator.pushNamed(context, ResultsScreen.routeName, arguments: {
-        'searchQuery': value,
-        'isCategory':false
-      });
+                      Navigator.pushNamed(context, ResultsScreen.routeName,
+                          arguments: {
+                            'searchQuery': value,
+                            'isCategory': false
+                          });
                     },
                   ),
                 ),

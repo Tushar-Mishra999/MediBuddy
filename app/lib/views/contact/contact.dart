@@ -28,7 +28,7 @@ class _ContactScreenState extends State<ContactScreen> {
       querySnapshot.docs.forEach((doc) {
         String documentId = doc.id;
         String searchString = user.email;
-        int index = user.status == 'client' ? 1 : 0;
+        int index = user.type == 'client' ? 1 : 0;
         if (documentId.contains(searchString)) {
           contacts.add(documentId.split(':')[index]);
         }
@@ -52,7 +52,7 @@ class _ContactScreenState extends State<ContactScreen> {
               SizedBox(
                 width: size.width * 0.1,
               ),
-              Text(
+              const Text(
                 'Messaging List',
                 style: TextStyle(
                     fontFamily: 'GilroyBold',
@@ -71,10 +71,12 @@ class _ContactScreenState extends State<ContactScreen> {
                 return GestureDetector(
                   onTap: () {
                     Navigator.pushNamed(context, ChatScreen.routeName,
-                      arguments: {
-                        'name': contacts[index].split(',')[1],
-                        'chatRoomId': "${contacts[index].split(',')[0]},${contacts[index].split(',')[1]}:${user.email},${user.name}"
-                      });
+                        arguments: {
+                          'name': contacts[index].split(',')[1],
+                          'chatRoomId': user.type == 'client'
+                              ? "${user.email},${user.name}:${contacts[index].split(',')[0]},${contacts[index].split(',')[1]}"
+                              : "${contacts[index].split(',')[0]},${contacts[index].split(',')[1]}:${user.email},${user.name}",
+                        });
                   },
                   child: Container(
                     padding: const EdgeInsets.all(15.0),
@@ -85,7 +87,7 @@ class _ContactScreenState extends State<ContactScreen> {
                     ),
                     child: Text(
                       contacts[index].split(',')[1],
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontFamily: 'GilroyBold',
                           color: color1,
                           fontSize: 18.0,
