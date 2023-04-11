@@ -78,13 +78,23 @@ clientRouter.get("/category", async(req, res) => {
 });
 
 clientRouter.post('/review', async (req, res) => {
-    const sellerEmail = req.query.email;
-    const rating = req.body;
-    const seller = await Seller.find({sellerEmail});
-    const clientEmail = await client.find({email});
-    const newRating = [{clientEmail: rating}];
-    seller.reviews.updateOne()
+    let clientEmail = req.query.email;
+    const {rating, email} = req.body;
+    const seller = await Seller.findOne({email});
+    let ratings = seller.reviews["ratings"];
+    let avg = seller.reviews["avg"];
 
-  })
-  
+    const index = ratings.findIndex(obj => obj.email === clientEmail);
+    if(index !== -1) {
+        ratings[index]["rating"] = rating;
+    } else {
+        ratings.push({"email": clientEmail, "rating": rating})
+    }
+
+    avg = (avg+rating)/ratings.length;
+    seller.reviews["avg"] = avg;
+    await seller.save();
+    res.json({msg: "Review added successfully"});
+});
+
 module.exports = clientRouter;

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const {medicineSchema}=require("./medicine");
+const Client = require("./client");
 
 const sellerSchema = mongoose.Schema({
   name: {
@@ -54,14 +55,12 @@ const sellerSchema = mongoose.Schema({
   },
   reviews:
     {
-      sum:{
+      avg:{
         type:Number,
         default:0
       },
       ratings:[
-        { type:Map,
-        of:Number
-        }
+        {email:{type:String}, rating:{type:Number}}
       ]
     }
   , 
