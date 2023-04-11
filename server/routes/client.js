@@ -77,5 +77,14 @@ clientRouter.get("/category", async(req, res) => {
     res.json({searchedSellers});
 });
 
+clientRouter.post('/review', async (req, res) => {
+    const sellerEmail = req.query.email;
+    const rating = req.body;
+    const seller = await Seller.find({sellerEmail});
+    const clientEmail = await client.find({email});
+    const newRating = [{clientEmail: rating}];
+    seller.reviews.updateOne()
 
+  })
+  
 module.exports = clientRouter;
