@@ -5,6 +5,7 @@ const {Medicine} = require("../models/medicine");
 const sellerRouter=express.Router();
 
 sellerRouter.post('/addmedicine', async (req, res) => {
+  try {
     const {email, medicineName, salt, company, price, quantity, description} = req.body;
     const seller = await Seller.findOne({email});
     for (const medicine of seller.stock) {
@@ -18,26 +19,38 @@ sellerRouter.post('/addmedicine', async (req, res) => {
 
     seller.stock.push(medicine);
     await seller.save();
-    res.json({msg:'Medicine added successfully'});
-})
+    res.json({msg:'Medicine added successfully'}); 
+    } catch (err) {
+      res.status(500).send('Server Error');
+    }
+});
 
 
 sellerRouter.get("/getmedicine",async (req,res)=>{
+  try {
     const email=req.query.email;
     const seller=await Seller.findOne({email:email});
     const medicineList=seller.stock;
     res.json({medicineList});
-})
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
 
 sellerRouter.post('/changestatus', async(req, res) => {
+  try {
     const {email, status} = req.body;
     const seller = await Seller.findOne({email});
     seller.status=status;
     await seller.save();
-    res.json({msg:"Status changed successfully"});
-})
+    res.json({msg:"Status changed successfully"}); 
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
 
 sellerRouter.post('/updatemedicine', async(req, res) => {
+  try {
     const {email,id, medicineName, salt, company, price, quantity, description} = req.body;
     const seller = await Seller.findOne({email});
     const medicine= await Medicine.findByIdAndUpdate(id,
@@ -53,7 +66,10 @@ sellerRouter.post('/updatemedicine', async(req, res) => {
     seller.stock.push(medicine);
     await seller.save();
     res.json({msg:"Medicine updated successfully"});
-})
+  } catch (err) {
+    res.status(500).send('Server Error');
+  }
+});
 
 sellerRouter.delete('/deletemedicine', async (req, res) => {
     const { id,email } = req.body;

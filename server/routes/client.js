@@ -1,12 +1,12 @@
 const { query, response } = require("express");
 const express = require("express");
-const Client = require("../models/client");
 const DailyTip = require("../models/dailytip");
 const Seller = require("../models/seller");
 
 const clientRouter = express.Router();
 
 clientRouter.get("/tipnsellers", async(req, res) => {
+    try {
     const city = req.query.city;
     const sellers = await Seller.find({city});
     limit = 5;
@@ -21,10 +21,14 @@ clientRouter.get("/tipnsellers", async(req, res) => {
     const randomIndex = Math.floor(Math.random() * dailytipsArray.length);
     const randomTip = dailytipsArray[randomIndex];
 
--    res.json({"sellerList": sellerArray, "dailyTip": randomTip});
+-   res.json({"sellerList": sellerArray, "dailyTip": randomTip});
+    } catch (err) {
+        res.status(500).send("Server Error");
+    }
 });
 
 clientRouter.get("/search", async(req, res) => {
+    try {
     const city = req.query.city;
     const medicineName = req.query.medicine;
     const sellers = await Seller.find({});
@@ -47,10 +51,14 @@ clientRouter.get("/search", async(req, res) => {
             }
         }    
     }
-    res.json({searchedSellers});
+    res.json({searchedSellers}); 
+    } catch(err) {
+        res.status(500).send("Server Error");
+    }
 });
 
 clientRouter.get("/category", async(req, res) => {
+    try {
     const city = req.query.city;
     const category = req.query.category;
     const sellers = await Seller.find({});
@@ -75,9 +83,13 @@ clientRouter.get("/category", async(req, res) => {
         }    
     }
     res.json({searchedSellers});
+    } catch(err) {
+        res.status(500).send("Server Error");
+    }
 });
 
 clientRouter.post('/review', async (req, res) => {
+    try {
     let clientEmail = req.query.email;
     const {rating, email} = req.body;//seller's email, and rating score
     const seller = await Seller.findOne({email});
@@ -100,6 +112,9 @@ clientRouter.post('/review', async (req, res) => {
     seller.reviews["ratings"]=ratings;
     await seller.save();
     res.json({msg: "Review added successfully"});
+    } catch(err) {
+        res.status(500).send("Server Error");
+    }
 });
 
 module.exports = clientRouter;
