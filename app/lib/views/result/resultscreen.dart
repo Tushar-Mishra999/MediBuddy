@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medibuddy/controller/client-service.dart';
-import 'package:medibuddy/models/medicine.dart';
 import 'package:medibuddy/models/seller.dart';
-import 'package:medibuddy/views/home/medicinetype.dart';
-import 'package:medibuddy/views/home/nearbystore.dart';
-import 'package:medibuddy/views/home/searchbar.dart';
 import 'package:medibuddy/views/result/resultcard.dart';
 import '../../constants.dart';
 

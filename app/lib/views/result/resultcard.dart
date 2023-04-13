@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:medibuddy/models/medicine.dart';
-
 import '../../constants.dart';
 import '../../models/seller.dart';
 import '../details/store_details.dart';
@@ -90,14 +88,23 @@ class SearchResult extends StatelessWidget {
                         Icons.star,
                         color: color1,
                       ),
-                      Text(
-                        ' 4.5 | 2k Reviews',
-                        style: TextStyle(
-                            color: Colors.grey.shade700,
-                            fontSize: 15,
-                            fontFamily: 'GilroyLight',
-                            fontWeight: FontWeight.w800),
-                      ),
+                      seller.reviews['ratings'].length == 0
+                          ? Text(
+                              ' No Reviews',
+                              style: TextStyle(
+                                  color: Colors.grey.shade700,
+                                  fontSize: 15,
+                                  fontFamily: 'GilroyLight',
+                                  fontWeight: FontWeight.w800),
+                            )
+                          : Text(
+                              ' ${seller.reviews['sum']} | ${seller.reviews['ratings'].length} Reviews',
+                              style: TextStyle(
+                                  color: Colors.grey.shade700,
+                                  fontSize: 15,
+                                  fontFamily: 'GilroyLight',
+                                  fontWeight: FontWeight.w800),
+                            ),
                     ],
                   ),
                 ],
