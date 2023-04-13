@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:maps_launcher/maps_launcher.dart';
+import 'package:medibuddy/controller/client-service.dart';
 import 'package:medibuddy/models/seller.dart';
 import 'package:medibuddy/provider/user-provider.dart';
 import 'package:medibuddy/views/chat/chat_screen.dart';
@@ -14,10 +16,12 @@ class StoreDetails extends StatefulWidget {
     required this.searchQuery,
     required this.seller,
     required this.isCategory,
+    required this.initialRating,
   });
   var searchQuery;
   bool isCategory;
   Seller seller;
+  double initialRating;
 
   @override
   State<StoreDetails> createState() => _StoreDetailsState();
@@ -85,21 +89,52 @@ class _StoreDetailsState extends State<StoreDetails> {
             ]),
           ),
         ),
+        SizedBox(
+          height: size.height * 0.1,
+        ),
+        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+          RatingBar.builder(
+            initialRating: widget.initialRating,
+            minRating: 0.5,
+            direction: Axis.horizontal,
+            allowHalfRating: true,
+            itemCount: 5,
+            itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+            itemBuilder: (context, _) => const Icon(
+              Icons.star,
+              color: Colors.amber,
+            ),
+            onRatingUpdate: (rating) {
+              ClientService clientService = ClientService();
+              clientService.addRating(
+                  rating: rating,
+                  sellerEmail: widget.seller.email,
+                  context: context);
+          
+            },
+          ),
+        ]),
         const Spacer(),
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: Row(
             children: [
-              Container(
-                height: size.width * 0.15,
-                width: size.width * 0.15,
-                decoration: BoxDecoration(
-                  color: color1,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Icon(
-                  Icons.call,
-                  color: Colors.white,
+              GestureDetector(
+                onTap: () async {
+                  final url = 'tel:${widget.seller.phoneNumber}';
+                  await launchUrl(Uri.parse(url));
+                },
+                child: Container(
+                  height: size.width * 0.15,
+                  width: size.width * 0.15,
+                  decoration: BoxDecoration(
+                    color: color1,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Icon(
+                    Icons.call,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               SizedBox(
@@ -110,7 +145,8 @@ class _StoreDetailsState extends State<StoreDetails> {
                   Navigator.pushNamed(context, ChatScreen.routeName,
                       arguments: {
                         'name': widget.seller.name,
-                        'chatRoomId': "${user.email},${user.name}:${widget.seller.email},${widget.seller.name}"
+                        'chatRoomId':
+                            "${user.email},${user.name}:${widget.seller.email},${widget.seller.name}"
                       });
                 },
                 child: Container(
@@ -202,7 +238,7 @@ class StoreInfo extends StatelessWidget {
               ),
               Text(
                 seller.reviews['ratings'].length > 0
-                    ? " ${seller.reviews['sum']} | ${seller.reviews['ratings'].length} Reviews"
+                    ? " ${seller.reviews['avg']} | ${seller.reviews['ratings'].length} Reviews"
                     : 'No Reviews',
                 style: const TextStyle(
                     color: Colors.white,
@@ -244,20 +280,6 @@ class StoreInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              // const Icon(
-              //   Icons.star,
-              //   color: Colors.yellow,
-              // ),
-              // Text(
-              //   seller.reviews['ratings'].length > 0
-              //       ? " ${seller.reviews['sum']} | ${seller.reviews['ratings'].length} Reviews"
-              //       : 'No Reviews',
-              //   style: const TextStyle(
-              //       color: Colors.white,
-              //       fontSize: 15,
-              //       fontFamily: 'GilroyLight',
-              //       fontWeight: FontWeight.w800),
-              // ),
               Row(
                 children: [
                   const Icon(

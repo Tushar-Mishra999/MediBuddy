@@ -91,11 +91,9 @@ clientRouter.post('/review', async (req, res) => {
     }
 
 
-    let avg=0;
     console.log(ratings);
     for (let i=0;i<ratings.length;i++) {
         avg+=ratings[i]['rating'];
-        console.log(avg);
     }
     avg/=ratings.length;
     seller.reviews["avg"] = avg;

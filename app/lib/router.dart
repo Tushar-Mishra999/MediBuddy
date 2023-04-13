@@ -86,6 +86,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => StoreDetails(
           seller: arguments['seller'],
+          initialRating: arguments['initialRating'],
           searchQuery: arguments['searchQuery'],
           isCategory: arguments['isCategory'],
         ),

@@ -51,232 +51,243 @@
 34    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 34-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-77
 34-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-74
-35    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-35-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:26:5-79
-35-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:26:22-76
+35    <uses-permission android:name="android.permission.CALL_PHONE" />
+35-->[:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-69
+35-->[:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-66
 36
-37    <permission
-37-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
-38        android:name="com.example.medibuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-38-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
-39        android:protectionLevel="signature" />
-39-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+37    <uses-feature
+37-->[:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-13:36
+38        android:name="android.hardware.telephony"
+38-->[:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-50
+39        android:required="false" />
+39-->[:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-33
 40
-41    <uses-permission android:name="com.example.medibuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-41-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
-41-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+41    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+41-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:26:5-79
+41-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:26:22-76
 42
-43    <application
-44        android:name="android.app.Application"
-45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-45-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
-46        android:debuggable="true"
-47        android:icon="@mipmap/ic_launcher"
-48        android:label="medibuddy" >
-49        <activity
-50            android:name="com.example.medibuddy.MainActivity"
-51            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-52            android:exported="true"
-53            android:hardwareAccelerated="true"
-54            android:launchMode="singleTop"
-55            android:theme="@style/LaunchTheme"
-56            android:windowSoftInputMode="adjustResize" >
-57
-58            <!--
-59                 Specifies an Android theme to apply to this Activity as soon as
-60                 the Android process has started. This theme is visible to the user
-61                 while the Flutter UI initializes. After that, this theme continues
-62                 to determine the Window background behind the Flutter UI.
-63            -->
-64            <meta-data
-65                android:name="io.flutter.embedding.android.NormalTheme"
-66                android:resource="@style/NormalTheme" />
-67
-68            <intent-filter>
-69                <action android:name="android.intent.action.MAIN" />
-70
-71                <category android:name="android.intent.category.LAUNCHER" />
-72            </intent-filter>
-73            <!--
-74            <activity android:name="com.google.android.gms.maps.model.LatLng"/>
-75            <activity android:name="com.google.android.gms.maps.SupportMapFragment"/>
-76            <activity android:name="com.google.android.maps.MapsActivity"/>
-77            -->
-78        </activity>
-79        <!--
-80             Don't delete the meta-data below.
-81             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-82        -->
-83        <meta-data
-84            android:name="flutterEmbedding"
-85            android:value="2" />
-86
-87        <service
-87-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
-88            android:name="com.google.firebase.components.ComponentDiscoveryService"
-88-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
-89            android:directBootAware="true"
-89-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:34:13-43
-90            android:exported="false" >
-90-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:68:13-37
-91            <meta-data
-91-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
-92                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
-92-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
-93                android:value="com.google.firebase.components.ComponentRegistrar" />
-93-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
-94            <meta-data
-94-->[:cloud_firestore] /Users/tm217/Desktop/medibuddy/app/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
-95                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
-95-->[:cloud_firestore] /Users/tm217/Desktop/medibuddy/app/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
-96                android:value="com.google.firebase.components.ComponentRegistrar" />
-96-->[:cloud_firestore] /Users/tm217/Desktop/medibuddy/app/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+43    <permission
+43-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+44        android:name="com.example.medibuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+44-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+45        android:protectionLevel="signature" />
+45-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+46
+47    <uses-permission android:name="com.example.medibuddy.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+47-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+47-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+48
+49    <application
+50        android:name="android.app.Application"
+51        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+51-->[androidx.core:core:1.9.0] /Users/tm217/.gradle/caches/transforms-3/50ac565c2d78ece85381646878fcb457/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+52        android:debuggable="true"
+53        android:icon="@mipmap/ic_launcher"
+54        android:label="medibuddy" >
+55        <activity
+56            android:name="com.example.medibuddy.MainActivity"
+57            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+58            android:exported="true"
+59            android:hardwareAccelerated="true"
+60            android:launchMode="singleTop"
+61            android:theme="@style/LaunchTheme"
+62            android:windowSoftInputMode="adjustResize" >
+63
+64            <!--
+65                 Specifies an Android theme to apply to this Activity as soon as
+66                 the Android process has started. This theme is visible to the user
+67                 while the Flutter UI initializes. After that, this theme continues
+68                 to determine the Window background behind the Flutter UI.
+69            -->
+70            <meta-data
+71                android:name="io.flutter.embedding.android.NormalTheme"
+72                android:resource="@style/NormalTheme" />
+73
+74            <intent-filter>
+75                <action android:name="android.intent.action.MAIN" />
+76
+77                <category android:name="android.intent.category.LAUNCHER" />
+78            </intent-filter>
+79            <!--
+80            <activity android:name="com.google.android.gms.maps.model.LatLng"/>
+81            <activity android:name="com.google.android.gms.maps.SupportMapFragment"/>
+82            <activity android:name="com.google.android.maps.MapsActivity"/>
+83            -->
+84        </activity>
+85        <!--
+86             Don't delete the meta-data below.
+87             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+88        -->
+89        <meta-data
+90            android:name="flutterEmbedding"
+91            android:value="2" />
+92
+93        <service
+93-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-14:19
+94            android:name="com.google.firebase.components.ComponentDiscoveryService"
+94-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:10:18-89
+95            android:directBootAware="true"
+95-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:34:13-43
+96            android:exported="false" >
+96-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:68:13-37
 97            <meta-data
-97-->[:firebase_core] /Users/tm217/Desktop/medibuddy/app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
-98                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
-98-->[:firebase_core] /Users/tm217/Desktop/medibuddy/app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
+97-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+98                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+98-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
 99                android:value="com.google.firebase.components.ComponentRegistrar" />
-99-->[:firebase_core] /Users/tm217/Desktop/medibuddy/app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+99-->[:firebase_auth] /Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 100            <meta-data
-100-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:69:13-71:85
-101                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-101-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:70:17-109
+100-->[:cloud_firestore] /Users/tm217/Desktop/medibuddy/app/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+101                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+101-->[:cloud_firestore] /Users/tm217/Desktop/medibuddy/app/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-134
 102                android:value="com.google.firebase.components.ComponentRegistrar" />
-102-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:71:17-82
+102-->[:cloud_firestore] /Users/tm217/Desktop/medibuddy/app/build/cloud_firestore/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
 103            <meta-data
-103-->[com.google.firebase:firebase-firestore:24.4.5] /Users/tm217/.gradle/caches/transforms-3/5e37d75b839a043c5289f02ba6252bf5/transformed/jetified-firebase-firestore-24.4.5/AndroidManifest.xml:19:13-21:85
-104                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
-104-->[com.google.firebase:firebase-firestore:24.4.5] /Users/tm217/.gradle/caches/transforms-3/5e37d75b839a043c5289f02ba6252bf5/transformed/jetified-firebase-firestore-24.4.5/AndroidManifest.xml:20:17-111
+103-->[:firebase_core] /Users/tm217/Desktop/medibuddy/app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-13:85
+104                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+104-->[:firebase_core] /Users/tm217/Desktop/medibuddy/app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-124
 105                android:value="com.google.firebase.components.ComponentRegistrar" />
-105-->[com.google.firebase:firebase-firestore:24.4.5] /Users/tm217/.gradle/caches/transforms-3/5e37d75b839a043c5289f02ba6252bf5/transformed/jetified-firebase-firestore-24.4.5/AndroidManifest.xml:21:17-82
-106        </service>
-107        <service
-107-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:56
-108            android:name="com.baseflow.geolocator.GeolocatorLocationService"
-108-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-77
-109            android:enabled="true"
-109-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-35
-110            android:exported="false"
-110-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-37
-111            android:foregroundServiceType="location" />
-111-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-53
-112
-113        <activity
-113-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
-114            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-114-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
-115            android:exported="false"
-115-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
-116            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-116-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
-117        <activity
-117-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:29:9-46:20
-118            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-118-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:30:13-80
-119            android:excludeFromRecents="true"
-119-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:31:13-46
-120            android:exported="true"
-120-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:32:13-36
-121            android:launchMode="singleTask"
-121-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:33:13-44
-122            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-122-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:34:13-72
-123            <intent-filter>
-123-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:35:13-45:29
-124                <action android:name="android.intent.action.VIEW" />
-124-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:9-61
-124-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:17-58
-125
-126                <category android:name="android.intent.category.DEFAULT" />
-126-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:38:17-76
-126-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:38:27-73
-127                <category android:name="android.intent.category.BROWSABLE" />
-127-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:39:17-78
-127-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:39:27-75
-128
-129                <data
-129-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:9-38
-130                    android:host="firebase.auth"
-131                    android:path="/"
-132                    android:scheme="genericidp" />
-132-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:15-35
-133            </intent-filter>
-134        </activity>
-135        <activity
-135-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:47:9-64:20
-136            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-136-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:48:13-79
-137            android:excludeFromRecents="true"
-137-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:49:13-46
-138            android:exported="true"
-138-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:50:13-36
-139            android:launchMode="singleTask"
-139-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:51:13-44
-140            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-140-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:52:13-72
-141            <intent-filter>
-141-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:53:13-63:29
-142                <action android:name="android.intent.action.VIEW" />
-142-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:9-61
-142-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:17-58
-143
-144                <category android:name="android.intent.category.DEFAULT" />
-144-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:38:17-76
-144-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:38:27-73
-145                <category android:name="android.intent.category.BROWSABLE" />
-145-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:39:17-78
-145-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:39:27-75
-146
-147                <data
-147-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:9-38
-148                    android:host="firebase.auth"
-149                    android:path="/"
-150                    android:scheme="recaptcha" />
-150-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:15-35
-151            </intent-filter>
-152        </activity>
-153
-154        <uses-library
-154-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
-155            android:name="androidx.window.extensions"
-155-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
-156            android:required="false" />
-156-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
-157        <uses-library
-157-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
-158            android:name="androidx.window.sidecar"
-158-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
-159            android:required="false" />
-159-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
-160
-161        <provider
-161-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:25:9-30:39
-162            android:name="com.google.firebase.provider.FirebaseInitProvider"
-162-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:26:13-77
-163            android:authorities="com.example.medibuddy.firebaseinitprovider"
-163-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:27:13-72
-164            android:directBootAware="true"
-164-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:28:13-43
-165            android:exported="false"
-165-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:29:13-37
-166            android:initOrder="100" />
-166-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:30:13-36
-167
-168        <activity
-168-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/0861465e27f550a84b471cca91b81f1b/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
-169            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-169-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/0861465e27f550a84b471cca91b81f1b/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
-170            android:exported="false"
-170-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/0861465e27f550a84b471cca91b81f1b/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
-171            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-171-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/0861465e27f550a84b471cca91b81f1b/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
-172
-173        <meta-data
-173-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/4c5cefc4bced38f73a0cc4404fde07b9/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
-174            android:name="com.google.android.gms.version"
-174-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/4c5cefc4bced38f73a0cc4404fde07b9/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
-175            android:value="@integer/google_play_services_version" />
-175-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/4c5cefc4bced38f73a0cc4404fde07b9/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
-176    </application>
-177
-178</manifest>
+105-->[:firebase_core] /Users/tm217/Desktop/medibuddy/app/build/firebase_core/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-82
+106            <meta-data
+106-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:69:13-71:85
+107                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+107-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:70:17-109
+108                android:value="com.google.firebase.components.ComponentRegistrar" />
+108-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:71:17-82
+109            <meta-data
+109-->[com.google.firebase:firebase-firestore:24.4.5] /Users/tm217/.gradle/caches/transforms-3/5e37d75b839a043c5289f02ba6252bf5/transformed/jetified-firebase-firestore-24.4.5/AndroidManifest.xml:19:13-21:85
+110                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+110-->[com.google.firebase:firebase-firestore:24.4.5] /Users/tm217/.gradle/caches/transforms-3/5e37d75b839a043c5289f02ba6252bf5/transformed/jetified-firebase-firestore-24.4.5/AndroidManifest.xml:20:17-111
+111                android:value="com.google.firebase.components.ComponentRegistrar" />
+111-->[com.google.firebase:firebase-firestore:24.4.5] /Users/tm217/.gradle/caches/transforms-3/5e37d75b839a043c5289f02ba6252bf5/transformed/jetified-firebase-firestore-24.4.5/AndroidManifest.xml:21:17-82
+112        </service>
+113        <service
+113-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-16:56
+114            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+114-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-77
+115            android:enabled="true"
+115-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-35
+116            android:exported="false"
+116-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-37
+117            android:foregroundServiceType="location" />
+117-->[:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolocator_android/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-53
+118
+119        <activity
+119-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:10:9-13:74
+120            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+120-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+121            android:exported="false"
+121-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-37
+122            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+122-->[:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
+123        <activity
+123-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:29:9-46:20
+124            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+124-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:30:13-80
+125            android:excludeFromRecents="true"
+125-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:31:13-46
+126            android:exported="true"
+126-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:32:13-36
+127            android:launchMode="singleTask"
+127-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:33:13-44
+128            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+128-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:34:13-72
+129            <intent-filter>
+129-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:35:13-45:29
+130                <action android:name="android.intent.action.VIEW" />
+130-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:9-61
+130-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:17-58
+131
+132                <category android:name="android.intent.category.DEFAULT" />
+132-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:38:17-76
+132-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:38:27-73
+133                <category android:name="android.intent.category.BROWSABLE" />
+133-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:39:17-78
+133-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:39:27-75
+134
+135                <data
+135-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:9-38
+136                    android:host="firebase.auth"
+137                    android:path="/"
+138                    android:scheme="genericidp" />
+138-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:15-35
+139            </intent-filter>
+140        </activity>
+141        <activity
+141-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:47:9-64:20
+142            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+142-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:48:13-79
+143            android:excludeFromRecents="true"
+143-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:49:13-46
+144            android:exported="true"
+144-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:50:13-36
+145            android:launchMode="singleTask"
+145-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:51:13-44
+146            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+146-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:52:13-72
+147            <intent-filter>
+147-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:53:13-63:29
+148                <action android:name="android.intent.action.VIEW" />
+148-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:9-61
+148-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:10:17-58
+149
+150                <category android:name="android.intent.category.DEFAULT" />
+150-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:38:17-76
+150-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:38:27-73
+151                <category android:name="android.intent.category.BROWSABLE" />
+151-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:39:17-78
+151-->[com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:39:27-75
+152
+153                <data
+153-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:9-38
+154                    android:host="firebase.auth"
+155                    android:path="/"
+156                    android:scheme="recaptcha" />
+156-->/Users/tm217/Desktop/medibuddy/app/android/app/src/main/AndroidManifest.xml:11:15-35
+157            </intent-filter>
+158        </activity>
+159
+160        <uses-library
+160-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:25:9-27:40
+161            android:name="androidx.window.extensions"
+161-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:26:13-54
+162            android:required="false" />
+162-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:27:13-37
+163        <uses-library
+163-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:28:9-30:40
+164            android:name="androidx.window.sidecar"
+164-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:29:13-51
+165            android:required="false" />
+165-->[androidx.window:window:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/36a45b2abb854eca36c578fbec6ed4df/transformed/jetified-window-1.0.0-beta04/AndroidManifest.xml:30:13-37
+166
+167        <provider
+167-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:25:9-30:39
+168            android:name="com.google.firebase.provider.FirebaseInitProvider"
+168-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:26:13-77
+169            android:authorities="com.example.medibuddy.firebaseinitprovider"
+169-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:27:13-72
+170            android:directBootAware="true"
+170-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:28:13-43
+171            android:exported="false"
+171-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:29:13-37
+172            android:initOrder="100" />
+172-->[com.google.firebase:firebase-common:20.3.2] /Users/tm217/.gradle/caches/transforms-3/868f34f8975a511b9562f40132c95247/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:30:13-36
+173
+174        <activity
+174-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/0861465e27f550a84b471cca91b81f1b/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+175            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+175-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/0861465e27f550a84b471cca91b81f1b/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+176            android:exported="false"
+176-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/0861465e27f550a84b471cca91b81f1b/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+177            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+177-->[com.google.android.gms:play-services-base:18.1.0] /Users/tm217/.gradle/caches/transforms-3/0861465e27f550a84b471cca91b81f1b/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+178
+179        <meta-data
+179-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/4c5cefc4bced38f73a0cc4404fde07b9/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+180            android:name="com.google.android.gms.version"
+180-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/4c5cefc4bced38f73a0cc4404fde07b9/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+181            android:value="@integer/google_play_services_version" />
+181-->[com.google.android.gms:play-services-basement:18.1.0] /Users/tm217/.gradle/caches/transforms-3/4c5cefc4bced38f73a0cc4404fde07b9/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+182    </application>
+183
+184</manifest>

@@ -80,4 +80,39 @@ class ClientService {
       return [];
     }
   }
+
+  Future<void> addRating(
+      {required double rating,
+      required String sellerEmail,
+      required BuildContext context}) async {
+    var user = Provider.of<UserProvider>(context, listen: false).user;
+
+    final body = {
+      "rating": rating,
+      "email": sellerEmail,
+    };
+
+    final response = await http.post(
+      Uri.parse('$ip/review?email=${user.email}'),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      body: json.encode(body),
+    );
+
+    if (response.statusCode == 200) {
+      var message = json.decode(response.body)['msg'];
+      Fluttertoast.showToast(
+          msg: message, backgroundColor: color1, textColor: Colors.white);
+    } else if (response.statusCode == 400 || response.statusCode == 500) {
+      var message = json.decode(response.body)['msg'];
+      Fluttertoast.showToast(
+          msg: message, backgroundColor: color1, textColor: Colors.white);
+    } else {
+      Fluttertoast.showToast(
+          msg: "Something went wrong, please try again",
+          backgroundColor: color1,
+          textColor: Colors.white);
+    }
+  }
 }

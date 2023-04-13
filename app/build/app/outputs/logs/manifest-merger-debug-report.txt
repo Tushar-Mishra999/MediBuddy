@@ -59,6 +59,7 @@ MERGED from [:geolocator_android] /Users/tm217/Desktop/medibuddy/app/build/geolo
 MERGED from [:fluttertoast] /Users/tm217/Desktop/medibuddy/app/build/fluttertoast/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-16:12
 MERGED from [:path_provider_android] /Users/tm217/Desktop/medibuddy/app/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-9:12
+MERGED from [:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-15:12
 MERGED from [com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:17:1-75:12
 MERGED from [com.google.android.recaptcha:recaptcha:18.0.1] /Users/tm217/.gradle/caches/transforms-3/59517f06981e5b5cb615dca3722f90c1/transformed/jetified-recaptcha-18.0.1/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.window:window-java:1.0.0-beta04] /Users/tm217/.gradle/caches/transforms-3/c640cbfc810dab2cae3c3f076d329b8c/transformed/jetified-window-java-1.0.0-beta04/AndroidManifest.xml:17:1-23:12
@@ -165,6 +166,8 @@ MERGED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url
 MERGED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/tm217/Desktop/medibuddy/app/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:path_provider_android] /Users/tm217/Desktop/medibuddy/app/build/path_provider_android/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
+MERGED from [:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:21:5-23:64
 MERGED from [com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:21:5-23:64
 MERGED from [com.google.android.recaptcha:recaptcha:18.0.1] /Users/tm217/.gradle/caches/transforms-3/59517f06981e5b5cb615dca3722f90c1/transformed/jetified-recaptcha-18.0.1/AndroidManifest.xml:5:5-44
@@ -309,6 +312,16 @@ ADDED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_
 		ADDED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-71
 	android:name
 		ADDED from [:url_launcher_android] /Users/tm217/Desktop/medibuddy/app/build/url_launcher_android/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-74
+uses-permission#android.permission.CALL_PHONE
+ADDED from [:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-69
+	android:name
+		ADDED from [:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-66
+uses-feature#android.hardware.telephony
+ADDED from [:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-13:36
+	android:required
+		ADDED from [:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-33
+	android:name
+		ADDED from [:flutter_phone_direct_caller] /Users/tm217/Desktop/medibuddy/app/build/flutter_phone_direct_caller/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-50
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.firebase:firebase-auth:21.2.0] /Users/tm217/.gradle/caches/transforms-3/e8bca3f5b09ba60356ac65c5018f2ae2/transformed/jetified-firebase-auth-21.2.0/AndroidManifest.xml:26:5-79
 MERGED from [com.google.firebase:firebase-firestore:24.4.5] /Users/tm217/.gradle/caches/transforms-3/5e37d75b839a043c5289f02ba6252bf5/transformed/jetified-firebase-firestore-24.4.5/AndroidManifest.xml:12:5-79
