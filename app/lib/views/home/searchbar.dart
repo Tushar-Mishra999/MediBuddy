@@ -3,12 +3,13 @@ import '../../constants.dart';
 
 class RoundedSearchBar extends StatelessWidget {
   final String hintText;
-  final ValueChanged<String> onSubmitted;
-
+   final ValueChanged<String> onSubmitted;
+   final ValueChanged<String> onChanged;
   const RoundedSearchBar({
     Key? key,
     required this.hintText,
     required this.onSubmitted,
+    required this.onChanged,
   }) : super(key: key);
 
   @override
@@ -34,6 +35,7 @@ class RoundedSearchBar extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
               onSubmitted: onSubmitted,
+              onChanged: onChanged,
               decoration: InputDecoration(
                   hintText: hintText,
                   border: InputBorder.none,

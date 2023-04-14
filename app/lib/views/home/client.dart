@@ -121,7 +121,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                 Container(
                   height: size.height * 0.18,
                   width: size.width * 0.9,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: color1,
                       borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Padding(
@@ -129,9 +129,9 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Tip of the Day!',
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.white,
                             fontSize: 23,
                             fontFamily: 'GilroyBold',
@@ -150,15 +150,6 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        // Text(
-                        //   'keeps the doctor away',
-                        //   style: TextStyle(
-                        //     color: Colors.grey.shade300,
-                        //     fontSize: 17,
-                        //     fontFamily: 'GilroyBold',
-                        //     fontWeight: FontWeight.bold,
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
@@ -170,6 +161,7 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                   padding: const EdgeInsets.all(10.0),
                   child: RoundedSearchBar(
                     hintText: 'Search for your company',
+                    onChanged: (value) {},
                     onSubmitted: (value) {
                       Navigator.pushNamed(context, ResultsScreen.routeName,
                           arguments: {

@@ -20,16 +20,22 @@ class InventoryScreen extends StatefulWidget {
 
 class _InventoryScreenState extends State<InventoryScreen> {
   List<Medicine> medicine = [];
+  List<Medicine> filteredmedicine = [];
   SellerService sellerService = SellerService();
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
     getMedicine();
   }
 
-  void getMedicine() async {
-    medicine = await sellerService.getMedicine(context: context);
+  Future<void> getMedicine() async {
+    isLoading = true;
     setState(() {});
+    medicine = await sellerService.getMedicine(context: context);
+    filteredmedicine = medicine;
+    setState(() {});
+    isLoading = false;
   }
 
   @override
@@ -69,13 +75,13 @@ class _InventoryScreenState extends State<InventoryScreen> {
                   activeColor: color1,
                   inactiveThumbColor: color2,
                   value: user.status,
-                  onChanged: (val) async{
-                    user.status=await sellerService.changeStatus(context, val);
-                    setState(() {
-                    });
+                  onChanged: (val) async {
+                    user.status =
+                        await sellerService.changeStatus(context, val);
+                    setState(() {});
                   }),
               GestureDetector(
-                onTap:(){
+                onTap: () {
                   Navigator.pushNamed(context, ContactScreen.routeName);
                 },
                 child: const Icon(
@@ -88,35 +94,56 @@ class _InventoryScreenState extends State<InventoryScreen> {
           ),
         ),
         body: SafeArea(
-            child: Column(children: [
-          RoundedSearchBar(
-              hintText: 'Search Medicine', onSubmitted: (value) {}),
-          SizedBox(
-            height: size.height * 0.05,
-          ),
-          GridView.builder(
-            shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 10.0,
+            child: RefreshIndicator(
+          displacement: 100,
+          color: color1,
+          onRefresh: getMedicine,
+          child: Column(children: [
+            RoundedSearchBar(
+              hintText: 'Search Medicine',
+              onSubmitted: (value) {},
+              onChanged: ((value) {
+                setState(() {
+                  filteredmedicine = medicine
+                      .where((item) =>
+                          item.name.toLowerCase().contains(value.toLowerCase()))
+                      .toList();
+                });
+              }),
             ),
-            itemCount: medicine.length, // number of items
-            itemBuilder: (BuildContext context, int index) {
-              return medicine.isEmpty
-                  ? const Center(child: Text("No medicine"))
-                  : MedicineDetail(
-                      size: size,
-                      id:medicine[index].id,
-                      description: medicine[index].description,
-                      name: medicine[index].name,
-                      company: medicine[index].company,
-                      price: medicine[index].price,
-                      quantity: medicine[index].quantity,
-                      salt: medicine[index].salt,
-                    );
-            },
-          ),
-        ])));
+            SizedBox(
+              height: size.height * 0.05,
+            ),
+            isLoading
+                ? Center(
+                    child: CircularProgressIndicator(
+                    color: Colors.orange.shade800,
+                  ))
+                : GridView.builder(
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10.0,
+                      crossAxisSpacing: 10.0,
+                    ),
+                    itemCount: filteredmedicine.length, // number of items
+                    itemBuilder: (BuildContext context, int index) {
+                      return medicine.isEmpty
+                          ? const Center(child: Text("No medicine"))
+                          : MedicineDetail(
+                              size: size,
+                              id: filteredmedicine[index].id,
+                              description: filteredmedicine[index].description,
+                              name: filteredmedicine[index].name,
+                              company: filteredmedicine[index].company,
+                              price: filteredmedicine[index].price,
+                              quantity: filteredmedicine[index].quantity,
+                              salt: filteredmedicine[index].salt,
+                            );
+                    },
+                  ),
+          ]),
+        )));
   }
 }

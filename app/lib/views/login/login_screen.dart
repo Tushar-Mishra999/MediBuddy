@@ -5,13 +5,21 @@ import '../registration/customtextfield.dart';
 import '../registration/rounded_button.dart';
 import '../../controller/auth-service.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static const String routeName = '/login-screen';
   LoginScreen({super.key});
-  final _formKey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  final emailController = TextEditingController();
+
+  final passwordController = TextEditingController();
+  bool isLoading = false;
   Future<void> signIn(
       {required String email,
       required String password,
@@ -71,43 +79,56 @@ class LoginScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Center(
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              SizedBox(
-                height: size.height * 0.15,
-              ),
-              CustomTextField(
-                title: "Email",
-                controller: emailController,
-                hintText: "Enter your email",
-              ),
-              CustomTextField(
-                title: "Password",
-                obscure: true,
-                controller: passwordController,
-                hintText: "Enter your password",
-              ),
-              SizedBox(
-                height: size.height * 0.05,
-              ),
-              RoundedButton(
-                size: size,
-                title: 'LOGIN',
-                onTap: () {
-                  signIn(
-                      email: emailController.text,
-                      password: passwordController.text,
-                      context: context);
-                },
-              ),
-            ]),
+      body: Stack(children: [
+        SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Center(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: size.height * 0.15,
+                    ),
+                    CustomTextField(
+                      title: "Email",
+                      controller: emailController,
+                      hintText: "Enter your email",
+                    ),
+                    CustomTextField(
+                      title: "Password",
+                      obscure: true,
+                      controller: passwordController,
+                      hintText: "Enter your password",
+                    ),
+                    SizedBox(
+                      height: size.height * 0.05,
+                    ),
+                    RoundedButton(
+                      size: size,
+                      title: 'LOGIN',
+                      onTap: () async {
+                        isLoading = true;
+                        setState(() {});
+                        await signIn(
+                            email: emailController.text,
+                            password: passwordController.text,
+                            context: context);
+                        isLoading = false;
+                        setState(() {});
+                      },
+                    ),
+                  ]),
+            ),
           ),
         ),
-      ),
+        isLoading
+            ? Center(
+                child: CircularProgressIndicator(
+                color: Colors.orange.shade800,
+              ))
+            : Container()
+      ]),
     );
   }
 }

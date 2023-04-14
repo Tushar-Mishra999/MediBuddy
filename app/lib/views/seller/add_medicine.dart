@@ -28,10 +28,10 @@ class _AddMedicineState extends State<AddMedicine> {
   final priceController = TextEditingController();
 
   final saltController = TextEditingController();
- 
+
   SellerService sellerService = SellerService();
 
-  
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -82,65 +82,75 @@ class _AddMedicineState extends State<AddMedicine> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Center(
-            child: Column(children: [
-              SizedBox(
-                height: size.height * 0.02,
-              ),
-              CustomTextField(
-                title: "Name",
-                controller: nameController,
-                hintText: "Enter medicine name",
-              ),
-              CustomTextField(
-                title: "Company",
-                controller: companyController,
-                hintText: "Enter company name",
-              ),
-              CustomTextField(
-                title: "Description",
-                controller: descriptionController,
-                hintText: "Enter medicine's description",
-              ),
-              CustomTextField(
-                title: "Salt",
-                controller: saltController,
-                hintText: "Enter medicine's salt",
-              ),
-              CustomTextField(
-                title: "Stock",
-                controller: stockController,
-                hintText: "Enter quantity",
-              ),
-              CustomTextField(
-                title: "Price",
-                controller: priceController,
-                hintText: "Enter price",
-              ),
-              SizedBox(
-                height: size.height * 0.05,
-              ),
-              RoundedButton(
-                size: size,
-                title: 'UPLOAD',
-                onTap: () {
-                  sellerService.addMedicine(
-                      medicineName: nameController.text,
-                      context: context,
-                      salt: saltController.text,
-                      company: companyController.text,
-                      price: priceController.text,
-                      quantity: stockController.text,
-                      description: descriptionController.text);
-                },
-              ),
-            ]),
+      body: Stack(children: [
+        SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Center(
+              child: Column(children: [
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                CustomTextField(
+                  title: "Name",
+                  controller: nameController,
+                  hintText: "Enter medicine name",
+                ),
+                CustomTextField(
+                  title: "Company",
+                  controller: companyController,
+                  hintText: "Enter company name",
+                ),
+                CustomTextField(
+                  title: "Description",
+                  controller: descriptionController,
+                  hintText: "Enter medicine's description",
+                ),
+                CustomTextField(
+                  title: "Salt",
+                  controller: saltController,
+                  hintText: "Enter medicine's salt",
+                ),
+                CustomTextField(
+                  title: "Stock",
+                  controller: stockController,
+                  hintText: "Enter quantity",
+                ),
+                CustomTextField(
+                  title: "Price",
+                  controller: priceController,
+                  hintText: "Enter price",
+                ),
+                SizedBox(
+                  height: size.height * 0.05,
+                ),
+                RoundedButton(
+                  size: size,
+                  title: 'UPLOAD',
+                  onTap: () async {
+                    isLoading = true;
+                    setState(() {});
+                    await sellerService.addMedicine(
+                        medicineName: nameController.text,
+                        context: context,
+                        salt: saltController.text,
+                        company: companyController.text,
+                        price: priceController.text,
+                        quantity: stockController.text,
+                        description: descriptionController.text);
+                    isLoading = false;
+                    setState(() {});
+                  },
+                ),
+              ]),
+            ),
           ),
         ),
-      ),
+        isLoading
+            ? Center(
+                child: CircularProgressIndicator(color: Colors.orange.shade800))
+            : Container()
+      ]),
     );
   }
 }

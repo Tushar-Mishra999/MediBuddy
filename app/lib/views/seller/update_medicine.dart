@@ -40,6 +40,7 @@ class _UpdateMedicineState extends State<UpdateMedicine> {
   final companyController = TextEditingController();
 
   final priceController = TextEditingController();
+  bool isLoading = false;
 
   final saltController = TextEditingController();
   SellerService sellerService = SellerService();
@@ -103,8 +104,13 @@ class _UpdateMedicineState extends State<UpdateMedicine> {
             ),
             const Spacer(),
             GestureDetector(
-              onTap:(){
-                sellerService.deleteMedicine(id: widget.id,context: context);
+              onTap: () async {
+                isLoading = true;
+                setState(() {});
+                await sellerService.deleteMedicine(
+                    id: widget.id, context: context);
+                setState(() {});
+                isLoading = false;
               },
               child: const Icon(
                 Icons.delete_forever_sharp,
@@ -115,72 +121,84 @@ class _UpdateMedicineState extends State<UpdateMedicine> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Center(
-            child: Column(children: [
-              SizedBox(
-                height: size.height * 0.02,
-              ),
-              CustomTextField(
-                title: "Name",
-                controller: nameController,
-                hintText: "Enter medicine name",
-                edit: true,
-              ),
-              CustomTextField(
-                title: "Company",
-                controller: companyController,
-                hintText: "Enter company name",
-                edit: true,
-              ),
-              CustomTextField(
-                title: "Description",
-                controller: descriptionController,
-                hintText: "Enter medicine's description",
-                edit: true,
-              ),
-              CustomTextField(
-                title: "Salt",
-                controller: saltController,
-                hintText: "Enter medicine's salt",
-                edit: true,
-              ),
-              CustomTextField(
-                title: "Stock",
-                controller: stockController,
-                hintText: "Enter quantity",
-                edit: true,
-              ),
-              CustomTextField(
-                title: "Price",
-                controller: priceController,
-                hintText: "Enter price",
-                edit: true,
-              ),
-              SizedBox(
-                height: size.height * 0.05,
-              ),
-              RoundedButton(
-                size: size,
-                title: 'UPDATE',
-                onTap: () {
-                  sellerService.updateMedicine(
-                      id:widget.id,
-                      medicineName: nameController.text,
-                      context: context,
-                      salt: saltController.text,
-                      company: companyController.text,
-                      price: priceController.text,
-                      quantity: stockController.text,
-                      description: descriptionController.text);
-                },
-              ),
-            ]),
+      body: Stack(children: [
+        SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Center(
+              child: Column(children: [
+                SizedBox(
+                  height: size.height * 0.02,
+                ),
+                CustomTextField(
+                  title: "Name",
+                  controller: nameController,
+                  hintText: "Enter medicine name",
+                  edit: true,
+                ),
+                CustomTextField(
+                  title: "Company",
+                  controller: companyController,
+                  hintText: "Enter company name",
+                  edit: true,
+                ),
+                CustomTextField(
+                  title: "Description",
+                  controller: descriptionController,
+                  hintText: "Enter medicine's description",
+                  edit: true,
+                ),
+                CustomTextField(
+                  title: "Salt",
+                  controller: saltController,
+                  hintText: "Enter medicine's salt",
+                  edit: true,
+                ),
+                CustomTextField(
+                  title: "Stock",
+                  controller: stockController,
+                  hintText: "Enter quantity",
+                  edit: true,
+                ),
+                CustomTextField(
+                  title: "Price",
+                  controller: priceController,
+                  hintText: "Enter price",
+                  edit: true,
+                ),
+                SizedBox(
+                  height: size.height * 0.05,
+                ),
+                RoundedButton(
+                  size: size,
+                  title: 'UPDATE',
+                  onTap: () async {
+                    isLoading = true;
+                    setState(() {});
+                    await sellerService.updateMedicine(
+                        id: widget.id,
+                        medicineName: nameController.text,
+                        context: context,
+                        salt: saltController.text,
+                        company: companyController.text,
+                        price: priceController.text,
+                        quantity: stockController.text,
+                        description: descriptionController.text);
+                    isLoading = false;
+                    setState(() {});
+                  },
+                ),
+              ]),
+            ),
           ),
         ),
-      ),
+        isLoading
+            ? Center(
+                child: CircularProgressIndicator(
+                color: Colors.orange.shade800,
+              ))
+            : Container()
+      ]),
     );
   }
 }
