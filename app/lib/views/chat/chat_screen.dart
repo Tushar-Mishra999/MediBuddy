@@ -34,7 +34,7 @@ class _ChatScreenState extends State<ChatScreen> {
         FirebaseFirestore.instance
             .collection('chats')
             .doc(widget.chatRoomId)
-            .set({'chat': []});
+            .set({'chats': []});
       }
     });
 
@@ -57,7 +57,7 @@ class _ChatScreenState extends State<ChatScreen> {
           .collection('chats')
           .doc(widget.chatRoomId)
           .update({
-        'chat': FieldValue.arrayUnion([messageMap]),
+        'chats': FieldValue.arrayUnion([messageMap]),
       });
 
       //setState(() {
@@ -73,7 +73,7 @@ class _ChatScreenState extends State<ChatScreen> {
       stream: chatStream,
       builder: (context, snapshot) {
         if (snapshot.data != null) {
-          List<dynamic> chatList = snapshot.data!['chat'];
+          List<dynamic> chatList = snapshot.data!['chats'];
           chatList = List.from(chatList.reversed);
           // return Column(children: [
           //   for(int index=0;index<chatList.length;index++)

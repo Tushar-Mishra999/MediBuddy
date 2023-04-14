@@ -119,13 +119,22 @@ class Authservice {
       var message = json.decode(response.body)['msg'];
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
-      //user or seller model code
       SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setBool('isLoggedIn', true);
+      
       // ignore: use_build_context_synchronously
       Provider.of<UserProvider>(context, listen: false)
           .setUser(json.decode(response.body));
-      // ignore: use_build_context_synchronously
+      final user = Provider.of<UserProvider>(context, listen: false).user;
+      prefs.setBool('isLoggedIn', true);
+      prefs.setString(
+          'name',user.name
+        );
+        prefs.setString(
+          'email',user.email
+        );
+        prefs.setString(
+          'city',user.city
+        );
       if (Provider.of<UserProvider>(context, listen: false).user.type ==
           'client') {
         prefs.setString('type', 'client');

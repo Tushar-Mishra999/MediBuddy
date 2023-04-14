@@ -6,8 +6,10 @@ import 'package:medibuddy/views/contact/contact.dart';
 import 'package:medibuddy/views/home/medicinetype.dart';
 import 'package:medibuddy/views/home/nearbystore.dart';
 import 'package:medibuddy/views/home/searchbar.dart';
+import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:medibuddy/views/result/resultscreen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../constants.dart';
 import '../../models/seller.dart';
 
@@ -68,7 +70,9 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                         ),
                       ),
                       TextSpan(
-                        text: user.name,
+                        text: user.name.length <= 10
+                            ? user.name
+                            : '${user.name.substring(0, 10)}...',
                         style: const TextStyle(
                           color: color1,
                           fontSize: 25,
@@ -98,23 +102,36 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
               onTap: () {
                 Navigator.pushNamed(context, ContactScreen.routeName);
               },
-              child: Container(
-                padding: const EdgeInsets.all(6),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: color1, width: 1)),
-                child: const Icon(
-                  Icons.message_outlined,
-                  color: Colors.black,
-                ),
+              child: const Icon(
+                Icons.message_outlined,
+                color: color1,
+                size: 30,
               ),
-            )
+            ),
+            SizedBox(
+              width: size.width * 0.03,
+            ),
+            GestureDetector(
+              onTap: () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                prefs.setBool('isLoggedIn', false);
+                prefs.setString('name', '');
+                prefs.setString('email', '');
+                prefs.setString('city', '');
+                Navigator.popAndPushNamed(context, OnboardingScreen.routeName);
+              },
+              child: const Icon(
+                Icons.logout_outlined,
+                color: color1,
+                size: 30,
+              ),
+            ),
           ]),
         ),
       ),
       body: isLoading
-          ? const Center(
-              child: CircularProgressIndicator(color: color1),
+          ? Center(
+              child: CircularProgressIndicator(color: Colors.orange.shade800),
             )
           : SingleChildScrollView(
               child: Column(children: [
@@ -192,7 +209,15 @@ class _ClientHomeScreenState extends State<ClientHomeScreen> {
                     ],
                   ),
                 ),
-                ListView.builder(
+               sellerList.isEmpty?const Center(child: Text(
+                        'No registered pharmacies in your city',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'GilroyLight',
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),): ListView.builder(
                   physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: sellerList.length,

@@ -74,37 +74,40 @@ class _ResultsScreenState extends State<ResultsScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
+      body: isLoading? Center(
+                child: CircularProgressIndicator(
+                color: Colors.orange.shade800,
+              )):SingleChildScrollView(
         child: sellerList.isEmpty
-            ? SizedBox(
-                height: size.height * 0.7,
-                child: const Center(
-                  child: Text(
-                    "No seller found",
-                    style: TextStyle(
-                      color: color1,
-                      fontSize: 25,
-                      fontFamily: 'GilroyBold',
-                      fontWeight: FontWeight.w100,
+                ? SizedBox(
+                    height: size.height * 0.7,
+                    child: const Center(
+                      child: Text(
+                        "No seller found",
+                        style: TextStyle(
+                          color: color1,
+                          fontSize: 25,
+                          fontFamily: 'GilroyBold',
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                    ),
+                  )
+                : SizedBox(
+                    width: size.width * 1,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        for (int index = 0; index < sellerList.length; index++)
+                          SearchResult(
+                            size: size,
+                            seller: sellerList[index],
+                            searchQuery: widget.searchQuery,
+                            isCategory: widget.isCategory,
+                          )
+                      ],
                     ),
                   ),
-                ),
-              )
-            : SizedBox(
-                width: size.width * 1,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    for (int index = 0; index < sellerList.length; index++)
-                      SearchResult(
-                        size: size,
-                        seller: sellerList[index],
-                        searchQuery: widget.searchQuery,
-                        isCategory: widget.isCategory,
-                      )
-                  ],
-                ),
-              ),
       ),
     );
   }

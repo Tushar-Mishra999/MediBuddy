@@ -25,6 +25,15 @@ class SearchResult extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        double initialRating = 0;
+          List<dynamic> ratings = seller.reviews['ratings'];
+          var user = Provider.of<UserProvider>(context, listen: false).user;
+          for (int i = 0; i < ratings.length; i++) {
+            if (ratings[i]['email'] == user.email) {
+              initialRating = ratings[i]['rating'] *1.0;
+              break;
+            }
+          }
         if (!isCategory) {
           var stock = seller.stock;
           var searchedMedicine;
@@ -34,15 +43,7 @@ class SearchResult extends StatelessWidget {
               searchedMedicine = medicine;
             }
           }
-          double initialRating = 0;
-          List<dynamic> ratings = seller.reviews['ratings'];
-          var user = Provider.of<UserProvider>(context, listen: false).user;
-          for (int i = 0; i < ratings.length; i++) {
-            if (ratings[i]['email'] == user.email) {
-              initialRating = ratings[i]['rating'] *1.0;
-              break;
-            }
-          }
+          
           Navigator.pushNamed(context, StoreDetails.routeName, arguments: {
             'seller': seller,
             'searchQuery': searchedMedicine,
@@ -57,7 +58,8 @@ class SearchResult extends StatelessWidget {
           Navigator.pushNamed(context, StoreDetails.routeName, arguments: {
             'seller': seller,
             'searchQuery': category,
-            'isCategory': true
+            'isCategory': true,
+            'initialRating':initialRating,
           });
         }
       },

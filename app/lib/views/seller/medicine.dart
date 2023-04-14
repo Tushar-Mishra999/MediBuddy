@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:medibuddy/views/seller/update_medicine.dart';
 
 import '../../constants.dart';
@@ -12,6 +13,7 @@ class MedicineDetail extends StatelessWidget {
   final String salt;
   final String description;
   final String id;
+  final Function func;
   const MedicineDetail(
       {Key? key,
       required this.size,
@@ -21,7 +23,8 @@ class MedicineDetail extends StatelessWidget {
       required this.price,
       required this.description,
       required this.id,
-      required this.salt})
+      required this.salt,
+      required this.func})
       : super(key: key);
 
   @override
@@ -36,7 +39,12 @@ class MedicineDetail extends StatelessWidget {
           'price': price,
           'salt': salt,
           'id': id,
-        });
+        }).then(
+          (value) async {
+              await func();
+            ;
+          },
+        );
       },
       child: Container(
         margin: const EdgeInsets.all(8),

@@ -7,11 +7,12 @@ class ChatMessage extends StatelessWidget {
   ChatMessage({required this.message, required this.receiver});
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment:
-          receiver != true ? MainAxisAlignment.end : MainAxisAlignment.start,
-      children: [
-        Container(
+    final size = MediaQuery.of(context).size;
+    return Align(
+      alignment: receiver ? Alignment.centerLeft : Alignment.centerRight,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: size.width * 0.8),
+        child: Container(
           padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -35,8 +36,8 @@ class ChatMessage extends StatelessWidget {
               fontWeight: FontWeight.w800,
             ),
           ),
-        )
-      ],
+        ),
+      ),
     );
   }
 }

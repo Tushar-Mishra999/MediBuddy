@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:medibuddy/loading_screen.dart';
 import 'package:medibuddy/provider/user-provider.dart';
 import 'package:medibuddy/router.dart';
+import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {

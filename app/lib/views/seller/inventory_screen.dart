@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:medibuddy/constants.dart';
 import 'package:medibuddy/views/contact/contact.dart';
 import 'package:medibuddy/views/home/searchbar.dart';
+import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:medibuddy/views/seller/add_medicine.dart';
 import 'package:medibuddy/views/seller/medicine.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../controller/seller_service.dart';
 import '../../models/medicine.dart';
@@ -50,7 +52,12 @@ class _InventoryScreenState extends State<InventoryScreen> {
             color: Colors.white,
           ),
           onPressed: () {
-            Navigator.pushNamed(context, AddMedicine.routeName);
+            Navigator.pushNamed(context, AddMedicine.routeName).then(
+              (value) async {
+                await getMedicine();
+              },
+            );
+            ;
           },
         ),
         appBar: AppBar(
@@ -80,12 +87,35 @@ class _InventoryScreenState extends State<InventoryScreen> {
                         await sellerService.changeStatus(context, val);
                     setState(() {});
                   }),
+              SizedBox(
+                width: size.width * 0.02,
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, ContactScreen.routeName);
                 },
                 child: const Icon(
                   Icons.message_outlined,
+                  color: color1,
+                  size: 30,
+                ),
+              ),
+              SizedBox(
+                width: size.width * 0.04,
+              ),
+              GestureDetector(
+                onTap: () async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.setBool('isLoggedIn', false);
+                  prefs.setString('name', '');
+                  prefs.setString('email', '');
+                  prefs.setString('city', '');
+                  Navigator.popAndPushNamed(
+                      context, OnboardingScreen.routeName);
+                },
+                child: const Icon(
+                  Icons.logout_outlined,
                   color: color1,
                   size: 30,
                 ),
@@ -132,6 +162,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                       return medicine.isEmpty
                           ? const Center(child: Text("No medicine"))
                           : MedicineDetail(
+                              func: getMedicine,
                               size: size,
                               id: filteredmedicine[index].id,
                               description: filteredmedicine[index].description,

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:maps_launcher/maps_launcher.dart';
@@ -50,144 +51,151 @@ class _StoreDetailsState extends State<StoreDetails> {
     final size = MediaQuery.of(context).size;
     final user = Provider.of<UserProvider>(context, listen: false).user;
     return Scaffold(
-        body: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        StoreInfo(
-          size: size,
-          seller: widget.seller,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Container(
-            child:
-                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              SizedBox(
-                height: size.height * 0.01,
-              ),
-              Text(
-                '${widget.searchQuery['medicineName']}:${!widget.isCategory ? '(' : ''} ${!widget.isCategory ? widget.searchQuery['salt'] : ''} ${!widget.isCategory ? ')' : ''}',
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontFamily: 'GilroyLight',
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              SizedBox(
-                height: size.height * 0.02,
-              ),
-              Text(
-                widget.searchQuery['description'],
-                style: TextStyle(
-                  color: Colors.grey.shade800,
-                  fontSize: 15,
-                  fontFamily: 'GilroyLight',
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-            ]),
+        body: SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          StoreInfo(
+            size: size,
+            seller: widget.seller,
           ),
-        ),
-        SizedBox(
-          height: size.height * 0.1,
-        ),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          RatingBar.builder(
-            initialRating: widget.initialRating,
-            minRating: 0.5,
-            direction: Axis.horizontal,
-            allowHalfRating: true,
-            itemCount: 5,
-            itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-            itemBuilder: (context, _) => const Icon(
-              Icons.star,
-              color: Colors.amber,
-            ),
-            onRatingUpdate: (rating) {
-              ClientService clientService = ClientService();
-              clientService.addRating(
-                  rating: rating,
-                  sellerEmail: widget.seller.email,
-                  context: context);
-          
-            },
-          ),
-        ]),
-        const Spacer(),
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Row(
-            children: [
-              GestureDetector(
-                onTap: () async {
-                  final url = 'tel:${widget.seller.phoneNumber}';
-                  await launchUrl(Uri.parse(url));
-                },
-                child: Container(
-                  height: size.width * 0.15,
-                  width: size.width * 0.15,
-                  decoration: BoxDecoration(
-                    color: color1,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Icon(
-                    Icons.call,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: size.width * 0.03,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, ChatScreen.routeName,
-                      arguments: {
-                        'name': widget.seller.name,
-                        'chatRoomId':
-                            "${user.email},${user.name}:${widget.seller.email},${widget.seller.name}"
-                      });
-                },
-                child: Container(
-                  height: size.width * 0.15,
-                  width: size.width * 0.15,
-                  decoration: BoxDecoration(
-                      color: color1, borderRadius: BorderRadius.circular(20)),
-                  child: const Icon(
-                    Icons.message_sharp,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: size.width * 0.03,
-              ),
-              GestureDetector(
-                onTap: () {
-                  openMaps();
-                },
-                child: Container(
-                  height: size.width * 0.15,
-                  width: size.width * 0.55,
-                  decoration: BoxDecoration(
-                      color: color1, borderRadius: BorderRadius.circular(20)),
-                  child: const Center(
-                    child: Text(
-                      'Navigate',
-                      style: TextStyle(
-                        color: Colors.white,
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Container(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: size.height * 0.01,
+                    ),
+                    Text(
+                      '${widget.searchQuery['medicineName']}:${!widget.isCategory ? '(' : ''} ${!widget.isCategory ? widget.searchQuery['salt'] : ''} ${!widget.isCategory ? ')' : ''}',
+                      style: const TextStyle(
+                        color: Colors.black,
                         fontSize: 20,
-                        fontFamily: 'GilroyBold',
+                        fontFamily: 'GilroyLight',
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.02,
+                    ),
+                    Text(
+                      widget.searchQuery['description'],
+                      style: TextStyle(
+                        color: Colors.grey.shade800,
+                        fontSize: 15,
+                        fontFamily: 'GilroyLight',
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                  ]),
+            ),
+          ),
+          SizedBox(
+            height: size.height * 0.02,
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+            RatingBar.builder(
+              initialRating: widget.initialRating,
+              minRating: 0.5,
+              direction: Axis.horizontal,
+              allowHalfRating: true,
+              itemCount: 5,
+              itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+              itemBuilder: (context, _) => const Icon(
+                Icons.star,
+                color: Colors.amber,
+              ),
+              onRatingUpdate: (rating) async{
+                ClientService clientService = ClientService();
+                await clientService.addRating(
+                    rating: rating,
+                    sellerEmail: widget.seller.email,
+                    context: context);
+              },
+            ),
+          ]),
+          // const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              children: [
+                GestureDetector(
+                  onTap: () async {
+                    final url = 'tel:${widget.seller.phoneNumber}';
+                    await launchUrl(Uri.parse(url));
+                  },
+                  child: Container(
+                    height: size.width * 0.15,
+                    width: size.width * 0.15,
+                    decoration: BoxDecoration(
+                      color: color1,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: const Icon(
+                      Icons.call,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: size.width * 0.03,
+                ),
+                GestureDetector(
+                  onTap: () async {
+                    await FirebaseFirestore.instance
+                        .collection('chats')
+                        .doc(
+                            "${user.email},${user.name}:${widget.seller.email},${widget.seller.name}")
+                        .set({'chats': [], 'cancel': false});
+                    Navigator.pushNamed(context, ChatScreen.routeName,
+                        arguments: {
+                          'name': widget.seller.name,
+                          'chatRoomId':
+                              "${user.email},${user.name}:${widget.seller.email},${widget.seller.name}"
+                        });
+                  },
+                  child: Container(
+                    height: size.width * 0.15,
+                    width: size.width * 0.15,
+                    decoration: BoxDecoration(
+                        color: color1, borderRadius: BorderRadius.circular(20)),
+                    child: const Icon(
+                      Icons.message_sharp,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: size.width * 0.03,
+                ),
+                GestureDetector(
+                  onTap: () {
+                    openMaps();
+                  },
+                  child: Container(
+                    height: size.width * 0.15,
+                    width: size.width * 0.55,
+                    decoration: BoxDecoration(
+                        color: color1, borderRadius: BorderRadius.circular(20)),
+                    child: const Center(
+                      child: Text(
+                        'Navigate',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontFamily: 'GilroyBold',
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        )
-      ],
+              ],
+            ),
+          )
+        ],
+      ),
     ));
   }
 }

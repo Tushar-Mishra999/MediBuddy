@@ -101,9 +101,7 @@ clientRouter.post('/review', async (req, res) => {
     } else {
         ratings.push({"email": clientEmail, "rating": rating})
     }
-
-
-    console.log(ratings);
+    let avg=0;
     for (let i=0;i<ratings.length;i++) {
         avg+=ratings[i]['rating'];
     }
