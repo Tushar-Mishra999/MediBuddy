@@ -94,7 +94,7 @@ class Authservice {
     } else {
       // Registration failed
       Fluttertoast.showToast(
-          msg: "Somethin went wrong, please try again",
+          msg: "Something went wrong, please try again",
           backgroundColor: color1,
           textColor: Colors.white);
     }
@@ -149,8 +149,9 @@ class Authservice {
           msg: message, backgroundColor: color1, textColor: Colors.white);
     } else {
       // Registration failed
+
       Fluttertoast.showToast(
-          msg: "Somethin went wrong, please try again",
+          msg: "Something went wrong, please try again ${response.statusCode}",
           backgroundColor: color1,
           textColor: Colors.white);
     }
