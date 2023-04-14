@@ -32,7 +32,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
     case SellerRegistration.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => SellerRegistration(),
+        builder: (_) => const SellerRegistration(),
       );
     case ClientHomeScreen.routeName:
       return MaterialPageRoute(
@@ -52,9 +52,8 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
      case ContactScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,
-        builder: (_) => ContactScreen(),
+        builder: (_) => const ContactScreen(),
       );
-
     case UpdateMedicine.routeName:
       Map<String, dynamic> arguments =
           routeSettings.arguments as Map<String, dynamic>;

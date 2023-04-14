@@ -8,6 +8,7 @@ import 'package:medibuddy/views/home/client.dart';
 import 'package:medibuddy/views/login/login_screen.dart';
 import 'package:medibuddy/views/seller/inventory_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../provider/user-provider.dart';
 
@@ -119,12 +120,18 @@ class Authservice {
       Fluttertoast.showToast(
           msg: message, backgroundColor: color1, textColor: Colors.white);
       //user or seller model code
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('isLoggedIn', true);
+      // ignore: use_build_context_synchronously
       Provider.of<UserProvider>(context, listen: false)
           .setUser(json.decode(response.body));
+      // ignore: use_build_context_synchronously
       if (Provider.of<UserProvider>(context, listen: false).user.type ==
           'client') {
+        prefs.setString('type', 'client');
         Navigator.pushReplacementNamed(context, ClientHomeScreen.routeName);
       } else {
+        prefs.setString("type", 'seller');
         Navigator.pushReplacementNamed(context, InventoryScreen.routeName);
       }
     } else if (response.statusCode == 400) {

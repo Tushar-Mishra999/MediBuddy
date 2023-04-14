@@ -1,11 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:medibuddy/loading_screen.dart';
 import 'package:medibuddy/provider/user-provider.dart';
 import 'package:medibuddy/router.dart';
-import 'package:medibuddy/views/chat/chat_screen.dart';
-import 'package:medibuddy/views/contact/contact.dart';
-import 'package:medibuddy/views/details/store_details.dart';
-import 'package:medibuddy/views/onboarding/onboarding_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -26,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: OnboardingScreen(),
+      home:const LoadingScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
