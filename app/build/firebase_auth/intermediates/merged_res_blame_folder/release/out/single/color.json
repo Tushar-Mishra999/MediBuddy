@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_res/release/color/common_google_signin_btn_tint.xml",
+        "source": "/Users/tm217/.gradle/caches/transforms-3/eef30a61a8d3e6044899f6f21787d973/transformed/jetified-play-services-base-17.1.0/res/color/common_google_signin_btn_tint.xml"
+    },
+    {
+        "merged": "/Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_res/release/color/common_google_signin_btn_text_dark.xml",
+        "source": "/Users/tm217/.gradle/caches/transforms-3/eef30a61a8d3e6044899f6f21787d973/transformed/jetified-play-services-base-17.1.0/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/Users/tm217/Desktop/medibuddy/app/build/firebase_auth/intermediates/merged_res/release/color/common_google_signin_btn_text_light.xml",
+        "source": "/Users/tm217/.gradle/caches/transforms-3/eef30a61a8d3e6044899f6f21787d973/transformed/jetified-play-services-base-17.1.0/res/color/common_google_signin_btn_text_light.xml"
+    }
+]

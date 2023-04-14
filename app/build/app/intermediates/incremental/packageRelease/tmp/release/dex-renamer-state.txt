@@ -1,0 +1,4 @@
+#Fri Apr 14 19:53:41 IST 2023
+base.0=/Users/tm217/Desktop/medibuddy/app/build/app/intermediates/dex/release/minifyReleaseWithR8/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">137318215418-27bg0t7avce20qeim0ej8uktlncs1v8c.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">137318215418</string>
+    <string name="google_api_key" translatable="false">AIzaSyAM2P-pYt7IJAuwmPeFJP1TOiKUcTtXVxQ</string>
+    <string name="google_app_id" translatable="false">1:137318215418:android:63015ad4145a6770d1e343</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAM2P-pYt7IJAuwmPeFJP1TOiKUcTtXVxQ</string>
+    <string name="google_storage_bucket" translatable="false">medibuddy-edbe6.appspot.com</string>
+    <string name="project_id" translatable="false">medibuddy-edbe6</string>
+</resources>
