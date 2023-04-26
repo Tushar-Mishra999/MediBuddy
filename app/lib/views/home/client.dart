@@ -15,7 +15,7 @@ import '../../models/seller.dart';
 
 class ClientHomeScreen extends StatefulWidget {
   static const String routeName = '/client-home';
-  const ClientHomeScreen({super.key});
+  const ClientHomeScreen();
 
   @override
   State<ClientHomeScreen> createState() => _ClientHomeScreenState();

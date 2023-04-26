@@ -100,14 +100,6 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
           chatRoomId: arguments['chatRoomId'],
         ),
       );
-    // case SearchScreen.routeName:
-    //   var searchQuery = routeSettings.arguments as String;
-    //   return MaterialPageRoute(
-    //     settings: routeSettings,
-    //     builder: (_) => SearchScreen(
-    //       searchQuery: searchQuery,
-    //     ),
-    //   );
     default:
       return MaterialPageRoute(
         settings: routeSettings,
