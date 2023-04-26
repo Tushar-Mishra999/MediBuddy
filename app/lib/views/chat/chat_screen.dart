@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:medibuddy/constants.dart';
-import 'package:medibuddy/models/seller.dart';
 import 'package:medibuddy/provider/user-provider.dart';
 import 'package:medibuddy/views/chat/chat_message.dart';
 import 'package:medibuddy/views/chat/typing_field.dart';
@@ -44,13 +42,14 @@ class _ChatScreenState extends State<ChatScreen> {
         .snapshots();
   }
 
-  void sendMessage() {
+  void sendMessage({bool isImage = false}) {
     final user = Provider.of<UserProvider>(context, listen: false).user;
     if (messageController.text.isNotEmpty) {
       Map<String, dynamic> messageMap = {
         "message": messageController.text,
         "sender": user.type == 'client' ? 'client' : 'seller',
-        "time": DateTime.now().millisecondsSinceEpoch
+        "time": DateTime.now().millisecondsSinceEpoch,
+        "isImage": isImage
       };
 
       FirebaseFirestore.instance
@@ -60,14 +59,13 @@ class _ChatScreenState extends State<ChatScreen> {
         'chats': FieldValue.arrayUnion([messageMap]),
       });
 
-      //setState(() {
       messageController.text = "";
-      //});
     }
   }
 
   Widget ChatMessageList() {
     final user = Provider.of<UserProvider>(context, listen: false).user;
+    final size = MediaQuery.of(context).size;
     print(user.type);
     return StreamBuilder(
       stream: chatStream,
@@ -89,10 +87,29 @@ class _ChatScreenState extends State<ChatScreen> {
               itemCount: chatList.length,
               itemBuilder: (context, index) {
                 Map<String, dynamic> chatMessage = chatList[index];
-                return ChatMessage(
-                  message: chatMessage['message'],
-                  receiver: chatMessage['sender'] == user.type ? false : true,
-                );
+                return chatMessage['isImage']
+                    ? Row(
+                        mainAxisAlignment: chatMessage['sender'] == user.type
+                            ? MainAxisAlignment.end
+                            : MainAxisAlignment.start,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.only(top: 15, bottom: 15),
+                            width: size.width * 0.7,
+                            height: size.width * 0.7,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                image: DecorationImage(
+                                    image: NetworkImage(chatMessage['message']),
+                                    fit: BoxFit.fill)),
+                          ),
+                        ],
+                      )
+                    : ChatMessage(
+                        message: chatMessage['message'],
+                        receiver:
+                            chatMessage['sender'] == user.type ? false : true,
+                      );
               },
             ),
           );
